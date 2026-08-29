@@ -1,0 +1,7 @@
+.page { min-height: 100svh; padding: 6rem 1.2rem; display: grid; place-items: center; background: #f6f8fc; }
+.panel { width: min(100%, 48rem); padding: clamp(2rem, 6vw, 5rem); border: 1px solid #dce5f0; border-radius: 1.3rem; background: #ffffff; box-shadow: 0 1.5rem 5rem rgba(11, 59, 130, 0.08); }
+.eyebrow { margin-top: 4rem; color: #1769e8; font-size: 0.65rem; font-weight: 760; letter-spacing: 0.14em; }
+.panel h1 { margin-top: 1.1rem; color: #0b3b82; font-size: clamp(2.3rem, 6vw, 4.5rem); letter-spacing: -0.055em; line-height: 1.08; }
+.description { max-width: 38rem; margin-top: 1.5rem; color: #5b6e85; line-height: 1.9; }
+.status { margin-top: 3rem; padding: 1rem 1.1rem; border-left: 2px solid #1769e8; color: #52677f; background: #f1f6fd; font-size: 0.82rem; }
+.back { min-height: 3rem; margin-top: 2rem; display: inline-flex; align-items: center; color: #0b3b82; font-weight: 720; }

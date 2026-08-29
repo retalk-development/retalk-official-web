@@ -1,0 +1,37 @@
+.logo {
+  --logo-color: #0b3b82;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  color: var(--logo-color);
+  font-size: 1.48rem;
+  font-weight: 760;
+  letter-spacing: -0.055em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.arc {
+  position: absolute;
+  top: -0.38rem;
+  right: 0.16rem;
+  width: 1.9rem;
+  height: 0.58rem;
+  border: 2px solid #6eb8e5;
+  border-bottom: 0;
+  border-radius: 2rem 2rem 0 0;
+}
+
+.inverse {
+  --logo-color: #ffffff;
+}
+
+.compact {
+  font-size: 1.25rem;
+}
+
+.compact .arc {
+  top: -0.31rem;
+  width: 1.55rem;
+  height: 0.48rem;
+}
