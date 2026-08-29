@@ -4,17 +4,23 @@ import { AppStoreCta } from "@/components/AppStoreCta";
 import { BrandLogo } from "@/components/BrandLogo";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import { MotionReveal } from "@/components/MotionReveal";
-import { ProductSequence } from "@/components/ProductSequence";
-import { motionConfig } from "@/config/site";
 import {
-  analysisFlow,
-  continuityFlow,
   efficiencyStories,
-  heroScreens,
   patientFlow,
-  platformItems,
 } from "@/data/homepage";
 import { productScreens } from "@/data/product-screens";
+import {
+  AnalysisMotion,
+  EvolutionMotion,
+  FreeMotion,
+  HeroMotion,
+  OriginMotion,
+  PatientFlowMotion,
+  PlatformMotion,
+  PointToLineMotion,
+  SafetyMotion,
+  WorkflowConvergence,
+} from "./HomeMotionScenes";
 import styles from "./home.module.css";
 
 function SectionIntro({
@@ -59,16 +65,7 @@ export function HeroSection() {
           </div>
         </MotionReveal>
         <MotionReveal className={styles.heroVisual} delay={120}>
-          <div className={styles.heroOrbit} aria-hidden="true">
-            <span>TRAINING</span><span>RECORD</span><span>EVALUATION</span>
-          </div>
-          <ProductSequence
-            screens={heroScreens}
-            intervalMs={motionConfig.heroSequenceMs}
-            variant="hero"
-            showLabels={false}
-            priority
-          />
+          <HeroMotion />
           <div className={styles.heroStatus}>
             <span className={styles.liveDot} />
             <p><small>PRODUCT FLOW</small>訓練から支援までを、ひとつの流れに</p>
@@ -86,15 +83,9 @@ export function PointToLineSection() {
       <div className={styles.sectionGrid}>
         <SectionIntro eyebrow="01 / ONE CONTINUOUS CARE JOURNEY" title="リハビリを、点から線へ。">
           <p>自主訓練だけで、終わらせない。<br />練習したことが記録になり、振り返りになり、次の支援につながっていく。</p>
-          <div className={styles.flowWords} aria-label="練習から支援までの流れ">
-            {continuityFlow.map((item, index) => (
-              <span key={item.src}><b>{String(index + 1).padStart(2, "0")}</b>{item.label}</span>
-            ))}
-          </div>
         </SectionIntro>
         <MotionReveal className={styles.sequenceStage} delay={100}>
-          <div className={styles.linePath} aria-hidden="true" />
-          <ProductSequence screens={continuityFlow} intervalMs={2200} />
+          <PointToLineMotion />
         </MotionReveal>
       </div>
     </section>
@@ -123,8 +114,7 @@ export function PatientExperienceSection() {
           ))}
         </MotionReveal>
         <MotionReveal className={styles.patientDevice} delay={100}>
-          <ProductSequence screens={patientFlow} intervalMs={2400} showLabels={false} />
-          <div className={styles.journeyRail} aria-hidden="true"><span /><span /><span /><span /></div>
+          <PatientFlowMotion />
         </MotionReveal>
       </div>
     </section>
@@ -143,8 +133,7 @@ export function AnalysisSection() {
           <p className={styles.note}>訓練時に構造化された情報が残るから、STが振り返り・分析できる。</p>
         </SectionIntro>
         <MotionReveal className={styles.analysisVisual} delay={100}>
-          <div className={styles.graphLine} aria-hidden="true"><i /><i /><i /><i /><i /></div>
-          <ProductSequence screens={analysisFlow} intervalMs={2500} variant="dark" />
+          <AnalysisMotion />
         </MotionReveal>
       </div>
     </section>
@@ -165,7 +154,7 @@ export function EfficiencySection() {
               <h3>{story.title}</h3>
               <p>{story.copy}</p>
             </div>
-            <ProductSequence screens={story.screens} intervalMs={2400 + index * 180} variant="compact" showLabels={false} />
+            <WorkflowConvergence index={index} />
           </MotionReveal>
         ))}
       </div>
@@ -179,27 +168,7 @@ export function PlatformSection() {
       <SectionIntro eyebrow="05 / CLINICAL DATA PLATFORM" title="訓練だけでは、見えないことがある。" inverse center>
         <p>訓練、評価、リハビリ記録、プロフィール。<br />その人に関わる情報を、ひとつの流れとして見られるようにする。</p>
       </SectionIntro>
-      <MotionReveal className={styles.platformMap}>
-        <svg viewBox="0 0 1000 620" aria-hidden="true" className={styles.connectorMap}>
-          <path d="M190 120 C360 120 370 295 500 310" />
-          <path d="M810 120 C640 120 630 295 500 310" />
-          <path d="M190 500 C350 500 380 330 500 310" />
-          <path d="M810 500 C650 500 620 330 500 310" />
-        </svg>
-        <div className={styles.platformCenter}>
-          <span className={styles.personIcon} aria-hidden="true">人</span>
-          <small>ONE PERSON</small>
-          <strong>その人を中心に</strong>
-        </div>
-        {platformItems.map((item, index) => (
-          <article key={item.label} className={`${styles.platformCard} ${styles[`platformCard${index + 1}`]}`}>
-            <div className={styles.platformThumb}>
-              <Image src={item.screen.src} alt={item.screen.alt} width={592} height={1280} sizes="(max-width: 700px) 38vw, 18vw" />
-            </div>
-            <div><small>{item.label}</small><h3>{item.caption}</h3></div>
-          </article>
-        ))}
-      </MotionReveal>
+      <PlatformMotion />
       <p className={styles.platformStatement}>Re:Talkは、訓練アプリだけではない。</p>
     </section>
   );
@@ -215,11 +184,7 @@ export function FreeSection() {
       <MotionReveal className={styles.freeContent}>
         <p className={styles.eyebrow}>06 / ACCESS FOR EVERYDAY REHABILITATION</p>
         <h2>無料で、ここまで。</h2>
-        <div className={styles.metrics}>
-          <div className={styles.metricMain}><strong>¥0</strong><span>Re:Talkは無料。</span></div>
-          <div><strong>29</strong><span>訓練課題</span></div>
-          <div><strong>6</strong><span>訓練カテゴリ</span></div>
-        </div>
+        <FreeMotion />
       </MotionReveal>
     </section>
   );
@@ -238,13 +203,7 @@ export function SafetySection() {
           </div>
           <Link className={styles.textLink} href="/safety">安全性について <span aria-hidden="true">↗</span></Link>
         </SectionIntro>
-        <MotionReveal className={styles.localVisual} delay={100}>
-          <div className={styles.localRings} aria-hidden="true"><span /><span /><span /></div>
-          <div className={styles.localDevice}>
-            <Image src={productScreens.userInfo.src} alt={productScreens.userInfo.alt} width={592} height={1280} sizes="(max-width: 700px) 68vw, 26vw" />
-            <div className={styles.localBadge}><span aria-hidden="true">⌁</span><small>DATA LOCATION</small><strong>この端末内</strong></div>
-          </div>
-        </MotionReveal>
+        <SafetyMotion />
       </div>
     </section>
   );
@@ -260,13 +219,7 @@ export function StorySection() {
   return (
     <section className={`${styles.section} ${styles.origin}`}>
       <div className={styles.originGrid}>
-        <MotionReveal className={styles.originVisual}>
-          {fragments.map((item, index) => (
-            <div key={item.src} className={styles.originFragment} style={{ "--fragment-index": index } as React.CSSProperties}>
-              <Image src={item.src} alt={item.alt} width={592} height={1280} sizes="(max-width: 700px) 40vw, 16vw" />
-            </div>
-          ))}
-        </MotionReveal>
+        <OriginMotion fragments={fragments} />
         <SectionIntro eyebrow="08 / BUILT FROM CLINICAL PRACTICE" title="現場から、つくりました。">
           <p>Re:Talkは、言語聴覚士が臨床の中で感じてきた不便や課題から生まれました。</p>
           <ul className={styles.issueList}>
@@ -288,10 +241,7 @@ export function EvolutionSection() {
         <h2>Re:Talkは、進化を続けます。</h2>
         <p>訓練、記録、分析。<br />Re:Talkは、臨床の声をもとにこれからもアップデートを続けます。</p>
       </MotionReveal>
-      <MotionReveal className={styles.evolutionPath} delay={100}>
-        <div className={styles.progressLine}><span /><span /><span /><i /></div>
-        <div className={styles.progressLabels}><span>TRAINING</span><span>RECORD</span><span>ANALYSIS</span><span>CONTINUE</span></div>
-      </MotionReveal>
+      <EvolutionMotion />
     </section>
   );
 }

@@ -9,21 +9,27 @@ type ProductSequenceProps = {
   screens: readonly ProductScreen[];
   intervalMs?: number;
   variant?: "default" | "hero" | "dark" | "compact";
+  motion?: "crossfade" | "directional" | "focus" | "analysis";
   showLabels?: boolean;
+  showContext?: boolean;
   className?: string;
   priority?: boolean;
+  activeIndex?: number;
 };
 
 export function ProductSequence({
   screens,
   intervalMs = 2300,
   variant = "default",
+  motion = "crossfade",
   showLabels = true,
+  showContext = false,
   className = "",
   priority = false,
+  activeIndex,
 }: ProductSequenceProps) {
   const rootRef = useRef<HTMLElement>(null);
-  const [active, setActive] = useState(0);
+  const [internalActive, setInternalActive] = useState(0);
   const [inView, setInView] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
 
@@ -47,18 +53,21 @@ export function ProductSequence({
   }, []);
 
   useEffect(() => {
-    if (!inView || reducedMotion || screens.length < 2) return;
+    if (activeIndex !== undefined || !inView || reducedMotion || screens.length < 2) return;
     const timer = window.setInterval(
-      () => setActive((current) => (current + 1) % screens.length),
+      () => setInternalActive((current) => (current + 1) % screens.length),
       intervalMs,
     );
     return () => window.clearInterval(timer);
-  }, [inView, intervalMs, reducedMotion, screens.length]);
+  }, [activeIndex, inView, intervalMs, reducedMotion, screens.length]);
+
+  const active = activeIndex ?? internalActive;
 
   return (
     <figure
       ref={rootRef}
-      className={`${styles.sequence} ${styles[variant]} ${className}`}
+      className={`${styles.sequence} ${styles[variant]} ${styles[motion]} ${className}`}
+      data-active={active}
       aria-label="Re:Talk製品画面の流れ"
     >
       <div className={styles.device}>
@@ -78,8 +87,17 @@ export function ProductSequence({
               loading={priority && index === 0 ? "eager" : "lazy"}
             />
           ))}
+          {motion === "focus" && <div className={styles.focusWindow} aria-hidden="true" />}
+          {motion === "analysis" && <div className={styles.analysisSweep} aria-hidden="true" />}
         </div>
       </div>
+      {showContext && (
+        <div className={styles.context} aria-hidden="true">
+          <span>{String(active + 1).padStart(2, "0")}</span>
+          <strong>{screens[active]?.label}</strong>
+          <i style={{ "--sequence-progress": `${((active + 1) / screens.length) * 100}%` } as React.CSSProperties} />
+        </div>
+      )}
       {showLabels && (
         <figcaption className={styles.labels} aria-live="polite">
           {screens.map((item, index) => (
@@ -87,7 +105,7 @@ export function ProductSequence({
               key={`${item.src}-label`}
               type="button"
               className={index === active ? styles.labelActive : ""}
-              onClick={() => setActive(index)}
+              onClick={() => setInternalActive(index)}
               aria-label={`${item.label}の画面を表示`}
               aria-pressed={index === active}
             >

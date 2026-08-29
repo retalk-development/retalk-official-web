@@ -5,9 +5,14 @@
   --deep-navy: #0b3b82;
   --border: #dce5f0;
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-emphasized: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-enter: cubic-bezier(0, 0, 0.2, 1);
+  --ease-exit: cubic-bezier(0.4, 0, 1, 1);
   --motion-fast: 220ms;
   --motion-medium: 460ms;
   --motion-slow: 760ms;
+  --motion-signature: 1100ms;
   --reveal-distance: 28px;
 }
 
