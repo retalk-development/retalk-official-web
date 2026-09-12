@@ -1,16 +1,27 @@
 import type { Metadata } from "next";
+import { siteConfig, siteUrl } from "@/config/site";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
-    default: "Re:Talk｜ことばのリハビリを、もっと日常へ。",
-    template: "%s｜Re:Talk",
+    default: "Re:Talk | 失語症の自主練習を支えるリハビリアプリ",
+    template: "%s | Re:Talk",
   },
-  description:
-    "失語症のある方の自主訓練を支え、訓練・記録・評価・支援をつなぐリハビリテーションプラットフォーム。",
-  applicationName: "Re:Talk",
-  keywords: ["Re:Talk", "失語症", "言語リハビリ", "言語聴覚士", "自主訓練"],
-  robots: { index: false, follow: false },
+  description: siteConfig.description,
+  applicationName: siteConfig.name,
+  keywords: [
+    "Re:Talk",
+    "失語症",
+    "失語症リハビリ",
+    "自主練習",
+    "自主訓練",
+    "言語訓練",
+    "訓練課題",
+    "教材",
+    "言語聴覚士",
+  ],
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

@@ -1,5 +1,32 @@
+import type { Metadata } from "next";
 import { InfoPage } from "@/components/InfoPage";
+import { createPageMetadata } from "@/config/seo";
+
+const description = "Re:Talkの利用条件と、診断・治療判断を行わないことなど利用上の基本的な位置づけをご案内します。";
+
+export const metadata: Metadata = createPageMetadata({
+  title: "利用規約",
+  description,
+  path: "/terms",
+});
 
 export default function TermsPage() {
-  return <InfoPage eyebrow="TERMS" title="利用規約" description="正式な利用規約は法務・公開文言の確認後に掲載します。" status="現在は公開準備中です。内容を推測して掲載していません。" />;
+  return (
+    <InfoPage
+      eyebrow="TERMS"
+      title="利用規約"
+      description={description}
+      status="正式な利用規約は、法務・公開文言の確認後に掲載します。未確定の条件を推測して掲載していません。"
+      sections={[
+        {
+          title: "Re:Talkの位置づけ",
+          paragraphs: ["Re:Talkは、失語症の訓練・記録・評価・支援を補助するリハビリテーションアプリです。診断、予後予測、治療判断を行うものではありません。"],
+        },
+      ]}
+      relatedLinks={[
+        { href: "/safety", label: "安全性について" },
+        { href: "/privacy", label: "プライバシーポリシー" },
+      ]}
+    />
+  );
 }

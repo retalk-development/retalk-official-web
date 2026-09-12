@@ -20,10 +20,19 @@ npm run build
 
 仮スクリーンショットは `public/product/` に置き、参照先は `src/data/product-screens.ts` に集約しています。正式画像へ差し替える際は、同名ファイルを置き換えるか、このmappingのみを更新してください。
 
+## Production URL
+
+本番buildでは公開URLを環境変数へ設定してください。canonical、Open Graph、sitemap、robots、JSON-LDのURLに使用されます。
+
+```bash
+NEXT_PUBLIC_SITE_URL=https://example.com
+```
+
+Vercelでは未設定時に `VERCEL_PROJECT_PRODUCTION_URL` を参照し、local developmentでは `http://localhost:3000` を使用します。
+
 ## Production TODO
 
 - `src/config/site.ts` のApp Store URL
 - App Store badge
 - 正式Nativeスクリーンショット
 - FAQ／法務文言の最終確認
-- production公開前にmetadataのrobots設定を変更

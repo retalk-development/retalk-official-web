@@ -61,7 +61,7 @@ function useMotionScene(ref: RefObject<HTMLDivElement | null>, length = 1, inter
 
 export function HeroMotion() {
   const rootRef = useRef<HTMLDivElement>(null);
-  const scene = useMotionScene(rootRef, heroScreens.length, 2050);
+  const scene = useMotionScene(rootRef, heroScreens.length, 2300);
 
   return (
     <div ref={rootRef} className={styles.heroMotion} data-active={scene.active}>
@@ -85,7 +85,7 @@ export function HeroMotion() {
 export function PointToLineMotion() {
   const rootRef = useRef<HTMLDivElement>(null);
   const scene = useMotionScene(rootRef, continuityFlow.length, 2200);
-  const progress = scene.reducedMotion ? 100 : (scene.active / (continuityFlow.length - 1)) * 100;
+  const progress = scene.reducedMotion ? 100 : ((scene.active + 1) / continuityFlow.length) * 100;
 
   return (
     <div
@@ -97,7 +97,12 @@ export function PointToLineMotion() {
       <div className={styles.pointLineNodes} aria-label="練習から支援までをつなぐ流れ">
         <div className={styles.pointLineTrack} aria-hidden="true"><i /></div>
         {continuityFlow.map((item, index) => (
-          <div key={item.src} className={index <= scene.active ? styles.pointLineNodeActive : ""}>
+          <div
+            key={item.src}
+            className={index <= scene.active ? styles.pointLineNodeActive : ""}
+            data-current={index === scene.active}
+            aria-current={index === scene.active ? "step" : undefined}
+          >
             <span>{String(index + 1).padStart(2, "0")}</span>
             <strong>{item.label}</strong>
           </div>

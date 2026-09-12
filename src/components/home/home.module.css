@@ -121,6 +121,21 @@
 
 .textLink:hover span { transform: translate(2px, -2px); border-color: #1769e8; }
 
+.inlineLink {
+  min-height: 2.75rem;
+  margin-top: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: #1769e8;
+  font-size: 0.82rem;
+  font-weight: 720;
+}
+
+.inlineLink span { transition: transform var(--motion-fast) var(--ease-out); }
+.inlineLink:hover span { transform: translateX(0.2rem); }
+.inlineLinkInverse { color: #9fd1ff; }
+
 .heroProof {
   margin-top: clamp(2.5rem, 6vw, 5.5rem);
   display: flex;
@@ -389,7 +404,7 @@
   align-items: center;
   gap: 0.7rem;
   color: #7a8ca1;
-  transition: color var(--motion-medium) linear;
+  transition: color var(--motion-medium) linear, transform var(--motion-medium) var(--ease-emphasized);
 }
 
 .pointLineNodes span {
@@ -408,6 +423,8 @@
 .pointLineNodes strong { font-size: 0.75rem; line-height: 1.4; }
 .pointLineNodes .pointLineNodeActive { color: #0b3b82; }
 .pointLineNodes .pointLineNodeActive span { color: #ffffff; border-color: #1769e8; background: #1769e8; box-shadow: 0 0 0 0.45rem rgba(23, 105, 232, 0.08); }
+.pointLineNodes > div[data-current="true"] { color: #0b3b82; transform: translateX(0.35rem); }
+.pointLineNodes > div[data-current="true"] span { box-shadow: 0 0 0 0.58rem rgba(23, 105, 232, 0.13); }
 
 .patientSection { background: #f6f8fc; }
 .patientJourney { width: min(100%, 72rem); margin: clamp(3rem, 6vw, 5.5rem) auto 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(19rem, 0.75fr); align-items: center; gap: clamp(2rem, 7vw, 7rem); }
@@ -620,15 +637,15 @@
   .heroActions { align-items: stretch; }
   .heroActions > :first-child { width: 100%; }
   .heroActions .textLink { justify-content: center; }
-  .heroProof { justify-content: space-between; gap: 0.5rem; }
+  .heroProof { margin-top: 2rem; justify-content: space-between; gap: 0.5rem; }
   .heroProof span { padding-right: 0.8rem; }
-  .heroVisual { min-height: 36rem; }
+  .heroVisual { min-height: 32rem; }
   .heroField { inset: 3rem -8% 6rem; }
   .heroContext span:nth-child(1) { left: -0.2rem; }.heroContext span:nth-child(2) { right: -0.2rem; }.heroContext span:nth-child(3) { left: 0; bottom: 18%; }
   .heroStatus { right: 0; bottom: 4.5rem; max-width: 11rem; }
   .intro h2, .freeContent h2, .evolutionCopy h2, .finalContent h2 { font-size: clamp(2.1rem, 10.4vw, 3.2rem); }
   .introCopy { font-size: 0.94rem; }
-  .continuity, .patientSection, .efficiency, .safety, .origin { padding-block: 5rem; }
+  .continuity, .patientSection, .efficiency, .safety, .origin { padding-block: 4.6rem; }
   .pointLineScene { grid-template-columns: 1fr; gap: 2rem; }
   .pointLineNodes { width: min(100%, 19rem); margin-inline: auto; }
   .pointLineTrack { left: 1.22rem; }
@@ -636,9 +653,9 @@
   .patientStep { min-height: 6.5rem; }
   .analysisValues span { font-size: 1rem; }
   .storyList { gap: 0.8rem; }
-  .storyCard { min-height: 39rem; display: flex; }
+  .storyCard { min-height: 35rem; display: flex; }
   .platform { padding-inline: 0.8rem; }
-  .platformMap { min-height: 0; margin-top: 3rem; display: grid; justify-items: center; gap: 1rem; }
+  .platformMap { min-height: 0; margin-top: 2.4rem; display: grid; justify-items: center; gap: 0.85rem; }
   .platformMap::before { content: ""; position: absolute; z-index: -1; top: 5rem; bottom: 1rem; left: 50%; width: 2px; background: #5faaff; transform: scaleY(0); transform-origin: top; }
   .platformMap[data-entered="true"]::before { animation: evolution-line 1500ms var(--ease-emphasized) 700ms both; }
   .connectorMap { display: none; }
@@ -651,16 +668,16 @@
   .freeSection { min-height: 43rem; }
   .metrics strong { font-size: 4.2rem; }
   .metrics > div { min-height: 9rem; }
-  .localVisual { min-height: 35rem; }
+  .localVisual { min-height: 31rem; }
   .localDevice { width: min(70vw, 17rem); }
   .localBadge { right: -2.4rem; bottom: 3rem; min-width: 8.8rem; }
-  .originVisual { min-height: 26rem; }
+  .originVisual { min-height: 23rem; }
   .originFragment { width: 8rem; height: 17rem; }
   .originFragment:nth-child(1) { left: 0; }.originFragment:nth-child(2) { left: 28%; }.originFragment:nth-child(3) { right: 0; }.originFragment:nth-child(4) { right: 16%; width: 7.5rem; height: 11rem; }
   .evolutionFragments { justify-content: space-between; gap: 0.35rem; }
   .evolutionFragments span { padding-inline: 0.5rem; font-size: 0.43rem; }
   .continueLabel { right: 0; }
-  .finalCta { min-height: 40rem; }
+  .finalCta { min-height: 36rem; }
 }
 
 @media (max-width: 360px) {

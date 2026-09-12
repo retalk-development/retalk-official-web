@@ -53,7 +53,7 @@ export function HeroSection() {
         <MotionReveal className={styles.heroCopy}>
           <p className={styles.kicker}><span />失語症リハビリを支えるデジタルツール</p>
           <h1>ことばのリハビリを、<br /><em>もっと日常へ。</em></h1>
-          <p className={styles.heroLead}>失語症のある方の自主訓練を支え、訓練・記録・評価・支援をつなぐリハビリテーションプラットフォーム。</p>
+          <p className={styles.heroLead}>Re:Talkは、失語症のある方の自主練習・自主訓練を支え、訓練・記録・評価・支援をつなぐリハビリテーションアプリです。</p>
           <div className={styles.heroActions}>
             <AppStoreCta />
             <Link className={styles.textLink} href="/about">Re:Talkについて <span aria-hidden="true">↗</span></Link>
@@ -82,7 +82,7 @@ export function PointToLineSection() {
     <section className={`${styles.section} ${styles.continuity}`} id="continuity">
       <div className={styles.sectionGrid}>
         <SectionIntro eyebrow="01 / ONE CONTINUOUS CARE JOURNEY" title="リハビリを、点から線へ。">
-          <p>自主訓練だけで、終わらせない。<br />練習したことが記録になり、振り返りになり、次の支援につながっていく。</p>
+          <p>自主練習・自主訓練だけで、終わらせない。<br />練習したことが記録になり、振り返りになり、次の支援につながっていく。</p>
         </SectionIntro>
         <MotionReveal className={styles.sequenceStage} delay={100}>
           <PointToLineMotion />
@@ -102,7 +102,8 @@ export function PatientExperienceSection() {
   return (
     <section className={`${styles.section} ${styles.patientSection}`} id="features">
       <SectionIntro eyebrow="02 / PATIENT EXPERIENCE" title="自分に合った訓練を、続けやすく。" center>
-        <p>選ぶ。整える。始める。<br />Re:Talkなら、その人に合った訓練まで迷わずたどり着けます。</p>
+        <p>選ぶ。整える。始める。<br />Re:Talkなら、その人に合った失語症の訓練まで迷わずたどり着けます。</p>
+        <Link className={styles.inlineLink} href="/features">訓練課題と教材を見る <span aria-hidden="true">→</span></Link>
       </SectionIntro>
       <div className={styles.patientJourney}>
         <MotionReveal className={styles.patientSteps}>
@@ -126,11 +127,12 @@ export function AnalysisSection() {
     <section className={`${styles.section} ${styles.darkSection} ${styles.analysis}`} id="for-st">
       <div className={styles.darkGrid}>
         <SectionIntro eyebrow="03 / FOR SPEECH-LANGUAGE-HEARING THERAPISTS" title="訓練を、分析できる臨床データへ。" inverse>
-          <p>Re:Talkで行った訓練は、あとから振り返れる。<br />履歴を見て、傾向を分析し、誤りの特徴まで捉えやすくします。</p>
+          <p>Re:Talkで行った訓練は、あとから振り返れる。<br />言語聴覚士・STが履歴を見て、傾向を分析し、誤りの特徴まで捉えやすくします。</p>
           <div className={styles.analysisValues}>
             <span>履歴を見る。</span><span>分析する。</span><span>誤りの傾向を捉える。</span>
           </div>
           <p className={styles.note}>訓練時に構造化された情報が残るから、STが振り返り・分析できる。</p>
+          <Link className={`${styles.inlineLink} ${styles.inlineLinkInverse}`} href="/for-st">ST向け機能を見る <span aria-hidden="true">→</span></Link>
         </SectionIntro>
         <MotionReveal className={styles.analysisVisual} delay={100}>
           <AnalysisMotion />
@@ -144,7 +146,8 @@ export function EfficiencySection() {
   return (
     <section className={`${styles.section} ${styles.efficiency}`}>
       <SectionIntro eyebrow="04 / CLINICAL WORKFLOW" title="臨床の手作業を、減らす。" center>
-        <p>教材を探す、準備する、記録する、集計する。<br />Re:Talkは、臨床の中にある細かな手作業を減らしていきます。</p>
+        <p>失語症リハビリで使う訓練課題や教材をアプリ内にまとめ、教材を探す・準備する負担を減らします。<br />記録や集計まで、臨床の細かな手作業をひとつの流れにつなぎます。</p>
+        <Link className={styles.inlineLink} href="/features">できることを詳しく見る <span aria-hidden="true">→</span></Link>
       </SectionIntro>
       <div className={styles.storyList}>
         {efficiencyStories.map((story, index) => (
@@ -227,6 +230,7 @@ export function StorySection() {
             <li>利用者ごとに内容を調整する</li><li>訓練・評価・記録が分かれている</li>
           </ul>
           <p className={styles.originEnd}>だから、ひとつにつなげる。</p>
+          <Link className={styles.inlineLink} href="/about">開発背景を読む <span aria-hidden="true">→</span></Link>
         </SectionIntro>
       </div>
     </section>
@@ -252,6 +256,7 @@ export function FAQSection() {
       <div className={styles.faqGrid}>
         <SectionIntro eyebrow="10 / FREQUENTLY ASKED QUESTIONS" title="よくあるご質問">
           <p>Re:Talkの利用や情報の扱いについて、基本的な内容をまとめています。</p>
+          <Link className={styles.inlineLink} href="/faq">FAQページを見る <span aria-hidden="true">→</span></Link>
         </SectionIntro>
         <MotionReveal><FAQAccordion /></MotionReveal>
       </div>
