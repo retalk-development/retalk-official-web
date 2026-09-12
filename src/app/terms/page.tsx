@@ -16,7 +16,8 @@ export default function TermsPage() {
       eyebrow="TERMS"
       title="利用規約"
       description={description}
-      status="正式な利用規約は、法務・公開文言の確認後に掲載します。未確定の条件を推測して掲載していません。"
+      updatedAt="2026年9月13日"
+      status="承認済みの利用規約本文は未提供です。公開前に法務・公開文言の確認済み本文を掲載する必要があります。"
       sections={[
         {
           title: "Re:Talkの位置づけ",

@@ -19,10 +19,10 @@ export function AppStoreCta({ inverse = false, compact = false, className = "" }
         aria-disabled="true"
         title="App Store公開後にリンクを有効化します"
       >
-        <span className={styles.icon} aria-hidden="true">↗</span>
+        <span className={styles.icon} aria-hidden="true">…</span>
         <span>
-          <small>無料で利用できます</small>
-          App Storeでダウンロード
+          <small>正式URLを確認中です</small>
+          App Store公開準備中
         </span>
       </button>
     );

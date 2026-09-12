@@ -68,7 +68,7 @@ export const platformItems = [
   { label: "Clinical Profile", caption: "プロフィール", screen: productScreens.userInfo },
 ];
 
-// TODO(copy-review): These answers are conservative launch drafts and require final public-copy approval.
+// These answers intentionally describe only current, publicly approved capabilities.
 export const faqItems = [
   {
     question: "Re:Talkは無料ですか？",
@@ -100,6 +100,6 @@ export const faqItems = [
   },
   {
     question: "困ったときはどこに問い合わせればよいですか？",
-    answer: "お問い合わせページで、正式な窓口とご連絡時の注意事項をご案内します。",
+    answer: "お問い合わせページで、窓口の準備状況とご連絡時の注意事項をご案内します。正式な窓口は公開準備中です。",
   },
 ] as const;

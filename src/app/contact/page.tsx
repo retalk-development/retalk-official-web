@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { InfoPage } from "@/components/InfoPage";
+import { contactCategories, publicContactEmail } from "@/config/contact";
 import { createPageMetadata } from "@/config/seo";
+import styles from "./contact-page.module.css";
 
 const description = "Re:Talkの利用方法、不具合、安全性、医療・介護施設での利用に関するお問い合わせについてご案内します。";
 
@@ -16,8 +18,12 @@ export default function ContactPage() {
       eyebrow="CONTACT"
       title="お問い合わせ"
       description={description}
-      status="正式なお問い合わせ窓口は、App Storeでの公開に合わせて本ページに掲載します。"
+      status={publicContactEmail ? undefined : "正式なお問い合わせ窓口は公開準備中です。連絡先が確定次第、このページに掲載します。"}
       sections={[
+        {
+          title: "お問い合わせの種類",
+          items: contactCategories,
+        },
         {
           title: "お問い合わせの前に",
           paragraphs: ["よくあるご質問と安全性ページに、対応端末、訓練内容、患者情報の保存、診断・治療判断との境界をまとめています。"],
@@ -31,6 +37,14 @@ export default function ContactPage() {
         { href: "/faq", label: "よくあるご質問" },
         { href: "/safety", label: "安全性について" },
       ]}
-    />
+    >
+      {publicContactEmail && (
+        <section className={styles.destination} aria-labelledby="contact-destination-title">
+          <h2 id="contact-destination-title">メールで問い合わせる</h2>
+          <p>お問い合わせの種類と内容を簡潔に記載してください。</p>
+          <a href={`mailto:${publicContactEmail}`}>{publicContactEmail}</a>
+        </section>
+      )}
+    </InfoPage>
   );
 }

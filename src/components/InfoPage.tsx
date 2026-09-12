@@ -1,12 +1,15 @@
 import Link from "next/link";
+import Image from "next/image";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
+import type { ProductScreen } from "@/data/product-screens";
 import styles from "./info-page.module.css";
 
 type InfoSection = {
   title: string;
   paragraphs?: readonly string[];
   items?: readonly string[];
+  screens?: readonly ProductScreen[];
 };
 
 type RelatedLink = {
@@ -59,6 +62,25 @@ export function InfoPage({
                     <ul>
                       {section.items.map((item) => <li key={item}>{item}</li>)}
                     </ul>
+                  )}
+                  {section.screens && (
+                    <div className={styles.screens}>
+                      {section.screens.map((screen) => (
+                        <figure key={screen.src}>
+                          <div className={styles.screenFrame}>
+                            <Image
+                              src={screen.src}
+                              alt={screen.alt}
+                              width={591}
+                              height={1280}
+                              sizes="(max-width: 600px) 76vw, 18rem"
+                              style={{ objectPosition: screen.objectPosition }}
+                            />
+                          </div>
+                          <figcaption>{screen.label}</figcaption>
+                        </figure>
+                      ))}
+                    </div>
                   )}
                 </section>
               ))}

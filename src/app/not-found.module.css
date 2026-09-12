@@ -1,0 +1,22 @@
+.page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 2rem 1.1rem;
+  background: #f6f8fc;
+}
+
+.panel {
+  width: min(100%, 40rem);
+  padding: clamp(2rem, 8vw, 5rem);
+  border: 1px solid #dce5f0;
+  border-radius: 1.3rem;
+  background: #ffffff;
+  box-shadow: 0 1.5rem 5rem rgba(11, 59, 130, 0.08);
+  text-align: center;
+}
+
+.code { margin-top: 2.5rem; color: #1769e8; font-size: 0.72rem; font-weight: 760; letter-spacing: 0.16em; }
+.panel h1 { margin-top: 0.75rem; color: #0b3b82; font-size: clamp(2rem, 7vw, 3.5rem); line-height: 1.2; }
+.panel > p:not(.code) { margin-top: 1.25rem; color: #5a6e86; line-height: 1.9; }
+.panel a { min-height: 3rem; margin-top: 2rem; display: inline-flex; align-items: center; justify-content: center; padding: 0.7rem 1.15rem; border-radius: 999px; color: #ffffff; background: #1769e8; font-weight: 700; }

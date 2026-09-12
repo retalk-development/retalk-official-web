@@ -16,7 +16,8 @@ export default function PrivacyPage() {
       eyebrow="PRIVACY"
       title="プライバシーポリシー"
       description={description}
-      status="正式なプライバシーポリシーは、アプリの実装事実と公開方針を確認したうえで掲載します。未確定の取り扱いを推測して掲載していません。"
+      updatedAt="2026年9月13日"
+      status="承認済みのプライバシーポリシー本文は未提供です。公開前にアプリの実装事実と整合する確認済み本文を掲載する必要があります。"
       sections={[
         {
           title: "現在確認できている基本方針",

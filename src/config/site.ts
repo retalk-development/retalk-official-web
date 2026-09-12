@@ -11,6 +11,7 @@ export const siteConfig = {
     { label: "STの方へ", href: "/for-st" },
     { label: "安全性", href: "/safety" },
     { label: "FAQ", href: "/faq" },
+    { label: "お問い合わせ", href: "/contact" },
   ],
   footerNavigation: [
     { label: "利用規約", href: "/terms" },
