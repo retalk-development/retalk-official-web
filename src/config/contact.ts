@@ -2,7 +2,7 @@
  * Public contact destination.
  * Set this to the confirmed public email address before release.
  */
-export const publicContactEmail: string | null = null;
+export const publicContactEmail = "retalk.app.info@gmail.com";
 
 export const contactCategories = [
   "アプリの利用・不具合",
