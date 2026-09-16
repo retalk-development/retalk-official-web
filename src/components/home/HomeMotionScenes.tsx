@@ -127,7 +127,7 @@ export function PatientFlowMotion() {
     <div ref={rootRef} className={styles.patientMotion} data-active={scene.active}>
       <ProductSequence
         screens={patientFlow}
-        motion="focus"
+        motion="crossfade"
         showLabels={false}
         activeIndex={scene.active}
       />
@@ -166,12 +166,6 @@ export function AnalysisMotion() {
   );
 }
 
-const workflowLabels = [
-  ["教材を探す", "語を選ぶ", "準備する"],
-  ["集計する", "整理する", "比較する"],
-  ["記録する", "まとめる", "共有用に整える"],
-] as const;
-
 export function WorkflowConvergence({ index }: { index: number }) {
   const story = efficiencyStories[index];
   const rootRef = useRef<HTMLDivElement>(null);
@@ -179,14 +173,9 @@ export function WorkflowConvergence({ index }: { index: number }) {
 
   return (
     <div ref={rootRef} className={styles.workflowMotion} data-entered={scene.entered}>
-      <div className={styles.workflowLabels} aria-hidden="true">
-        {workflowLabels[index].map((label, labelIndex) => (
-          <span key={label} style={{ "--label-index": labelIndex } as React.CSSProperties}>{label}</span>
-        ))}
-      </div>
       <ProductSequence
         screens={story.screens}
-        motion="directional"
+        motion="crossfade"
         variant="compact"
         showLabels={false}
         activeIndex={scene.active}
@@ -195,29 +184,40 @@ export function WorkflowConvergence({ index }: { index: number }) {
   );
 }
 
+const platformDescriptions = [
+  "自主練習の結果と成績の推移",
+  "評価結果と時点ごとの比較",
+  "実施内容・SOAP・記録の整理",
+  "利用者ごとの情報と変化",
+] as const;
+
+function PlatformIcon({ index }: { index: number }) {
+  if (index === 0) {
+    return <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 25V8m0 17h22M9 21l5-6 5 3 7-9" /><circle cx="9" cy="21" r="1.5" /><circle cx="14" cy="15" r="1.5" /><circle cx="19" cy="18" r="1.5" /><circle cx="26" cy="9" r="1.5" /></svg>;
+  }
+  if (index === 1) {
+    return <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M10 6h12v4H10zM8 8H6v19h20V8h-2M10 15h12M10 20h8" /></svg>;
+  }
+  if (index === 2) {
+    return <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M8 4h12l5 5v19H8zM20 4v6h5M12 15h9M12 20h9M12 24h6" /></svg>;
+  }
+  return <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="11" r="5" /><path d="M7 27c.8-5.6 4-8.5 9-8.5s8.2 2.9 9 8.5" /></svg>;
+}
+
 export function PlatformMotion() {
   const rootRef = useRef<HTMLDivElement>(null);
   const scene = useMotionScene(rootRef);
 
   return (
     <div ref={rootRef} className={styles.platformMap} data-entered={scene.entered}>
-      <svg viewBox="0 0 1000 620" aria-hidden="true" className={styles.connectorMap}>
-        <path d="M190 120 C360 120 370 295 500 310" />
-        <path d="M810 120 C640 120 630 295 500 310" />
-        <path d="M190 500 C350 500 380 330 500 310" />
-        <path d="M810 500 C650 500 620 330 500 310" />
-      </svg>
       <div className={styles.platformCenter}>
         <span className={styles.personIcon} aria-hidden="true">人</span>
-        <small>ONE PERSON</small>
-        <strong>その人を中心に</strong>
+        <div><small>ONE PERSON</small><strong>その人を中心に、情報をつなぐ</strong></div>
       </div>
       {platformItems.map((item, index) => (
         <article key={item.label} className={`${styles.platformCard} ${styles[`platformCard${index + 1}`]}`}>
-          <div className={styles.platformThumb}>
-            <Image src={item.screen.src} alt={item.screen.alt} width={592} height={1280} sizes="(max-width: 700px) 78vw, 18vw" />
-          </div>
-          <div><small>{item.label}</small><h3>{item.caption}</h3></div>
+          <span className={styles.platformIcon}><PlatformIcon index={index} /></span>
+          <div><small>{item.label}</small><h3>{item.caption}</h3><p>{platformDescriptions[index]}</p></div>
         </article>
       ))}
     </div>
@@ -244,7 +244,6 @@ export function SafetyMotion() {
       <div className={styles.localRings} aria-hidden="true"><span /><span /><span /></div>
       <div className={styles.localDevice}>
         <Image src={productScreens.userInfo.src} alt={productScreens.userInfo.alt} width={592} height={1280} sizes="(max-width: 700px) 68vw, 26vw" />
-        <div className={styles.containedRecords} aria-hidden="true"><i /><i /><i /></div>
         <div className={styles.localBadge}><span aria-hidden="true">⌁</span><small>DATA LOCATION</small><strong>この端末内</strong></div>
       </div>
     </div>

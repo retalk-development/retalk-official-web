@@ -1,37 +1,22 @@
 .logo {
-  --logo-color: #0b3b82;
-  position: relative;
   display: inline-flex;
   align-items: center;
-  color: var(--logo-color);
-  font-size: 1.48rem;
-  font-weight: 760;
-  letter-spacing: -0.055em;
-  line-height: 1;
-  white-space: nowrap;
+  width: 9.75rem;
+  line-height: 0;
 }
 
-.arc {
-  position: absolute;
-  top: -0.38rem;
-  right: 0.16rem;
-  width: 1.9rem;
-  height: 0.58rem;
-  border: 2px solid #6eb8e5;
-  border-bottom: 0;
-  border-radius: 2rem 2rem 0 0;
+.wordmark {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .inverse {
-  --logo-color: #ffffff;
+  padding: 0.48rem 0.62rem;
+  border-radius: 0.7rem;
+  background: rgba(255, 255, 255, 0.96);
 }
 
 .compact {
-  font-size: 1.25rem;
-}
-
-.compact .arc {
-  top: -0.31rem;
-  width: 1.55rem;
-  height: 0.48rem;
+  width: 7.75rem;
 }

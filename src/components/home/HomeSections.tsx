@@ -59,9 +59,9 @@ export function HeroSection() {
             <Link className={styles.textLink} href="/about">Re:Talkについて <span aria-hidden="true">↗</span></Link>
           </div>
           <div className={styles.heroProof}>
-            <span><strong>¥0</strong> 無料</span>
-            <span><strong>29</strong> 訓練課題</span>
-            <span><strong>6</strong> カテゴリ</span>
+            <span className={styles.heroProofMain}><strong>無料</strong><small>利用料金 ¥0</small></span>
+            <span><strong>29</strong><small>訓練課題</small></span>
+            <span><strong>6</strong><small>カテゴリ</small></span>
           </div>
         </MotionReveal>
         <MotionReveal className={styles.heroVisual} delay={120}>

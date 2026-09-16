@@ -1,3 +1,4 @@
+import Image from "next/image";
 import styles from "./brand-logo.module.css";
 
 type BrandLogoProps = {
@@ -11,8 +12,14 @@ export function BrandLogo({ inverse = false, compact = false }: BrandLogoProps) 
       className={`${styles.logo} ${inverse ? styles.inverse : ""} ${compact ? styles.compact : ""}`}
       aria-label="Re:Talk"
     >
-      <span className={styles.arc} aria-hidden="true" />
-      Re:Talk
+      <Image
+        className={styles.wordmark}
+        src="/brand/retalk-wordmark.png"
+        alt=""
+        width={851}
+        height={243}
+        sizes={compact ? "124px" : "156px"}
+      />
     </span>
   );
 }
