@@ -236,18 +236,33 @@
 .dark .context i { background: rgba(159, 184, 215, 0.28); }
 .dark .context i::after { background: #66afff; }
 
+.compact {
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+
 .compact .device {
-  width: min(100%, 16.8rem);
+  width: 100%;
+  max-width: 15.75rem;
+  height: auto;
+  aspect-ratio: 592 / 1280;
   border-radius: 2.1rem;
 }
 
 .compact .viewport { border-radius: 1.7rem; }
+
+.compact .screen {
+  object-fit: contain;
+  object-position: center top;
+}
 
 @media (max-width: 700px) {
   .device { width: min(73vw, 18.5rem); border-radius: 2.1rem; }
   .viewport { border-radius: 1.72rem; }
   .speaker { top: 0.72rem; width: 3.8rem; height: 1.05rem; }
   .hero .device { width: min(72vw, 19rem); }
+  .compact .device { width: 100%; max-width: 15.75rem; }
   .labels { margin-top: 1rem; gap: 0.22rem; }
   .labels button { min-height: 2.15rem; padding-inline: 0.42rem; font-size: 0.62rem; }
 }

@@ -173,13 +173,15 @@ export function WorkflowConvergence({ index }: { index: number }) {
 
   return (
     <div ref={rootRef} className={styles.workflowMotion} data-entered={scene.entered}>
-      <ProductSequence
-        screens={story.screens}
-        motion="crossfade"
-        variant="compact"
-        showLabels={false}
-        activeIndex={scene.active}
-      />
+      <div className={styles.storyDeviceFrame}>
+        <ProductSequence
+          screens={story.screens}
+          motion="crossfade"
+          variant="compact"
+          showLabels={false}
+          activeIndex={scene.active}
+        />
+      </div>
     </div>
   );
 }
@@ -211,8 +213,8 @@ export function PlatformMotion() {
   return (
     <div ref={rootRef} className={styles.platformMap} data-entered={scene.entered}>
       <div className={styles.platformCenter}>
-        <span className={styles.personIcon} aria-hidden="true">人</span>
-        <div><small>ONE PERSON</small><strong>その人を中心に、情報をつなぐ</strong></div>
+        <small>ONE PERSON</small>
+        <strong>その人を中心に、情報をつなぐ</strong>
       </div>
       {platformItems.map((item, index) => (
         <article key={item.label} className={`${styles.platformCard} ${styles[`platformCard${index + 1}`]}`}>
