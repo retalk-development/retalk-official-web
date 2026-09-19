@@ -8,6 +8,26 @@ type PageMetadataOptions = {
   absoluteTitle?: boolean;
 };
 
+const previewRobots: NonNullable<Metadata["robots"]> = {
+  index: false,
+  follow: false,
+  nocache: true,
+  googleBot: {
+    index: false,
+    follow: false,
+    noimageindex: true,
+  },
+};
+
+export function withPreviewRobots(
+  productionRobots: NonNullable<Metadata["robots"]>,
+): NonNullable<Metadata["robots"]> {
+  const context = process.env.CONTEXT;
+  return context === "deploy-preview" || context === "branch-deploy"
+    ? previewRobots
+    : productionRobots;
+}
+
 export function createPageMetadata({
   title,
   description,
@@ -33,7 +53,7 @@ export function createPageMetadata({
       title: socialTitle,
       description,
     },
-    robots: {
+    robots: withPreviewRobots({
       index: true,
       follow: true,
       googleBot: {
@@ -43,6 +63,6 @@ export function createPageMetadata({
         "max-snippet": -1,
         "max-video-preview": -1,
       },
-    },
+    }),
   };
 }

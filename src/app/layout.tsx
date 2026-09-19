@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { withPreviewRobots } from "@/config/seo";
 import { siteConfig, siteUrl } from "@/config/site";
 import "./globals.css";
 
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
     "教材",
     "言語聴覚士",
   ],
-  robots: { index: true, follow: true },
+  robots: withPreviewRobots({ index: true, follow: true }),
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
