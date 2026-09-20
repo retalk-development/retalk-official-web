@@ -1,0 +1,37 @@
+.footer {
+  padding: clamp(3rem, 7vw, 6rem) clamp(1.1rem, 4.2vw, 4rem) 1.5rem;
+  color: #ffffff;
+  background: #03152f;
+}
+
+.top {
+  width: min(100%, 80rem);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  padding-bottom: 4rem;
+}
+
+.brand p { margin-top: 1.3rem; color: #8da5c4; font-size: 0.82rem; }
+.links { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.links div { display: grid; align-content: start; gap: 0.75rem; }
+.links small { margin-bottom: 0.65rem; color: #6380a4; font-size: 0.55rem; font-weight: 760; letter-spacing: 0.14em; }
+.links a { color: #c7d4e6; font-size: 0.8rem; transition: color var(--motion-fast) linear; }
+.links a:hover { color: #ffffff; }
+
+.bottom {
+  width: min(100%, 80rem);
+  margin-inline: auto;
+  padding-top: 1.3rem;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid rgba(147, 173, 207, 0.18);
+  color: #607b9d;
+  font-size: 0.62rem;
+}
+
+@media (max-width: 680px) {
+  .top { grid-template-columns: 1fr; }
+  .bottom { gap: 1rem; flex-direction: column; }
+}

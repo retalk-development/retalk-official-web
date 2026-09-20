@@ -1,0 +1,22 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  width: 9.75rem;
+  line-height: 0;
+}
+
+.wordmark {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.inverse {
+  padding: 0.48rem 0.62rem;
+  border-radius: 0.7rem;
+  background: rgba(255, 255, 255, 0.96);
+}
+
+.compact {
+  width: 7.75rem;
+}
