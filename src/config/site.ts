@@ -20,13 +20,37 @@ export const siteConfig = {
   ],
 } as const;
 
-const configuredSiteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ??
-  (process.env.VERCEL_PROJECT_PRODUCTION_URL
-    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-    : "http://localhost:3000");
+const PRODUCTION_SITE_URL = "https://retalk-app.com";
 
-export const siteUrl = configuredSiteUrl.replace(/\/$/, "");
+function resolveSiteUrl(): string {
+  if (process.env.NEXT_PUBLIC_SITE_URL) {
+    return process.env.NEXT_PUBLIC_SITE_URL;
+  }
+
+  const context = process.env.CONTEXT;
+  if (context === "deploy-preview" || context === "branch-deploy") {
+    const previewUrl = process.env.DEPLOY_PRIME_URL ?? process.env.DEPLOY_URL;
+    if (previewUrl) {
+      return previewUrl;
+    }
+  }
+
+  if (context === "production") {
+    return PRODUCTION_SITE_URL;
+  }
+
+  if (process.env.NETLIFY === "true") {
+    return process.env.URL ?? PRODUCTION_SITE_URL;
+  }
+
+  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) {
+    return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
+  }
+
+  return "http://localhost:3000";
+}
+
+export const siteUrl = resolveSiteUrl().replace(/\/$/, "");
 
 export const publicPages = [
   { path: "/", changeFrequency: "monthly", priority: 1 },
