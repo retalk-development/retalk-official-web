@@ -19,13 +19,13 @@ npm run build
 
 ## Environment variables
 
-No environment variable is required for local development. For Preview or production, set the public origin used by canonical URLs, Open Graph metadata, sitemap, robots, and JSON-LD:
+No environment variable is required for local development. Canonical URLs, Open Graph metadata, sitemap, robots, and JSON-LD resolve as follows:
 
-```bash
-NEXT_PUBLIC_SITE_URL=https://your-preview-or-production-domain.example
-```
-
-When it is omitted on Vercel, `VERCEL_PROJECT_PRODUCTION_URL` is used. Local development falls back to `http://localhost:3000`.
+1. `NEXT_PUBLIC_SITE_URL` when explicitly set
+2. Netlify Deploy Preview / branch deploy: `DEPLOY_PRIME_URL` (or `DEPLOY_URL`)
+3. Netlify production: `https://retalk-app.com` (`CONTEXT=production`)
+4. Vercel: `VERCEL_PROJECT_PRODUCTION_URL`
+5. Local development: `http://localhost:3000`
 
 ## Final App Store URL
 
