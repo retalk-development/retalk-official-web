@@ -1,0 +1,114 @@
+.document {
+  width: 100%;
+  max-width: 48rem;
+  min-width: 0;
+  display: grid;
+  gap: 1.35rem;
+  color: #294b72;
+  font-size: 1rem;
+  line-height: 1.9;
+  overflow-wrap: anywhere;
+}
+
+.document h2 {
+  margin-top: 1.8rem;
+  color: #0b3b82;
+  font-size: clamp(1.25rem, 2.5vw, 1.7rem);
+  line-height: 1.45;
+}
+
+.document p,
+.document ol,
+.document ul {
+  margin: 0;
+}
+
+.document ol,
+.document ul {
+  display: grid;
+  gap: 0.75rem;
+  padding-left: 1.6rem;
+}
+
+.document li {
+  padding-left: 0.25rem;
+}
+
+.document strong {
+  color: #163b67;
+  font-weight: 750;
+}
+
+.tableFrame {
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #dce5f0;
+  border-radius: 0.9rem;
+}
+
+.tableFrame table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.tableFrame th,
+.tableFrame td {
+  min-width: 0;
+  padding: 0.8rem;
+  overflow-wrap: anywhere;
+  vertical-align: top;
+  text-align: left;
+}
+
+.tableFrame th {
+  color: #0b3b82;
+  background: #f1f6fd;
+  font-weight: 750;
+}
+
+.tableFrame td {
+  border-top: 1px solid #dce5f0;
+}
+
+.tableFrame th + th,
+.tableFrame td + td {
+  border-left: 1px solid #dce5f0;
+}
+
+.contact {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.contact a {
+  color: #1769e8;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+@media (max-width: 600px) {
+  .document {
+    font-size: 0.94rem;
+    line-height: 1.85;
+  }
+
+  .document ol,
+  .document ul {
+    padding-left: 1.3rem;
+  }
+
+  .tableFrame table {
+    font-size: 0.75rem;
+    line-height: 1.55;
+  }
+
+  .tableFrame th,
+  .tableFrame td {
+    padding: 0.55rem 0.45rem;
+  }
+}

@@ -1,0 +1,17 @@
+.destination p {
+  margin-top: 1rem;
+  color: #5a6e86;
+  line-height: 1.9;
+}
+
+.destination a {
+  min-height: 3rem;
+  margin-top: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.7rem 1rem;
+  border-radius: 999px;
+  color: #ffffff;
+  background: #1769e8;
+  font-weight: 700;
+}
