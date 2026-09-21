@@ -39,8 +39,6 @@ Set `publicContactEmail` in `src/config/contact.ts` after the public address is 
 
 仮スクリーンショットは `public/product/` に置き、参照先は `src/data/product-screens.ts` に集約しています。正式画像へ差し替える際は、同名ファイルを置き換えるか、このmappingのみを更新してください。
 
-See `docs/final-screenshot-replacement.md` for the filename-to-section map and capture rules.
-
 ## Remaining release inputs
 
 - confirmed App Store URL
