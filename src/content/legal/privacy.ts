@@ -1,25 +1,39 @@
-// Source: docs/legal/privacy-policy-draft.md — approved release candidate Draft v3
-// Release Gate: sync version, effective date, Web URLs, and unresolved venue before formal release.
+// Source: Re:Talk Native legal text — Privacy Ver.1.0
 
-import type { LegalDocumentContent } from './types';
+import {
+  LEGAL_ADDRESS_DISCLOSURE_POLICY,
+  LEGAL_CONTACT_EMAIL,
+  LEGAL_EFFECTIVE_DATE,
+  LEGAL_OFFICIAL_URLS,
+  LEGAL_OPERATOR,
+  LEGAL_VERSION,
+  type LegalDocumentContent,
+} from './types';
 
-export const PRIVACY_SOURCE_DOC = 'docs/legal/privacy-policy-draft.md';
-export const PRIVACY_DRAFT_VERSION = 'Draft v3';
+export const PRIVACY_VERSION = LEGAL_VERSION;
 
 export const PRIVACY_DOCUMENT: LegalDocumentContent = {
   title: 'Re:Talk プライバシーポリシー',
   blocks: [
+    {
+      kind: 'table',
+      headers: ['項目', '内容'],
+      rows: [
+        ['バージョン', PRIVACY_VERSION],
+        ['効力発生日', LEGAL_EFFECTIVE_DATE],
+      ],
+    },
     {
       kind: 'heading',
       text: '1. 基本方針',
     },
     {
       kind: 'paragraph',
-      text: '松野航洋（言語聴覚士）（以下「運営者」）は、モバイルアプリケーション「Re:Talk」（以下「本アプリ」）において、失語症等の当事者、家族、支援者、医療従事者等の情報を適切に取り扱います。',
+      text: `${LEGAL_OPERATOR}（以下「運営者」）は、モバイルアプリケーション「Re:Talk」（以下「本アプリ」）において、失語症等の当事者、家族、支援者、医療従事者等の情報を適切に取り扱います。`,
     },
     {
       kind: 'paragraph',
-      text: '本アプリは、医療・リハビリ用途を想定し、**個人情報の最小化**と**端末内保存**を基本とします。本ポリシーは、Re:Talk Native Ver.1.0 時点の**実装に基づく事実**を記載します。将来の機能追加により取扱いが変更される場合は、本ポリシーを改定します。',
+      text: '本アプリは、医療・リハビリ用途を想定し、**個人情報の最小化**と**端末内保存**を基本とします。本ポリシーは、Re:Talk Ver.1.0 時点の**実装に基づく事実**を記載します。将来の機能追加により取扱いが変更される場合は、本ポリシーを改定します。',
     },
     {
       kind: 'paragraph',
@@ -33,8 +47,20 @@ export const PRIVACY_DOCUMENT: LegalDocumentContent = {
       kind: 'table',
       headers: ['項目', '内容'],
       rows: [
-        ['運営者', '松野航洋（言語聴覚士）'],
-        ['問い合わせ', 'retalk.app.info@gmail.com'],
+        ['運営者', LEGAL_OPERATOR],
+        ['問い合わせ', LEGAL_CONTACT_EMAIL],
+        ['住所', LEGAL_ADDRESS_DISCLOSURE_POLICY],
+      ],
+    },
+    {
+      kind: 'table',
+      headers: ['公式ページ', 'URL'],
+      rows: [
+        ['公式 Web サイト', LEGAL_OFFICIAL_URLS.website],
+        ['プライバシーポリシー', LEGAL_OFFICIAL_URLS.privacy],
+        ['利用規約', LEGAL_OFFICIAL_URLS.terms],
+        ['お問い合わせ', LEGAL_OFFICIAL_URLS.contact],
+        ['安全性について', LEGAL_OFFICIAL_URLS.safety],
       ],
     },
     {
@@ -428,7 +454,7 @@ export const PRIVACY_DOCUMENT: LegalDocumentContent = {
       kind: 'ordered',
       items: [
         '運営者は、法令の改正、本アプリの機能変更等に応じ、本ポリシーを変更することがあります。',
-        '本ポリシーを変更する場合、原則として**アプリ内表示**および**公式 Web への掲載**により周知します。効力発生日は周知時に定めます。',
+        `本ポリシーを変更する場合、原則として**アプリ内表示**および**公式 Web（${LEGAL_OFFICIAL_URLS.privacy}）への掲載**により周知します。効力発生日は周知時に定めます。`,
         '正式公開後は Web 側を最新の公開正本として管理する方向です。アプリ内には副本（bundled copy）を保持し、オフラインでも閲覧可能にします。',
         '重要な変更時に追加通知が必要かは、将来検討します。',
       ],
@@ -440,7 +466,19 @@ export const PRIVACY_DOCUMENT: LegalDocumentContent = {
     {
       kind: 'contact',
       intro: '本ポリシーに関する問い合わせは、次までお願いします。',
-      email: 'retalk.app.info@gmail.com',
+      email: LEGAL_CONTACT_EMAIL,
+    },
+    {
+      kind: 'paragraph',
+      text: `お問い合わせフォーム: ${LEGAL_OFFICIAL_URLS.contact}`,
+    },
+    {
+      kind: 'heading',
+      text: '20. 効力発生日',
+    },
+    {
+      kind: 'paragraph',
+      text: `本ポリシー（${PRIVACY_VERSION}）は、${LEGAL_EFFECTIVE_DATE}から効力を生じます。`,
     },
   ],
 };

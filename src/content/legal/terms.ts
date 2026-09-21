@@ -1,14 +1,28 @@
-// Source: docs/legal/terms-of-service-draft.md — approved release candidate Draft v4
-// Release Gate: sync version, effective date, venue (第17条), and Web URL before formal release.
+// Source: Re:Talk Native legal text — Terms Ver.1.0
 
-import type { LegalDocumentContent } from './types';
+import {
+  LEGAL_CONTACT_EMAIL,
+  LEGAL_EFFECTIVE_DATE,
+  LEGAL_OFFICIAL_URLS,
+  LEGAL_OPERATOR,
+  LEGAL_VERSION,
+  type LegalDocumentContent,
+} from './types';
 
-export const TERMS_SOURCE_DOC = 'docs/legal/terms-of-service-draft.md';
-export const TERMS_DRAFT_VERSION = 'Draft v4';
+export const TERMS_VERSION = LEGAL_VERSION;
 
 export const TERMS_DOCUMENT: LegalDocumentContent = {
   title: 'Re:Talk 利用規約',
   blocks: [
+    {
+      kind: 'table',
+      headers: ['項目', '内容'],
+      rows: [
+        ['バージョン', TERMS_VERSION],
+        ['運営者', LEGAL_OPERATOR],
+        ['効力発生日', LEGAL_EFFECTIVE_DATE],
+      ],
+    },
     {
       kind: 'heading',
       text: '第1条（目的・適用）',
@@ -16,7 +30,7 @@ export const TERMS_DOCUMENT: LegalDocumentContent = {
     {
       kind: 'ordered',
       items: [
-        '本利用規約（以下「本規約」）は、松野航洋（言語聴覚士）（以下「運営者」）が提供するモバイルアプリケーション「Re:Talk」（以下「本アプリ」）の利用条件を定めるものです。',
+        `本利用規約（以下「本規約」）は、${LEGAL_OPERATOR}（以下「運営者」）が提供するモバイルアプリケーション「Re:Talk」（以下「本アプリ」）の利用条件を定めるものです。`,
         '本規約は、本アプリのダウンロード、インストール、起動、閲覧、利用その他一切の利用行為（以下総称して「利用」）に適用されます。',
         '本アプリを利用する場合、本規約が適用されます。',
       ],
@@ -217,7 +231,7 @@ export const TERMS_DOCUMENT: LegalDocumentContent = {
       kind: 'ordered',
       items: [
         '運営者は、法令の改正、本アプリの機能変更、その他必要と判断した場合、本規約を変更することがあります。',
-        '本規約を変更する場合、原則として本アプリ内での表示および公式 Web サイトへの掲載により周知します。重大な変更については、その他運営者が適切と判断する方法で追加の通知を行うことがあります。',
+        `本規約を変更する場合、原則として本アプリ内での表示および公式 Web サイト（${LEGAL_OFFICIAL_URLS.terms}）への掲載により周知します。重大な変更については、その他運営者が適切と判断する方法で追加の通知を行うことがあります。`,
         '変更後の規約は、周知時に定める効力発生日から適用されます。利用者は、変更内容を確認のうえ本アプリを利用してください。',
       ],
     },
@@ -231,12 +245,32 @@ export const TERMS_DOCUMENT: LegalDocumentContent = {
     },
     {
       kind: 'heading',
+      text: '第17条（合意管轄）',
+    },
+    {
+      kind: 'paragraph',
+      text: '本規約または本アプリに関連して運営者と利用者との間に生じた紛争については、札幌地方裁判所を第一審の専属的合意管轄裁判所とします。',
+    },
+    {
+      kind: 'heading',
       text: '第18条（問い合わせ）',
     },
     {
       kind: 'contact',
       intro: '本規約または本アプリに関する問い合わせは、次の連絡先までお願いします。',
-      email: 'retalk.app.info@gmail.com',
+      email: LEGAL_CONTACT_EMAIL,
+    },
+    {
+      kind: 'paragraph',
+      text: `お問い合わせフォーム: ${LEGAL_OFFICIAL_URLS.contact}`,
+    },
+    {
+      kind: 'heading',
+      text: '附則',
+    },
+    {
+      kind: 'paragraph',
+      text: `本規約（${TERMS_VERSION}）は、${LEGAL_EFFECTIVE_DATE}から効力を生じます。`,
     },
   ],
 };
