@@ -3,6 +3,7 @@ import { productScreens } from "@/data/product-screens";
 export const heroScreens = [
   productScreens.launch,
   productScreens.patientHomeTop,
+  productScreens.patientHomeBottom,
   productScreens.trainingCategoriesTop,
   productScreens.trainingQuestion,
   productScreens.trainingResult,

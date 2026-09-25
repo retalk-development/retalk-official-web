@@ -37,19 +37,15 @@ The current public contact address remains `retalk.app.info@gmail.com` until the
 
 ## Product screenshots
 
-仮スクリーンショットは `public/product/` に置き、参照先は `src/data/product-screens.ts` に集約しています。正式画像へ差し替える際は、同名ファイルを置き換えるか、このmappingのみを更新してください。
+製品画面は `public/product/` に置き、参照先は `src/data/product-screens.ts` に集約しています。差し替え時は同名ファイルを置き換えるか、このmappingのみを更新してください。
 
-`SCREENSHOT_REPLACEMENT_PENDING`: 次の画像には旧Re:Talk表記が写っているため、新Nativeスクリーンショット到着後に差し替えます。
-
-- `public/product/launch-screen.jpg`
-- `public/product/patient-home-bottom.jpg`
+`launch-screen.jpg` と `patient-home-bottom.jpg` は Native Preview DEVICE PASS 済みの正式スクリーンショットに同期済みです。
 
 ## Brand icon status
 
-`NEEDS_ICON_POLISH`: 正式ロゴは横長wordmarkのため、`favicon.ico`、`icon.png`、`apple-icon.png` は既存の正方形アイコンを維持しています。承認済みの正方形STAMUアイコン到着後に差し替えます。
+`favicon.ico` / `icon.png` / `apple-icon.png` は公式 STAMU | Aphasia wordmark から STAMU 部分のみを切り出し、白地・navy STAMU の正方形アイコンとして配置しています（Aphasia 表記・旧 Re:Talk シンボルなし）。
 
 ## Remaining release inputs
 
 - confirmed App Store URL
-- final Native screenshots without former Re:Talk branding
-- approved square STAMU icon assets for favicon and app icons
+- post-release contact email migration to a STAMU-branded address (current: `retalk.app.info@gmail.com`)
