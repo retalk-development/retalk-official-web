@@ -32,7 +32,7 @@ export const productScreens = {
   patientHomeBottom: screen(
     "patient-home-bottom.jpg",
     "ホーム下部",
-    "STAMU Aphasiaの利用者ホームからST・支援者メニューを選ぶ画面",
+    "STAMU Aphasiaの利用者ホーム下部。ST・支援者メニューと、STAMU Aphasiaについて・プライバシーポリシー・利用規約への導線",
   ),
   trainingCategoriesTop: screen(
     "training-categories-top.jpg",
