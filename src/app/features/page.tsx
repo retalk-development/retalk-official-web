@@ -26,7 +26,7 @@ export default function FeaturesPage() {
         {
           title: "課題語を選び、教材準備につなげる",
           paragraphs: ["検索・カテゴリ・頻度・使用状態から課題語を絞り、STAMU Aphasiaに収録された語から訓練に使う内容を選べます。すべての臨床教材を網羅するものではありません。"],
-          screens: [productScreens.wordSettingsFilter, productScreens.wordSettingsList],
+          screens: [productScreens.wordSettingsList],
         },
         {
           title: "訓練結果を記録し、Patient Recordで振り返る",

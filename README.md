@@ -41,6 +41,8 @@ The current public contact address remains `retalk.app.info@gmail.com` until the
 
 `launch-screen.jpg` と `patient-home-bottom.jpg` は Native Preview DEVICE PASS 済みの正式スクリーンショットに同期済みです。
 
+`SCREENSHOT_REPLACEMENT_PENDING`: `public/product/word-settings-filter.jpg` の頻度注記に旧 Re:Talk 表記が残るため、ページ表示から外しています。Native DEVICE PASS 差し替え後に再掲載してください。
+
 ## Brand icon status
 
 `favicon.ico` / `icon.png` / `apple-icon.png` は公式 STAMU | Aphasia wordmark から STAMU 部分のみを切り出し、白地・navy STAMU の正方形アイコンとして配置しています（Aphasia 表記・旧 Re:Talk シンボルなし）。

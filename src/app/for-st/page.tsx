@@ -26,7 +26,7 @@ export default function ForStPage() {
         {
           title: "教材準備の手作業を減らす",
           paragraphs: ["失語症リハビリで使う課題語を、検索・カテゴリ・頻度・使用状態から絞り込めます。STAMU Aphasiaに収録された教材を利用者に合わせて選び、訓練設定まで同じ流れで進められます。"],
-          screens: [productScreens.wordSettingsFilter, productScreens.wordSettingsList],
+          screens: [productScreens.wordSettingsList],
         },
         {
           title: "訓練履歴と課題分析を振り返る",
