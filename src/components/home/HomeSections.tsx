@@ -53,10 +53,10 @@ export function HeroSection() {
         <MotionReveal className={styles.heroCopy}>
           <p className={styles.kicker}><span />失語症リハビリを支えるデジタルツール</p>
           <h1>ことばのリハビリを、<br /><em>もっと日常へ。</em></h1>
-          <p className={styles.heroLead}>Re:Talkは、失語症のある方の自主練習・自主訓練を支え、訓練・記録・評価・支援をつなぐリハビリテーションアプリです。</p>
+          <p className={styles.heroLead}>STAMU Aphasiaは、失語症のある方の自主練習・自主訓練を支え、訓練・記録・評価・支援をつなぐリハビリテーションアプリです。</p>
           <div className={styles.heroActions}>
             <AppStoreCta />
-            <Link className={styles.textLink} href="/about">Re:Talkについて <span aria-hidden="true">↗</span></Link>
+            <Link className={styles.textLink} href="/about">STAMU Aphasiaについて <span aria-hidden="true">↗</span></Link>
           </div>
           <div className={styles.heroProof}>
             <span className={styles.heroProofMain}><strong>無料</strong><small>利用料金 ¥0</small></span>
@@ -102,7 +102,7 @@ export function PatientExperienceSection() {
   return (
     <section className={`${styles.section} ${styles.patientSection}`} id="features">
       <SectionIntro eyebrow="02 / PATIENT EXPERIENCE" title="自分に合った訓練を、続けやすく。" center>
-        <p>選ぶ。整える。始める。<br />Re:Talkなら、その人に合った失語症の訓練まで迷わずたどり着けます。</p>
+        <p>選ぶ。整える。始める。<br />STAMU Aphasiaなら、その人に合った失語症の訓練まで迷わずたどり着けます。</p>
         <Link className={styles.inlineLink} href="/features">訓練課題と教材を見る <span aria-hidden="true">→</span></Link>
       </SectionIntro>
       <div className={styles.patientJourney}>
@@ -127,7 +127,7 @@ export function AnalysisSection() {
     <section className={`${styles.section} ${styles.darkSection} ${styles.analysis}`} id="for-st">
       <div className={styles.darkGrid}>
         <SectionIntro eyebrow="03 / FOR SPEECH-LANGUAGE-HEARING THERAPISTS" title="訓練を、分析できる臨床データへ。" inverse>
-          <p>Re:Talkで行った訓練は、あとから振り返れる。<br />言語聴覚士・STが履歴を見て、傾向を分析し、誤りの特徴まで捉えやすくします。</p>
+          <p>STAMU Aphasiaで行った訓練は、あとから振り返れる。<br />言語聴覚士・STが履歴を見て、傾向を分析し、誤りの特徴まで捉えやすくします。</p>
           <div className={styles.analysisValues}>
             <span>履歴を見る。</span><span>分析する。</span><span>誤りの傾向を捉える。</span>
           </div>
@@ -172,7 +172,7 @@ export function PlatformSection() {
         <p>訓練、評価、リハビリ記録、プロフィール。<br />その人に関わる情報を、ひとつの流れとして見られるようにする。</p>
       </SectionIntro>
       <PlatformMotion />
-      <p className={styles.platformStatement}>Re:Talkは、訓練アプリだけではない。</p>
+      <p className={styles.platformStatement}>STAMU Aphasiaは、訓練アプリだけではない。</p>
     </section>
   );
 }
@@ -198,7 +198,7 @@ export function SafetySection() {
     <section className={`${styles.section} ${styles.safety}`} id="safety">
       <div className={styles.safetyGrid}>
         <SectionIntro eyebrow="07 / DEVICE-LOCAL BY DESIGN" title="大切な記録だから、慎重に扱う。">
-          <p>Re:Talkは、患者さんの情報をできるだけ端末内で扱う設計を基本にしています。<br />独自の患者データ送信や外部AIへの送信は行いません。</p>
+          <p>STAMU Aphasiaは、患者さんの情報をできるだけ端末内で扱う設計を基本にしています。<br />独自の患者データ送信や外部AIへの送信は行いません。</p>
           <div className={styles.safetyNotes}>
             <span><i aria-hidden="true">✓</i>端末内保存を基本に</span>
             <span><i aria-hidden="true">✓</i>個人情報を最小限に</span>
@@ -224,7 +224,7 @@ export function StorySection() {
       <div className={styles.originGrid}>
         <OriginMotion fragments={fragments} />
         <SectionIntro eyebrow="08 / BUILT FROM CLINICAL PRACTICE" title="現場から、つくりました。">
-          <p>Re:Talkは、言語聴覚士が臨床の中で感じてきた不便や課題から生まれました。</p>
+          <p>STAMU Aphasiaは、言語聴覚士が臨床の中で感じてきた不便や課題から生まれました。</p>
           <ul className={styles.issueList}>
             <li>教材を探す・準備する</li><li>訓練結果を手で記録・集計する</li>
             <li>利用者ごとに内容を調整する</li><li>訓練・評価・記録が分かれている</li>
@@ -242,8 +242,8 @@ export function EvolutionSection() {
     <section className={`${styles.section} ${styles.evolution}`}>
       <MotionReveal className={styles.evolutionCopy}>
         <p className={styles.eyebrow}>09 / CONTINUOUS EVOLUTION</p>
-        <h2>Re:Talkは、進化を続けます。</h2>
-        <p>訓練、記録、分析。<br />Re:Talkは、臨床の声をもとにこれからもアップデートを続けます。</p>
+        <h2>STAMU Aphasiaは、進化を続けます。</h2>
+        <p>訓練、記録、分析。<br />STAMU Aphasiaは、臨床の声をもとにこれからもアップデートを続けます。</p>
       </MotionReveal>
       <EvolutionMotion />
     </section>
@@ -255,7 +255,7 @@ export function FAQSection() {
     <section className={`${styles.section} ${styles.faq}`} id="faq">
       <div className={styles.faqGrid}>
         <SectionIntro eyebrow="10 / FREQUENTLY ASKED QUESTIONS" title="よくあるご質問">
-          <p>Re:Talkの利用や情報の扱いについて、基本的な内容をまとめています。</p>
+          <p>STAMU Aphasiaの利用や情報の扱いについて、基本的な内容をまとめています。</p>
           <Link className={styles.inlineLink} href="/faq">FAQページを見る <span aria-hidden="true">→</span></Link>
         </SectionIntro>
         <MotionReveal><FAQAccordion /></MotionReveal>
@@ -271,7 +271,7 @@ export function FinalCTASection() {
       <MotionReveal className={styles.finalContent}>
         <BrandLogo />
         <h2>ことばのリハビリを、<br />もっと日常へ。</h2>
-        <p>Re:Talkは無料。<br /><small>iPhone / iPad対応</small></p>
+        <p>STAMU Aphasiaは無料。<br /><small>iPhone / iPad対応</small></p>
         <AppStoreCta />
       </MotionReveal>
     </section>

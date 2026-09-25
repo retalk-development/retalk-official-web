@@ -26,7 +26,7 @@ import {
 } from "@/config/structured-data";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Re:Talk | 失語症の自主練習を支えるリハビリアプリ",
+  title: "STAMU Aphasia | 失語症の自主練習を支えるリハビリアプリ",
   description: siteConfig.description,
   path: "/",
   absoluteTitle: true,

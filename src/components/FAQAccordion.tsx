@@ -5,7 +5,7 @@ export function FAQAccordion() {
   return (
     <div className={styles.list}>
       {faqItems.map((item, index) => (
-        <details key={item.question} className={styles.item} name="retalk-faq">
+        <details key={item.question} className={styles.item} name="stamu-aphasia-faq">
           <summary>
             <span className={styles.number}>{String(index + 1).padStart(2, "0")}</span>
             <span>{item.question}</span>

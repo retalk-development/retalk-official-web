@@ -1,4 +1,4 @@
-// Source: Re:Talk Native legal text — Privacy Ver.1.0
+// Source: Native legal text — Privacy Ver.1.0
 
 import {
   LEGAL_ADDRESS_DISCLOSURE_POLICY,
@@ -13,7 +13,7 @@ import {
 export const PRIVACY_VERSION = LEGAL_VERSION;
 
 export const PRIVACY_DOCUMENT: LegalDocumentContent = {
-  title: 'Re:Talk プライバシーポリシー',
+  title: 'STAMU Aphasia プライバシーポリシー',
   blocks: [
     {
       kind: 'table',
@@ -29,11 +29,11 @@ export const PRIVACY_DOCUMENT: LegalDocumentContent = {
     },
     {
       kind: 'paragraph',
-      text: `${LEGAL_OPERATOR}（以下「運営者」）は、モバイルアプリケーション「Re:Talk」（以下「本アプリ」）において、失語症等の当事者、家族、支援者、医療従事者等の情報を適切に取り扱います。`,
+      text: `${LEGAL_OPERATOR}（以下「運営者」）は、モバイルアプリケーション「STAMU Aphasia」（以下「本アプリ」）において、失語症等の当事者、家族、支援者、医療従事者等の情報を適切に取り扱います。`,
     },
     {
       kind: 'paragraph',
-      text: '本アプリは、医療・リハビリ用途を想定し、**個人情報の最小化**と**端末内保存**を基本とします。本ポリシーは、Re:Talk Ver.1.0 時点の**実装に基づく事実**を記載します。将来の機能追加により取扱いが変更される場合は、本ポリシーを改定します。',
+      text: '本アプリは、医療・リハビリ用途を想定し、**個人情報の最小化**と**端末内保存**を基本とします。本ポリシーは、STAMU Aphasia Ver.1.0 時点の**実装に基づく事実**を記載します。将来の機能追加により取扱いが変更される場合は、本ポリシーを改定します。',
     },
     {
       kind: 'paragraph',
@@ -65,7 +65,7 @@ export const PRIVACY_DOCUMENT: LegalDocumentContent = {
     },
     {
       kind: 'heading',
-      text: '3. Re:Talk が取り扱う情報',
+      text: '3. STAMU Aphasia が取り扱う情報',
     },
     {
       kind: 'paragraph',
@@ -221,7 +221,7 @@ export const PRIVACY_DOCUMENT: LegalDocumentContent = {
         ],
         [
           '音声認識（iOS）',
-          'on-device 認識を必須とする設計。Re:Talk 側から server ASR へ fallback しない',
+          'on-device 認識を必須とする設計。STAMU Aphasia 側から server ASR へ fallback しない',
         ],
         ['TTS', '端末内テキスト読み上げ'],
         [
@@ -243,8 +243,8 @@ export const PRIVACY_DOCUMENT: LegalDocumentContent = {
       kind: 'ordered',
       items: [
         '発話を要する訓練課題（呼称、復唱、音読等）では、端末の**マイク**および**音声認識**機能を利用し得ます。',
-        'iOS では、音声認識開始時に requiresOnDeviceRecognition=true を設定し、on-device 認識が利用できない場合は Re:Talk 側から server モードへ再試行せず、支援者による手動判定へ移行します。',
-        '本アプリは recordingOptions.persist=false を設定し、**録音ファイルを Re:Talk 側で保存しません**。',
+        'iOS では、音声認識開始時に requiresOnDeviceRecognition=true を設定し、on-device 認識が利用できない場合は STAMU Aphasia 側から server モードへ再試行せず、支援者による手動判定へ移行します。',
+        '本アプリは recordingOptions.persist=false を設定し、**録音ファイルを STAMU Aphasia 側で保存しません**。',
         '音声認識が成功し、非空の final transcript が得られた場合に限り、認識結果テキスト（recognizedText）を訓練記録として保存し得ます。音声そのものではなく、認識されたテキストが端末内の訓練データとして扱われます。',
         'マイク権限または音声認識権限が拒否された場合、本アプリは vendor エラーを患者向けに表示せず、手動判定を維持します。',
         'Ver.1.0 の初期公開対象は iPhone / iPad を想定しています。将来 Android 版を提供する場合、端末の音声認識サービス（端末 OS 提供）を利用する場合があります。iOS 版とは設定が異なる場合があります。',
@@ -320,7 +320,7 @@ export const PRIVACY_DOCUMENT: LegalDocumentContent = {
     },
     {
       kind: 'paragraph',
-      text: 'Ver.1.0 時点で、Re:Talk 独自のクラウドへの患者・利用者データの同期または backup 機能は実装されていません。データは端末ローカルに保持されます。',
+      text: 'Ver.1.0 時点で、STAMU Aphasia 独自のクラウドへの患者・利用者データの同期または backup 機能は実装されていません。データは端末ローカルに保持されます。',
     },
     {
       kind: 'paragraph',
@@ -394,7 +394,7 @@ export const PRIVACY_DOCUMENT: LegalDocumentContent = {
       kind: 'ordered',
       items: [
         '端末の OS 設定（iCloud Backup、端末バックアップ等）により、本アプリのデータが OS の backup 対象となり、復元され得る場合があります。運営者は、OS や外部サービスによるバックアップの実行、保存、復元を管理または保証するものではありません。',
-        'iCloud Backup の対象外であること、または必ず backup されることは断定しません。Re:Talk 独自の backup / restore 機能は、Ver.1.0 時点では提供していません。',
+        'iCloud Backup の対象外であること、または必ず backup されることは断定しません。STAMU Aphasia 独自の backup / restore 機能は、Ver.1.0 時点では提供していません。',
         '端末紛失・盗難・故障時、本アプリ内データが第三者にアクセスされるリスクがあります。端末のパスコード、生体認証、自動ロック、遠隔消去等は、利用者または施設の責任において設定してください。',
       ],
     },

@@ -10,16 +10,18 @@ export function BrandLogo({ inverse = false, compact = false }: BrandLogoProps) 
   return (
     <span
       className={`${styles.logo} ${inverse ? styles.inverse : ""} ${compact ? styles.compact : ""}`}
-      aria-label="Re:Talk"
+      aria-label="STAMU Aphasia"
     >
-      <Image
-        className={styles.wordmark}
-        src="/brand/retalk-wordmark.png"
-        alt=""
-        width={851}
-        height={243}
-        sizes={compact ? "124px" : "156px"}
-      />
+      <span className={styles.crop}>
+        <Image
+          className={styles.wordmark}
+          src="/brand/stamu-aphasia-wordmark.png"
+          alt=""
+          width={1168}
+          height={439}
+          sizes={compact ? "144px" : "184px"}
+        />
+      </span>
     </span>
   );
 }

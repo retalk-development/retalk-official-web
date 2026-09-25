@@ -4,7 +4,7 @@ import { LegalDocument } from "@/components/LegalDocument";
 import { createPageMetadata } from "@/config/seo";
 import { PRIVACY_DOCUMENT } from "@/content/legal/privacy";
 
-const description = "Re:Talk プライバシーポリシーの全文をご案内します。";
+const description = "STAMU Aphasia プライバシーポリシーの全文をご案内します。";
 
 export const metadata: Metadata = createPageMetadata({
   title: "プライバシーポリシー",

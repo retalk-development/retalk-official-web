@@ -5,7 +5,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { createPageMetadata } from "@/config/seo";
 import { faqPageJsonLd } from "@/config/structured-data";
 
-const description = "Re:Talkの料金、対応端末、失語症の訓練課題、医療・介護施設での利用、患者情報の保存、安全性に関する質問にお答えします。";
+const description = "STAMU Aphasiaの料金、対応端末、失語症の訓練課題、医療・介護施設での利用、患者情報の保存、安全性に関する質問にお答えします。";
 
 export const metadata: Metadata = createPageMetadata({
   title: "失語症リハビリアプリのよくあるご質問",

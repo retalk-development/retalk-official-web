@@ -4,12 +4,12 @@ import { ImageResponse } from "next/og";
 
 /* eslint-disable @next/next/no-img-element -- ImageResponse renders this local asset through Satori. */
 
-export const alt = "ことばのリハビリを、もっと日常へ。失語症の自主練習・リハビリを支えるRe:Talk";
+export const alt = "ことばのリハビリを、もっと日常へ。失語症の自主練習・リハビリを支えるSTAMU Aphasia";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-const iconData = await readFile(join(process.cwd(), "src", "app", "icon.png"));
-const iconSrc = Uint8Array.from(iconData).buffer;
+const logoData = await readFile(join(process.cwd(), "public", "brand", "stamu-aphasia-wordmark.png"));
+const logoSrc = Uint8Array.from(logoData).buffer;
 
 export default function OpenGraphImage() {
   return new ImageResponse(
@@ -26,16 +26,15 @@ export default function OpenGraphImage() {
       }}
     >
       <div style={{ display: "flex", flexDirection: "column", width: "1024px" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "20px", fontSize: "42px", fontWeight: 700 }}>
+        <div style={{ display: "flex", alignItems: "center" }}>
           {/* @ts-expect-error ImageResponse supports ArrayBuffer sources for local images. */}
-          <img src={iconSrc} width={72} height={72} alt="" />
-          Re:Talk
+          <img src={logoSrc} width={584} height={220} alt="" />
         </div>
-        <div style={{ display: "flex", marginTop: "64px", fontSize: "58px", fontWeight: 700, letterSpacing: "-2px" }}>
+        <div style={{ display: "flex", marginTop: "36px", fontSize: "58px", fontWeight: 700, letterSpacing: "-2px" }}>
           ことばのリハビリを、もっと日常へ。
         </div>
         <div style={{ display: "flex", marginTop: "28px", color: "#48627f", fontSize: "29px" }}>
-          失語症の自主練習・リハビリを支えるRe:Talk
+          失語症の自主練習・リハビリを支えるSTAMU Aphasia
         </div>
       </div>
     </div>,

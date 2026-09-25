@@ -71,8 +71,8 @@ export const platformItems = [
 // These answers intentionally describe only current, publicly approved capabilities.
 export const faqItems = [
   {
-    question: "Re:Talkは無料ですか？",
-    answer: "はい。Re:Talkは無料で利用できます。失語症のある方の自主練習・自主訓練と、それを支える言語聴覚士の記録や振り返りに活用できます。",
+    question: "STAMU Aphasiaは無料ですか？",
+    answer: "はい。STAMU Aphasiaは無料で利用できます。失語症のある方の自主練習・自主訓練と、それを支える言語聴覚士の記録や振り返りに活用できます。",
   },
   {
     question: "iPhone / iPadで使えますか？",
@@ -88,15 +88,15 @@ export const faqItems = [
   },
   {
     question: "ST以外の医療・介護職も使えますか？",
-    answer: "Re:Talkは言語聴覚士による支援を中心に設計しています。チームで参照する場合は、各施設の役割と情報管理方針に沿ってご利用ください。",
+    answer: "STAMU Aphasiaは言語聴覚士による支援を中心に設計しています。チームで参照する場合は、各施設の役割と情報管理方針に沿ってご利用ください。",
   },
   {
     question: "患者さんの情報はどこに保存されますか？",
     answer: "患者さんの情報をできるだけ端末内で扱う設計を基本にしています。独自の患者データ送信や外部AIへの送信は行いません。詳しくは安全性ページをご確認ください。",
   },
   {
-    question: "Re:Talkは診断や治療判断を行いますか？",
-    answer: "いいえ。Re:Talkは診断、予後予測、治療判断を行うものではありません。訓練・記録・評価・支援を補助するツールです。",
+    question: "STAMU Aphasiaは診断や治療判断を行いますか？",
+    answer: "いいえ。STAMU Aphasiaは診断、予後予測、治療判断を行うものではありません。訓練・記録・評価・支援を補助するツールです。",
   },
   {
     question: "困ったときはどこに問い合わせればよいですか？",

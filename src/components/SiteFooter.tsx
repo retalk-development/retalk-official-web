@@ -23,7 +23,7 @@ export function SiteFooter() {
         </nav>
       </div>
       <div className={styles.bottom}>
-        <span>© {new Date().getFullYear()} Re:Talk</span>
+        <span>© {new Date().getFullYear()} {siteConfig.masterBrand}</span>
         <span>Clinical rehabilitation, connected.</span>
       </div>
     </footer>

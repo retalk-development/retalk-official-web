@@ -4,7 +4,7 @@ import { LegalDocument } from "@/components/LegalDocument";
 import { createPageMetadata } from "@/config/seo";
 import { TERMS_DOCUMENT } from "@/content/legal/terms";
 
-const description = "Re:Talk 利用規約の全文をご案内します。";
+const description = "STAMU Aphasia 利用規約の全文をご案内します。";
 
 export const metadata: Metadata = createPageMetadata({
   title: "利用規約",
