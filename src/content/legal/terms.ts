@@ -1,4 +1,4 @@
-// Source: Re:Talk Native legal text — Terms Ver.1.0
+// Source: Native legal text — Terms Ver.1.0
 
 import {
   LEGAL_CONTACT_EMAIL,
@@ -12,7 +12,7 @@ import {
 export const TERMS_VERSION = LEGAL_VERSION;
 
 export const TERMS_DOCUMENT: LegalDocumentContent = {
-  title: 'Re:Talk 利用規約',
+  title: 'STAMU Aphasia 利用規約',
   blocks: [
     {
       kind: 'table',
@@ -30,14 +30,14 @@ export const TERMS_DOCUMENT: LegalDocumentContent = {
     {
       kind: 'ordered',
       items: [
-        `本利用規約（以下「本規約」）は、${LEGAL_OPERATOR}（以下「運営者」）が提供するモバイルアプリケーション「Re:Talk」（以下「本アプリ」）の利用条件を定めるものです。`,
+        `本利用規約（以下「本規約」）は、${LEGAL_OPERATOR}（以下「運営者」）が提供するモバイルアプリケーション「STAMU Aphasia」（以下「本アプリ」）の利用条件を定めるものです。`,
         '本規約は、本アプリのダウンロード、インストール、起動、閲覧、利用その他一切の利用行為（以下総称して「利用」）に適用されます。',
         '本アプリを利用する場合、本規約が適用されます。',
       ],
     },
     {
       kind: 'heading',
-      text: '第2条（Re:Talk の位置づけ）',
+      text: '第2条（STAMU Aphasia の位置づけ）',
     },
     {
       kind: 'ordered',
@@ -170,7 +170,7 @@ export const TERMS_DOCUMENT: LegalDocumentContent = {
       items: [
         '通常の臨床現場における本アプリの利用について、運営者への事前の許可または申請は必要ありません。',
         '本アプリを用いた症例報告、学会発表、論文、研究報告その他の対外的な発表または公表についても、運営者への事前の許可または申請は必要ありません。',
-        '前項の発表または公表を行う場合は、本アプリを使用したことを発表資料または本文中に明記してください。また、可能な限り、使用した本アプリのバージョン（例：Re:Talk Ver.1.0）を併記してください。',
+        '前項の発表または公表を行う場合は、本アプリを使用したことを発表資料または本文中に明記してください。また、可能な限り、使用した本アプリのバージョン（例：STAMU Aphasia Ver.1.0）を併記してください。',
         '前項の記載は、運営者が当該研究、症例報告、発表その他の内容を承認、監修または保証したことを意味するものではありません。',
         '利用者は、研究または対外発表を行うにあたり、所属施設の規程、倫理審査、同意取得、個人情報保護その他適用される法令・規則を遵守するものとします。',
         '本アプリのロゴ、教材、画像、音声、画面等を転載または二次利用する場合は、本規約の知的財産権に関する定めに従うものとします。',

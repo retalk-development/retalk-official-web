@@ -6,13 +6,14 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Re:Talk | 失語症の自主練習を支えるリハビリアプリ",
-    template: "%s | Re:Talk",
+    default: "STAMU Aphasia | 失語症の自主練習を支えるリハビリアプリ",
+    template: "%s | STAMU Aphasia",
   },
   description: siteConfig.description,
   applicationName: siteConfig.name,
   keywords: [
-    "Re:Talk",
+    "STAMU Aphasia",
+    "STAMU",
     "失語症",
     "失語症リハビリ",
     "自主練習",

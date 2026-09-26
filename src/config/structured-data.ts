@@ -7,9 +7,10 @@ export const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "@id": organizationId,
-  name: siteConfig.name,
+  name: siteConfig.masterBrand,
   url: siteUrl,
   description: siteConfig.description,
+  logo: `${siteUrl}/brand/stamu-aphasia-wordmark.png`,
 };
 
 export const websiteJsonLd = {
@@ -33,6 +34,10 @@ export const softwareApplicationJsonLd = {
   operatingSystem: "iOS, iPadOS",
   inLanguage: "ja-JP",
   description: siteConfig.description,
+  brand: {
+    "@type": "Brand",
+    name: siteConfig.masterBrand,
+  },
   publisher: { "@id": organizationId },
   offers: {
     "@type": "Offer",

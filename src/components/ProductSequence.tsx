@@ -68,7 +68,7 @@ export function ProductSequence({
       ref={rootRef}
       className={`${styles.sequence} ${styles[variant]} ${styles[motion]} ${className}`}
       data-active={active}
-      aria-label="Re:Talk製品画面の流れ"
+      aria-label="STAMU Aphasia製品画面の流れ"
     >
       <div className={styles.device}>
         <div className={styles.speaker} aria-hidden="true" />

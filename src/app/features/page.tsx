@@ -3,7 +3,7 @@ import { InfoPage } from "@/components/InfoPage";
 import { createPageMetadata } from "@/config/seo";
 import { productScreens } from "@/data/product-screens";
 
-const description = "失語症の自主練習に使える訓練課題・教材と、練習結果の記録・振り返りをつなぐRe:Talkの主な機能をご紹介します。";
+const description = "失語症の自主練習に使える訓練課題・教材と、練習結果の記録・振り返りをつなぐSTAMU Aphasiaの主な機能をご紹介します。";
 
 export const metadata: Metadata = createPageMetadata({
   title: "失語症の訓練課題・教材と記録機能",
@@ -25,8 +25,8 @@ export default function FeaturesPage() {
         },
         {
           title: "課題語を選び、教材準備につなげる",
-          paragraphs: ["検索・カテゴリ・頻度・使用状態から課題語を絞り、Re:Talkに収録された語から訓練に使う内容を選べます。すべての臨床教材を網羅するものではありません。"],
-          screens: [productScreens.wordSettingsFilter, productScreens.wordSettingsList],
+          paragraphs: ["検索・カテゴリ・頻度・使用状態から課題語を絞り、STAMU Aphasiaに収録された語から訓練に使う内容を選べます。すべての臨床教材を網羅するものではありません。"],
+          screens: [productScreens.wordSettingsList],
         },
         {
           title: "訓練結果を記録し、Patient Recordで振り返る",
@@ -40,7 +40,7 @@ export default function FeaturesPage() {
         },
         {
           title: "評価記録とRehab Recordを同じ流れに",
-          paragraphs: ["評価結果の記録・比較と、実施した訓練、観察内容、SOAP、カルテ用テキストを扱うRehab Recordを、同じ利用者の流れで確認できます。Re:Talkは診断や治療判断を行わず、電子カルテを置き換えるものではありません。"],
+          paragraphs: ["評価結果の記録・比較と、実施した訓練、観察内容、SOAP、カルテ用テキストを扱うRehab Recordを、同じ利用者の流れで確認できます。STAMU Aphasiaは診断や治療判断を行わず、電子カルテを置き換えるものではありません。"],
           screens: [productScreens.evaluationRecords, productScreens.rehabRecordTop],
         },
       ]}

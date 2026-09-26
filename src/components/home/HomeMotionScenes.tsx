@@ -231,7 +231,7 @@ export function FreeMotion() {
   const scene = useMotionScene(rootRef);
   return (
     <div ref={rootRef} className={styles.metrics} data-entered={scene.entered}>
-      <div className={styles.metricMain}><strong>¥0</strong><span>Re:Talkは無料。</span></div>
+      <div className={styles.metricMain}><strong>¥0</strong><span>STAMU Aphasiaは無料。</span></div>
       <div><strong>29</strong><span>訓練課題</span></div>
       <div><strong>6</strong><span>訓練カテゴリ</span></div>
     </div>

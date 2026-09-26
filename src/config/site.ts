@@ -1,12 +1,13 @@
 export const siteConfig = {
-  name: "Re:Talk",
+  name: "STAMU Aphasia",
+  masterBrand: "STAMU",
   tagline: "ことばのリハビリを、もっと日常へ。",
   description:
-    "Re:Talkは、失語症のある方の自主練習・自主訓練を支え、訓練・記録・評価・支援をつなぐリハビリテーションアプリです。",
+    "STAMU Aphasiaは、失語症のある方の自主練習・自主訓練を支え、訓練・記録・評価・支援をつなぐリハビリテーションアプリです。",
   // TODO(copy-review): Set the official App Store URL before production release.
   appStoreUrl: null as string | null,
   navigation: [
-    { label: "Re:Talkについて", href: "/about" },
+    { label: "STAMU Aphasiaについて", href: "/about" },
     { label: "できること", href: "/features" },
     { label: "STの方へ", href: "/for-st" },
     { label: "安全性", href: "/safety" },

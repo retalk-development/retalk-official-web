@@ -1,8 +1,13 @@
 .logo {
   display: inline-flex;
   align-items: center;
-  width: 9.75rem;
+  width: 11.5rem;
   line-height: 0;
+}
+
+.crop {
+  display: block;
+  width: 100%;
 }
 
 .wordmark {
@@ -18,5 +23,5 @@
 }
 
 .compact {
-  width: 7.75rem;
+  width: 9rem;
 }

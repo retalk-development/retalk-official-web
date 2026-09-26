@@ -1,6 +1,6 @@
-# Re:Talk Official Website
+# STAMU Aphasia Official Website
 
-Re:Talk公式Webサイトの初期実装です。Nativeアプリとは独立したNext.js repositoryとして管理します。
+STAMU Aphasia公式Webサイトです。Nativeアプリとは独立したNext.js repositoryとして管理します。
 
 ## Development
 
@@ -33,15 +33,19 @@ Set `siteConfig.appStoreUrl` in `src/config/site.ts`. Until a confirmed URL is p
 
 ## Contact destination
 
-Set `publicContactEmail` in `src/config/contact.ts` after the public address is confirmed. Do not commit a fabricated destination. Until then, `/contact` displays a preparation notice and safe contact guidance.
+The current public contact address remains `retalk.app.info@gmail.com` until the planned post-release migration to a STAMU-branded address.
 
 ## Product screenshots
 
-仮スクリーンショットは `public/product/` に置き、参照先は `src/data/product-screens.ts` に集約しています。正式画像へ差し替える際は、同名ファイルを置き換えるか、このmappingのみを更新してください。
+製品画面は `public/product/` に置き、参照先は `src/data/product-screens.ts` に集約しています。差し替え時は同名ファイルを置き換えるか、このmappingのみを更新してください。
+
+`launch-screen.jpg` と `patient-home-bottom.jpg` は Native Preview DEVICE PASS 済みの正式スクリーンショットに同期済みです。
+
+## Brand icon status
+
+`favicon.ico` / `icon.png` / `apple-icon.png` は公式 STAMU | Aphasia wordmark から STAMU 部分のみを切り出し、白地・navy STAMU の正方形アイコンとして配置しています（Aphasia 表記・旧 Re:Talk シンボルなし）。
 
 ## Remaining release inputs
 
 - confirmed App Store URL
-- confirmed public contact email
-- approved Terms and Privacy text
-- final Native screenshots
+- post-release contact email migration to a STAMU-branded address (current: `retalk.app.info@gmail.com`)

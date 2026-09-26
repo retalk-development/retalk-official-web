@@ -4,7 +4,7 @@ import { contactCategories, publicContactEmail } from "@/config/contact";
 import { createPageMetadata } from "@/config/seo";
 import styles from "./contact-page.module.css";
 
-const description = "Re:Talkの利用方法、不具合、安全性、医療・介護施設での利用に関するお問い合わせについてご案内します。";
+const description = "STAMU Aphasiaの利用方法、不具合、安全性、医療・介護施設での利用に関するお問い合わせについてご案内します。";
 
 export const metadata: Metadata = createPageMetadata({
   title: "お問い合わせ",

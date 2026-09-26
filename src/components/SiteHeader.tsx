@@ -19,7 +19,7 @@ export function SiteHeader() {
   return (
     <header className={styles.header}>
       <div className={styles.inner}>
-        <Link className={styles.logoLink} href="/" aria-label="Re:Talk トップへ">
+        <Link className={styles.logoLink} href="/" aria-label="STAMU Aphasia トップへ">
           <BrandLogo compact />
         </Link>
         <nav className={styles.desktopNav} aria-label="メインナビゲーション">
