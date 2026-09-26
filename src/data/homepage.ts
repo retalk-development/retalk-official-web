@@ -36,7 +36,6 @@ export const efficiencyStories = [
     eyebrow: "01 / 課題語設定",
     title: "教材を探す、準備する。その時間まで減らしていく。",
     copy: "検索・カテゴリ・頻度・使用状態から課題語を絞り、その人に合わせた語を選べます。",
-    // word-settings-filter.jpg still contains legacy Re:Talk helper text; omit until Native DEVICE PASS replacement arrives.
     screens: [productScreens.wordSettingsList],
   },
   {

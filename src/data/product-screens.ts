@@ -104,11 +104,6 @@ export const productScreens = {
     "支援者メニュー",
     "STAMU AphasiaのST・支援者向け機能メニュー画面",
   ),
-  wordSettingsFilter: screen(
-    "word-settings-filter.jpg",
-    "課題語を絞る",
-    "STAMU Aphasiaの課題語設定で検索、カテゴリ、頻度から教材を絞る画面",
-  ),
   wordSettingsList: screen(
     "word-settings-list.jpg",
     "課題語を選ぶ",
