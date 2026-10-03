@@ -105,6 +105,11 @@ test("schema rejects markup, script, and external URLs", () => {
   assert.ok(findAnnouncementViolations([valid, valid]).some((violation) => violation.includes("duplicates")));
 });
 
+test("updates.json is served as UTF-8 JSON", () => {
+  const source = readFileSync("src/app/updates.json/route.ts", "utf8");
+  assert.match(source, /application\/json;\s*charset=utf-8/);
+});
+
 test("news pages and the JSON feed use the announcement source", () => {
   for (const file of sourceFiles) {
     const source = readFileSync(file, "utf8");
