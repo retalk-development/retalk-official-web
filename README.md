@@ -29,7 +29,8 @@ No environment variable is required for local development. Canonical URLs, Open 
 
 ## Final App Store URL
 
-Set `siteConfig.appStoreUrl` in `src/config/site.ts`. Until a confirmed URL is provided, the CTA remains disabled and displays `App Store公開準備中`; it never points to a placeholder URL.
+`siteConfig.appStoreUrl` in `src/config/site.ts` is set to the official App Store page:
+`https://apps.apple.com/app/stamu-aphasia/id6814539319`
 
 ## Contact destination
 
@@ -47,5 +48,4 @@ The current public contact address remains `retalk.app.info@gmail.com` until the
 
 ## Remaining release inputs
 
-- confirmed App Store URL
 - post-release contact email migration to a STAMU-branded address (current: `retalk.app.info@gmail.com`)
