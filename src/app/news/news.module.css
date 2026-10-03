@@ -1,0 +1,55 @@
+.list {
+  display: grid;
+  gap: 1rem;
+  list-style: none;
+}
+
+.card {
+  display: grid;
+  gap: 0.7rem;
+  padding: 1.25rem 1.3rem;
+  border: 1px solid #dce5f0;
+  border-radius: 1rem;
+  background: #f6f8fc;
+}
+
+.card:hover {
+  border-color: #1769e8;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem 0.9rem;
+  color: #8293a6;
+  font-size: 0.75rem;
+  font-weight: 720;
+}
+
+.type {
+  color: #1769e8;
+}
+
+.card h2 {
+  color: #0b3b82;
+  font-size: clamp(1.2rem, 2.2vw, 1.55rem);
+  line-height: 1.4;
+}
+
+.card p:last-child,
+.body p,
+.empty {
+  color: #5a6e86;
+  line-height: 1.9;
+}
+
+.body {
+  display: grid;
+  gap: 1rem;
+  max-width: 48rem;
+  margin-top: 1.5rem;
+}
+
+.empty {
+  max-width: 48rem;
+}
