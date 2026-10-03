@@ -11,6 +11,7 @@ export const siteConfig = {
     { label: "STの方へ", href: "/for-st" },
     { label: "安全性", href: "/safety" },
     { label: "FAQ", href: "/faq" },
+    { label: "お知らせ", href: "/news" },
     { label: "お問い合わせ", href: "/contact" },
   ],
   footerNavigation: [
@@ -59,6 +60,7 @@ export const publicPages = [
   { path: "/for-st", changeFrequency: "monthly", priority: 0.8 },
   { path: "/safety", changeFrequency: "yearly", priority: 0.7 },
   { path: "/faq", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/news", changeFrequency: "weekly", priority: 0.6 },
   { path: "/contact", changeFrequency: "yearly", priority: 0.5 },
   { path: "/terms", changeFrequency: "yearly", priority: 0.3 },
   { path: "/privacy", changeFrequency: "yearly", priority: 0.3 },
