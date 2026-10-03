@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { AppStoreCta } from "@/components/AppStoreCta";
 import { BrandLogo } from "@/components/BrandLogo";
 import { siteConfig } from "@/config/site";
 import styles from "./site-header.module.css";
@@ -28,7 +27,6 @@ export function SiteHeader() {
           ))}
         </nav>
         <div className={styles.actions}>
-          <AppStoreCta compact />
           <button
             type="button"
             className={styles.menuButton}
