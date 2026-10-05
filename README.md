@@ -23,9 +23,11 @@ No environment variable is required for local development. Canonical URLs, Open 
 
 1. `NEXT_PUBLIC_SITE_URL` when explicitly set
 2. Netlify Deploy Preview / branch deploy: `DEPLOY_PRIME_URL` (or `DEPLOY_URL`)
-3. Netlify production: `https://retalk-app.com` (`CONTEXT=production`)
+3. Netlify production: `https://stamu.jp` (`CONTEXT=production`)
 4. Vercel: `VERCEL_PROJECT_PRODUCTION_URL`
 5. Local development: `http://localhost:3000`
+
+`https://retalk-app.com` and `https://www.retalk-app.com` stay attached to the same Netlify site. After `stamu.jp` is the primary domain, Netlify 301-redirects those hosts to `https://stamu.jp` and keeps the path. Do not remove `retalk-app.com` from the site. `https://www.stamu.jp` should redirect to the apex the same way. If `NEXT_PUBLIC_SITE_URL` is set in Netlify, it must be `https://stamu.jp` or unset, because that variable overrides the production origin above.
 
 ## Final App Store URL
 
