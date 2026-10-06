@@ -21,7 +21,8 @@ export const siteConfig = {
   ],
 } as const;
 
-const PRODUCTION_SITE_URL = "https://retalk-app.com";
+/** Official production origin. retalk-app.com stays on the same Netlify site and 301s here. */
+export const productionSiteUrl = "https://stamu.jp";
 
 function resolveSiteUrl(): string {
   if (process.env.NEXT_PUBLIC_SITE_URL) {
@@ -37,11 +38,11 @@ function resolveSiteUrl(): string {
   }
 
   if (context === "production") {
-    return PRODUCTION_SITE_URL;
+    return productionSiteUrl;
   }
 
   if (process.env.NETLIFY === "true") {
-    return process.env.URL ?? PRODUCTION_SITE_URL;
+    return process.env.URL ?? productionSiteUrl;
   }
 
   if (process.env.VERCEL_PROJECT_PRODUCTION_URL) {

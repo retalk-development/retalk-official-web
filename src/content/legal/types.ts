@@ -1,3 +1,5 @@
+import { productionSiteUrl } from "@/config/site";
+
 export type LegalBlock =
   | { kind: 'heading'; text: string }
   | { kind: 'paragraph'; text: string }
@@ -19,9 +21,9 @@ export const LEGAL_ADDRESS_DISCLOSURE_POLICY =
   '運営者の住所は、法令に基づき開示が必要となる場合、請求に応じて遅滞なく開示します。';
 
 export const LEGAL_OFFICIAL_URLS = {
-  website: 'https://retalk-app.com',
-  privacy: 'https://retalk-app.com/privacy',
-  terms: 'https://retalk-app.com/terms',
-  contact: 'https://retalk-app.com/contact',
-  safety: 'https://retalk-app.com/safety',
+  website: productionSiteUrl,
+  privacy: `${productionSiteUrl}/privacy`,
+  terms: `${productionSiteUrl}/terms`,
+  contact: `${productionSiteUrl}/contact`,
+  safety: `${productionSiteUrl}/safety`,
 } as const;
