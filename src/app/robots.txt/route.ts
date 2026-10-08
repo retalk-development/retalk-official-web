@@ -1,25 +1,28 @@
 import { connection } from "next/server";
-import { productionSiteUrl, siteUrl } from "@/config/site";
+import { productionSiteUrl } from "@/config/site";
 
 export const dynamic = "force-dynamic";
 
 /**
- * Production Host/Sitemap must stay on stamu.jp even when Netlify's URL is
- * still the retalk-app.com alias. Preview and branch deploys keep siteUrl.
- * This route is dynamic so Netlify cannot keep serving a year-old static
- * robots.txt from the durable cache after the origin changes.
+ * Production Host/Sitemap must stay on stamu.jp.
+ * Never fall back to module-level siteUrl (can be localhost when CONTEXT
+ * is unset at Netlify runtime). Preview/branch deploys use DEPLOY_* only
+ * when those URLs are explicitly present; otherwise productionSiteUrl.
  */
 function robotsOrigin(): string {
   const context = process.env.CONTEXT;
+
   if (context === "deploy-preview" || context === "branch-deploy") {
-    return siteUrl;
+    const previewUrl =
+      process.env.DEPLOY_PRIME_URL ??
+      process.env.DEPLOY_URL;
+
+    if (previewUrl) {
+      return previewUrl.replace(/\/$/, "");
+    }
   }
 
-  if (context === "production") {
-    return productionSiteUrl;
-  }
-
-  return siteUrl;
+  return productionSiteUrl;
 }
 
 export async function GET() {
