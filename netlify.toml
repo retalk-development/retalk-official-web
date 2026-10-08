@@ -1,0 +1,27 @@
+# Domain-level redirects: old official hosts only.
+# Absolute `from` URLs match Host, so stamu.jp / *.netlify.app are unaffected.
+# Do not add host-independent `/*` catch-alls — both Netlify projects share this repo.
+
+[[redirects]]
+  from = "https://retalk-app.com/*"
+  to = "https://stamu.jp/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.retalk-app.com/*"
+  to = "https://stamu.jp/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://retalk-app.com/*"
+  to = "https://stamu.jp/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.retalk-app.com/*"
+  to = "https://stamu.jp/:splat"
+  status = 301
+  force = true
