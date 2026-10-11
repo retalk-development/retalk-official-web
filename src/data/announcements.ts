@@ -31,6 +31,26 @@ export const announcementTypeLabels: Record<AnnouncementType, string> = {
 
 export const announcements = [
   {
+    id: "stamu-aphasia-ver-1-2-release",
+    publishedAt: "2026-10-08",
+    type: "update",
+    title: "STAMU Aphasia Ver.1.2をリリースしました",
+    summary:
+      "STAMU Aphasia Ver.1.2を公開しました。言語聴覚士・研究利用を支える機能を中心に改善しています。",
+    body: [
+      "STAMU Aphasia Ver.1.2を公開しました。",
+      "今回のアップデートでは、言語聴覚士・研究利用を支える機能を中心に改善しています。",
+      "主な更新内容:",
+      "・研究用モード／研究データ出力の改善",
+      "・端末間でデータを引き継ぐ Transfer 機能",
+      "・Research CSV の日本語ラベル・項目説明の充実",
+      "・SLTA入力画面など各種UIの改善",
+      "・データ移行時の安全性・エラー表示の改善",
+      "STAMU Aphasiaは、失語症の自主訓練を「やって終わり」にせず、訓練・記録・振り返りを次の支援につなげることを目指しています。",
+      "今後も、臨床で使いやすい形を少しずつ改善していきます。",
+    ],
+  },
+  {
     id: "stamu-aphasia-ver-1-0-app-store",
     publishedAt: "2026-10-03",
     type: "update",
