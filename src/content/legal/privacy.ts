@@ -384,7 +384,7 @@ export const PRIVACY_DOCUMENT: LegalDocumentContent = {
     },
     {
       kind: 'paragraph',
-      text: 'データ削除の取扱いに関する問い合わせは、retalk.app.info@gmail.com までお願いします。Ver.1.0 では、利用者単位ですべての関連データを物理削除する機能は提供していません。',
+      text: 'データ削除の取扱いに関する問い合わせは、stamu.app@gmail.com までお願いします。Ver.1.0 では、利用者単位ですべての関連データを物理削除する機能は提供していません。',
     },
     {
       kind: 'heading',
