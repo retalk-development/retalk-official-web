@@ -13,24 +13,19 @@ export function AppStoreCta({ inverse = false, compact = false, className = "" }
 
   if (!siteConfig.appStoreUrl) {
     return (
-      <button
-        type="button"
-        className={classes}
-        aria-disabled="true"
-        title="App Store公開後にリンクを有効化します"
-      >
-        <span className={styles.icon} aria-hidden="true">…</span>
-        <span>App Store公開準備中</span>
+      <button type="button" className={classes} aria-disabled="true">
+        <span className={styles.storeMark} aria-hidden="true">A</span>
+        <span><small>App Store</small>公開準備中</span>
       </button>
     );
   }
 
   return (
-    <Link className={classes} href={siteConfig.appStoreUrl}>
-      <span className={styles.icon} aria-hidden="true">↗</span>
+    <Link className={classes} href={siteConfig.appStoreUrl} aria-label="App StoreからSTAMU Aphasiaをダウンロード">
+      <span className={styles.storeMark} aria-hidden="true">A</span>
       <span>
-        <small>無料で利用できます</small>
-        App Storeでダウンロード
+        <small>App Storeから</small>
+        ダウンロード
       </span>
     </Link>
   );

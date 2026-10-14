@@ -3,10 +3,10 @@ import { InfoPage } from "@/components/InfoPage";
 import { createPageMetadata } from "@/config/seo";
 import { productScreens } from "@/data/product-screens";
 
-const description = "失語症の自主練習に使える訓練課題・教材と、練習結果の記録・振り返りをつなぐSTAMU Aphasiaの主な機能をご紹介します。";
+const description = "STAMU Aphasiaの訓練・記録・分析・評価・研究・データ受け渡し機能をご紹介します。";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "失語症の訓練課題・教材と記録機能",
+  title: "STAMU Aphasiaの機能",
   description,
   path: "/features",
 });
@@ -19,29 +19,70 @@ export default function FeaturesPage() {
       description={description}
       sections={[
         {
-          title: "失語症の自主練習を選び、調整する",
-          paragraphs: ["6つの訓練カテゴリと29の訓練課題から、取り組む課題を選べます。問題数、選択肢数など課題ごとの設定と、文字・画像の大きさなどの利用者別設定を使い、その人に合わせた自主練習・自主訓練へ進めます。"],
-          screens: [productScreens.trainingCategoriesTop, productScreens.trainingSetupTop],
+          title: "自主練習・訓練",
+          paragraphs: [
+            "6つの訓練カテゴリと29の訓練課題から、取り組む課題を選べます。問題数、選択肢数、課題語などを調整し、その人に合わせた自主練習・自主訓練へ進めます。",
+            "お気に入り機能「あなたの訓練」を使い、よく行う訓練へ戻りやすくすることもできます。",
+          ],
+          screens: [
+            productScreens.trainingCategoriesTop,
+            productScreens.trainingQuestion,
+          ],
         },
         {
-          title: "課題語を選び、教材準備につなげる",
-          paragraphs: ["検索・カテゴリ・頻度・使用状態から課題語を絞り、STAMU Aphasiaに収録された語から訓練に使う内容を選べます。すべての臨床教材を網羅するものではありません。"],
-          screens: [productScreens.wordSettingsList],
+          title: "記録・振り返り",
+          paragraphs: [
+            "訓練結果を保存し、Patient Recordから正答率、実施回数、課題ごとの履歴を振り返れます。",
+            "自主練習をやりっぱなしにせず、次の訓練や支援へつなげるための記録として扱います。",
+          ],
+          screens: [
+            productScreens.trainingResult,
+            productScreens.patientRecord,
+          ],
         },
         {
-          title: "訓練結果を記録し、Patient Recordで振り返る",
-          paragraphs: ["実施した訓練の結果を記録し、Patient Recordで正答率、実施回数、課題ごとの履歴を振り返れます。"],
-          screens: [productScreens.trainingResult, productScreens.patientRecord],
+          title: "ST Dashboard・課題分析",
+          paragraphs: [
+            "言語聴覚士・STは、ST Dashboardから訓練履歴と成績を確認できます。課題別の成績や推移を見ながら、支援を考えるための情報を整理できます。",
+            "Clinical Profileと合わせて、その人の背景と訓練結果を同じ流れで確認できます。",
+          ],
+          screens: [
+            productScreens.stDashboard,
+            productScreens.stTaskAnalysisTop,
+          ],
         },
         {
-          title: "ST Dashboardで履歴と傾向を確認する",
-          paragraphs: ["言語聴覚士・STは、ST Dashboardから訓練履歴と成績を確認できます。課題分析では実施回数や正答率の推移を振り返り、支援を考えるための情報を整理できます。"],
-          screens: [productScreens.stDashboard, productScreens.stTaskAnalysisTop],
+          title: "評価・SLTA・臨床記録",
+          paragraphs: [
+            "実施済み評価結果を記録し、SLTAでは2時点比較やPDF出力に対応しています。",
+            "Rehab Recordでは、実施した訓練、観察内容、SOAP、カルテ用テキストを同じ利用者の流れで扱えます。STAMU Aphasiaは診断や治療判断を行わず、電子カルテを置き換えるものではありません。",
+          ],
+          screens: [
+            productScreens.sltaComparisonTop,
+            productScreens.rehabRecordSoap,
+          ],
         },
         {
-          title: "評価記録とRehab Recordを同じ流れに",
-          paragraphs: ["評価結果の記録・比較と、実施した訓練、観察内容、SOAP、カルテ用テキストを扱うRehab Recordを、同じ利用者の流れで確認できます。STAMU Aphasiaは診断や治療判断を行わず、電子カルテを置き換えるものではありません。"],
-          screens: [productScreens.evaluationRecords, productScreens.rehabRecordTop],
+          title: "研究モード・Research CSV",
+          paragraphs: [
+            "研究用訓練、研究用評価、研究設定、研究履歴、研究データ書き出しに対応しています。",
+            "Research CSVは英語コード列を保ちつつ、日本語ラベルや課題名・課題説明を付加し、研究者が内容を確認しやすい形で出力します。",
+          ],
+          screens: [
+            productScreens.stSupportMenu,
+            productScreens.evaluationRecords,
+          ],
+        },
+        {
+          title: "データ受け渡し",
+          paragraphs: [
+            "自主練習データを書き出し・取り込みできるTransfer Packageに対応しています。",
+            "患者端末とST側端末の間でデータを受け渡す際、誤った利用者への取り込みや重複取り込みを避けるための安全処理を備えています。",
+          ],
+          screens: [
+            productScreens.patientRecord,
+            productScreens.stDashboard,
+          ],
         },
       ]}
       relatedLinks={[
