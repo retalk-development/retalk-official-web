@@ -6,8 +6,9 @@ import { FAQAccordion } from "@/components/FAQAccordion";
 import {
   concernGroups,
   homepagePoints,
-  researchEvidence,
+  researchEvidenceGroups,
   stFeatureCards,
+  usageScreens,
   usageSteps,
 } from "@/data/homepage";
 import { productScreens, type ProductScreen } from "@/data/product-screens";
@@ -20,7 +21,7 @@ function SectionHeading({
   centered = false,
 }: {
   eyebrow: string;
-  title: string;
+  title: React.ReactNode;
   copy?: string;
   centered?: boolean;
 }) {
@@ -60,6 +61,36 @@ function TextLink({ href, children }: { href: string; children: React.ReactNode 
   );
 }
 
+function HeroFactIcon({ kind }: { kind: "device" | "training" | "category" }) {
+  if (kind === "device") {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="3.5" y="5" width="10" height="14" rx="2" />
+        <path d="M7 16.5h3" />
+        <rect x="15.5" y="2.5" width="5" height="10" rx="1.3" />
+      </svg>
+    );
+  }
+
+  if (kind === "training") {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="4" y="5" width="13" height="14" rx="2" />
+        <path d="M8 9h5M8 13h5M8 17h3M8 3h12v13" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <rect x="4" y="4" width="6" height="6" rx="1.2" />
+      <rect x="14" y="4" width="6" height="6" rx="1.2" />
+      <rect x="4" y="14" width="6" height="6" rx="1.2" />
+      <rect x="14" y="14" width="6" height="6" rx="1.2" />
+    </svg>
+  );
+}
+
 export function HeroSection() {
   return (
     <section className={styles.hero} aria-labelledby="hero-title">
@@ -72,16 +103,28 @@ export function HeroSection() {
           </h1>
           <p className={styles.heroLead}>
             STAMU Aphasiaは、<span className={styles.noBreak}>失語症のある方の自主練習</span>と、
-            <span className={styles.noBreak}>言語聴覚士による記録・振り返り</span>を支える無料アプリです。
+            <span className={styles.noBreak}>言語聴覚士による記録・振り返り</span>を支える<span className={styles.noBreak}>無料アプリ</span>です。
           </p>
           <div className={styles.heroCtaRow}>
             <AppStoreCta />
-            <p><strong>無料</strong><span>App Storeで配信中</span></p>
+            <p className={styles.heroFreeNote}>
+              <strong>無料で利用できます</strong>
+              <span>App Storeで配信中</span>
+            </p>
           </div>
           <ul className={styles.heroFacts} aria-label="STAMU Aphasiaの概要">
-            <li><strong>iPhone / iPad</strong><span>対応</span></li>
-            <li><strong>29</strong><span>の訓練課題</span></li>
-            <li><strong>6</strong><span>カテゴリ</span></li>
+            <li>
+              <span className={styles.heroFactIcon}><HeroFactIcon kind="device" /></span>
+              <span className={styles.heroFactValue}><strong>iPhone / iPad</strong><span>対応</span></span>
+            </li>
+            <li>
+              <span className={styles.heroFactIcon}><HeroFactIcon kind="training" /></span>
+              <span className={styles.heroFactValue}><strong>29</strong><span>の訓練課題</span></span>
+            </li>
+            <li>
+              <span className={styles.heroFactIcon}><HeroFactIcon kind="category" /></span>
+              <span className={styles.heroFactValue}><strong>6</strong><span>カテゴリ</span></span>
+            </li>
           </ul>
           <TextLink href="/features">できることを詳しく見る</TextLink>
         </div>
@@ -221,6 +264,17 @@ export function HowToSection() {
             </li>
           ))}
         </ol>
+        <div className={styles.stepVisualFlow} aria-label="登録から訓練、結果確認までのアプリ画面">
+          {usageScreens.map((item) => (
+            <article key={item.step} className={styles.stepScreenCard}>
+              <PhoneScreen screen={item.screen} />
+              <div>
+                <span>STEP {item.step}</span>
+                <h3>{item.title}</h3>
+              </div>
+            </article>
+          ))}
+        </div>
         <div className={styles.centerLink}><TextLink href="/features">使い方と機能を詳しく見る</TextLink></div>
       </div>
     </section>
@@ -233,27 +287,34 @@ export function ResearchSection() {
       <div className={styles.container}>
         <SectionHeading
           eyebrow="RESEARCH EVIDENCE"
-          title="研究から見る、デジタル自主練習"
+          title={(
+            <>
+              <span className={styles.researchTitleLine}>研究から見る、</span>
+              <span className={styles.researchTitleLine}>デジタル自主練習</span>
+            </>
+          )}
           copy="失語症領域では、コンピューターやタブレットを使った訓練・評価の研究が進められています。"
         />
         <p className={styles.researchBoundary}>
           ここで紹介するのはデジタル支援全般の先行研究です。STAMU Aphasia自体の治療効果を示すものではありません。
         </p>
-        <div className={styles.evidenceGrid}>
-          {researchEvidence.map((evidence) => (
-            <article key={evidence.href} className={styles.evidenceCard}>
-              <div className={styles.evidenceMeta}>
-                <span>{evidence.region}</span><span>{evidence.type}</span>
-              </div>
-              <h3>{evidence.title}</h3>
-              <p>{evidence.summary}</p>
-              <p className={styles.limit}><strong>研究の限界</strong>{evidence.limitation}</p>
-              <a href={evidence.href} target="_blank" rel="noreferrer">
-                {evidence.citation}<span aria-hidden="true">↗</span>
-              </a>
-            </article>
-          ))}
-        </div>
+        {researchEvidenceGroups.map((group) => (
+          <div key={group.id} className={styles.evidenceGrid}>
+            {group.items.map((evidence) => (
+              <article key={evidence.href} className={styles.evidenceCard}>
+                <div className={styles.evidenceMeta}>
+                  <span>{evidence.region}</span><span>{evidence.type}</span>
+                </div>
+                <h3>{evidence.title}</h3>
+                <p>{evidence.summary}</p>
+                <p className={styles.limit}><strong>研究の限界</strong>{evidence.limitation}</p>
+                <a href={evidence.href} target="_blank" rel="noreferrer">
+                  {evidence.citation}<span aria-hidden="true">↗</span>
+                </a>
+              </article>
+            ))}
+          </div>
+        ))}
       </div>
     </section>
   );

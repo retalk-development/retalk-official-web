@@ -59,33 +59,46 @@ export const usageSteps = [
   { number: "4", title: "結果を振り返る", description: "Patient RecordやST Dashboardで確認します。" },
 ] as const;
 
-export const researchEvidence = [
+export const usageScreens = [
+  { step: "02", title: "利用者を登録", screen: productScreens.userInfo },
+  { step: "03", title: "訓練をスタート", screen: productScreens.trainingQuestion },
+  { step: "04", title: "結果を振り返る", screen: productScreens.patientRecord },
+] as const;
+
+// Grouped so a separate, verified STAMU clinical-evidence collection can be added later
+// without mixing it into the currently published third-party research evidence.
+export const researchEvidenceGroups = [
   {
-    region: "海外・英国",
-    type: "ランダム化比較試験",
-    title: "自宅で行うコンピューター訓練",
-    summary: "Big CACTUS試験では、通常ケアに自主的なコンピューター訓練を加えた群で、個人に関連する訓練語の呼称成績が向上しました。",
-    limitation: "会話への般化は確認されず、訓練した語の成績と日常コミュニケーションは分けて考える必要があります。",
-    citation: "Palmer R, et al. Lancet Neurology. 2019.",
-    href: "https://pubmed.ncbi.nlm.nih.gov/31397288/",
-  },
-  {
-    region: "海外・国際",
-    type: "システマティックレビュー",
-    title: "モバイル技術を用いた失語症リハビリ",
-    summary: "2024年のレビューは15研究を検討し、モバイル技術を用いた介入には言語機能を支える可能性があると報告しました。",
-    limitation: "研究方法や対象、課題が多様で、領域ごとの効果を確かめる質の高い研究がさらに必要とされています。",
-    citation: "Jiang Z, et al. Frontiers in Neurology. 2024.",
-    href: "https://pubmed.ncbi.nlm.nih.gov/38933323/",
-  },
-  {
-    region: "国内・関連研究",
-    type: "実行可能性・妥当性研究",
-    title: "タブレットを用いた失語症評価",
-    summary: "国内多施設のSTELA研究では、タブレット型評価システムの所要時間短縮と、内的一貫性・妥当性が検討されました。",
-    limitation: "これは評価システムの研究であり、自主練習の治療効果やSTAMU Aphasiaの有効性を示すものではありません。",
-    citation: "Inamoto Y, et al. JMIR Formative Research. 2023.",
-    href: "https://pubmed.ncbi.nlm.nih.gov/36753308/",
+    id: "prior-research",
+    items: [
+      {
+        region: "海外・英国",
+        type: "ランダム化比較試験",
+        title: "自宅で行うコンピューター訓練",
+        summary: "Big CACTUS試験では、通常ケアに自主的なコンピューター訓練を加えた群で、個人に関連する訓練語の呼称成績が向上しました。",
+        limitation: "会話への般化は確認されず、訓練した語の成績と日常コミュニケーションは分けて考える必要があります。",
+        citation: "Palmer R, et al. Lancet Neurology. 2019.",
+        href: "https://pubmed.ncbi.nlm.nih.gov/31397288/",
+      },
+      {
+        region: "海外・国際",
+        type: "システマティックレビュー",
+        title: "モバイル技術を用いた失語症リハビリ",
+        summary: "2024年のレビューは15研究を検討し、モバイル技術を用いた介入には言語機能を支える可能性があると報告しました。",
+        limitation: "研究方法や対象、課題が多様で、領域ごとの効果を確かめる質の高い研究がさらに必要とされています。",
+        citation: "Jiang Z, et al. Frontiers in Neurology. 2024.",
+        href: "https://pubmed.ncbi.nlm.nih.gov/38933323/",
+      },
+      {
+        region: "海外・ノルウェー",
+        type: "パイロットRCT",
+        title: "ビデオ通話で届ける遠隔言語療法",
+        summary: "脳卒中後失語症を対象に、通常ケアへ週5時間・4週間のビデオ会議による言語療法を追加し、一部の言語成績と遠隔提供の可能性を検討しました。",
+        limitation: "少人数のパイロット研究で、主要評価の呼称では群間差が確認されず、結果を確かめる大規模試験が必要とされています。",
+        citation: "Øra HP, et al. Clinical Rehabilitation. 2020.",
+        href: "https://pubmed.ncbi.nlm.nih.gov/31903800/",
+      },
+    ],
   },
 ] as const;
 

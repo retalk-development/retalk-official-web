@@ -1,17 +1,18 @@
 .cta {
-  min-width: 8.2rem;
-  min-height: 4rem;
+  --app-store-badge-height: 3.25rem;
+  min-width: 9.5rem;
+  min-height: 4.25rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.75rem;
+  padding: 0.5rem 0.55rem;
   border-radius: 0.8rem;
   transition: transform var(--motion-fast) var(--ease-out);
 }
 
 .cta img {
   width: auto;
-  height: 2.75rem;
+  height: var(--app-store-badge-height);
   display: block;
 }
 
@@ -35,4 +36,12 @@
 
 @media (prefers-reduced-motion: reduce) {
   .cta { transition: none; }
+}
+
+@media (max-width: 420px) {
+  .cta {
+    --app-store-badge-height: 3rem;
+    min-width: 8.85rem;
+    min-height: 4rem;
+  }
 }
