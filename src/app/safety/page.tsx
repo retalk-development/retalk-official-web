@@ -16,7 +16,7 @@ export default function SafetyPage() {
       eyebrow="SAFETY & PRIVACY"
       title="安全性について"
       description={description}
-      updatedAt="2026年9月12日"
+      updatedAt="2026年10月12日"
       sections={[
         {
           title: "患者さんの情報は、端末内で扱うことを基本に",
@@ -32,7 +32,7 @@ export default function SafetyPage() {
         },
         {
           title: "通信とオフライン利用について",
-          paragraphs: ["患者情報を同期するSTAMU Aphasia独自のクラウド機能と、患者・利用者データを送信するAPIはありません。ただし、アプリの入手や更新などではネットワーク通信が発生する場合があります。すべての対応端末で完全オフラインであることは保証していません。"],
+          paragraphs: ["患者情報を同期するSTAMU Aphasia独自のクラウド機能と、患者・利用者データを送信するAPIはありません。公式お知らせはstamu.jpの公開フィードへ一方向のGET通信で取得し、患者・臨床データを含めません。アプリの入手や更新などでもネットワーク通信が発生する場合があり、すべての対応端末で完全オフラインであることは保証していません。"],
         },
         {
           title: "情報管理は、利用する端末と施設の方針に沿って",

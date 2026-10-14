@@ -3,7 +3,7 @@ import { InfoPage } from "@/components/InfoPage";
 import { createPageMetadata } from "@/config/seo";
 import { productScreens } from "@/data/product-screens";
 
-const description = "言語聴覚士・STの失語症リハビリを支える、教材準備、訓練記録、評価、課題分析などSTAMU Aphasiaの臨床向け機能をご紹介します。";
+const description = "言語聴覚士・STの失語症リハビリと自主練習の管理を支える、教材準備、訓練記録、評価記録、課題分析などSTAMU Aphasiaの臨床向け機能をご紹介します。";
 
 export const metadata: Metadata = createPageMetadata({
   title: "言語聴覚士・STの失語症リハビリ支援",
