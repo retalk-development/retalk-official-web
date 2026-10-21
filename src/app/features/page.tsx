@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { AppStoreCta } from "@/components/AppStoreCta";
+import { IllustrationSlot } from "@/components/IllustrationSlot";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { createPageMetadata } from "@/config/seo";
 import { productScreens, type ProductScreen } from "@/data/product-screens";
 import styles from "./features.module.css";
 
-const description = "失語症の自主訓練に使える29課題、課題語設定、Patient Record、ST Dashboard、SLTA記録、リハビリ記録など、STAMU Aphasia Ver.1.2.0の機能をご紹介します。";
+const description = "失語症の自主訓練に使える29課題、課題語設定、利用者記録、支援ダッシュボード、SLTA記録、リハビリ記録など、STAMU Aphasiaの機能をご紹介します。";
 
 export const metadata: Metadata = createPageMetadata({
   title: "失語症の訓練課題・自主訓練・SLTA記録の機能一覧",
@@ -31,45 +32,45 @@ const categories: readonly FeatureCategory[] = [
     number: "01",
     title: "自主練習",
     lead: "失語症のある方が、自分に合った課題を選んで繰り返し取り組めます。",
-    items: ["6つの訓練カテゴリ", "29の訓練課題", "Patient Homeから迷いにくい導線", "iPhone / iPad対応"],
+    items: ["6つの訓練カテゴリ", "29の訓練課題", "ホームから迷いにくい導線", "iPhone / iPad対応"],
     screens: [productScreens.trainingCategoriesTop, productScreens.taskListTop],
   },
   {
     id: "training-setup",
     number: "02",
-    title: "Training Setup",
+    title: "訓練設定",
     lead: "課題と利用者に合わせて、取り組む内容や見え方を整えます。",
-    items: ["問題数・選択肢数", "課題語とtask word settings", "文字・画像などの利用者別設定", "Favorite V1（あなたの訓練）"],
+    items: ["問題数・選択肢数", "課題語の設定", "文字・画像などの利用者別設定", "あなたの訓練"],
     screens: [productScreens.trainingSetupTop, productScreens.wordSettingsList],
   },
   {
     id: "result-record",
     number: "03",
-    title: "Result / Patient Record",
+    title: "結果と利用者記録",
     lead: "練習した結果を残し、本人や家族が取り組みを振り返れる形にします。",
-    items: ["Training Result", "正答率と実施回数", "訓練の実施履歴", "中断した訓練の再開"],
+    items: ["訓練結果", "正答率と実施回数", "訓練の実施履歴", "中断した訓練の再開"],
     screens: [productScreens.trainingResult, productScreens.patientRecord],
   },
   {
     id: "st-dashboard",
     number: "04",
-    title: "ST Dashboard",
+    title: "支援ダッシュボード",
     lead: "言語聴覚士が、訓練履歴と傾向を利用者ごとに確認できます。",
-    items: ["概要・課題別・分析", "task analysis", "正答率の推移", "Clinical Profile"],
+    items: ["概要・課題別・分析", "課題分析", "正答率の推移", "臨床情報"],
     screens: [productScreens.stDashboard, productScreens.stTaskAnalysisTop],
   },
   {
     id: "evaluation-slta",
     number: "05",
-    title: "Evaluation / SLTA",
+    title: "評価・SLTA",
     lead: "評価の元データを記録し、同じ検査の経過を比較できます。",
-    items: ["Evaluation records", "SLTA記録", "SLTA 2時点比較", "SLTA PDF"],
+    items: ["評価記録", "SLTA記録", "SLTAの2時点比較", "SLTAのPDF"],
     screens: [productScreens.evaluationRecords, productScreens.sltaComparisonTop],
   },
   {
     id: "rehab-record",
     number: "06",
-    title: "Rehab Record",
+    title: "リハビリ記録",
     lead: "実施した訓練と観察内容を、臨床で振り返れる記録にまとめます。",
     items: ["実施訓練", "SOAP", "リハビリ記録一覧", "カルテ用テキスト"],
     screens: [productScreens.rehabRecordSoap, productScreens.rehabRecordKarte],
@@ -77,17 +78,17 @@ const categories: readonly FeatureCategory[] = [
   {
     id: "research",
     number: "07",
-    title: "Research",
+    title: "研究",
     lead: "通常の臨床導線と区別した研究モードで、研究用データを扱います。",
-    items: ["Research Training / Evaluation", "Research Settings", "Research History", "Research CSV export"],
-    screens: [productScreens.stSupportMenu, productScreens.trainingSetupTop],
+    items: ["研究用の訓練・評価", "研究設定", "研究履歴", "研究用CSVの書き出し"],
+    screens: [productScreens.stSupportMenu],
   },
   {
     id: "transfer-package",
     number: "08",
-    title: "Transfer Package",
+    title: "データ受け渡し",
     lead: "自主練習データを書き出し・取り込みし、支援先での振り返りにつなげます。",
-    items: ["データのexport / import", "package-firstの取り込み", "取り込み先の明示確認", "別利用者・重複取り込みの安全処理"],
+    items: ["データの書き出し・取り込み", "内容を確認してから取り込む", "取り込み先の明示確認", "別利用者・重複取り込みの安全処理"],
     screens: [productScreens.patientHomeBottom, productScreens.stSupportMenu],
   },
 ];
@@ -121,9 +122,12 @@ export default function FeaturesPage() {
       <main className={styles.page}>
         <header className={styles.hero}>
           <div>
-            <p>FEATURE CATALOG <span>Ver.1.2.0</span></p>
+            <p>機能一覧</p>
             <h1>できること</h1>
             <p>{description}</p>
+          </div>
+          <div className={styles.heroIllustration}>
+            <IllustrationSlot slot="features-catalog" caption="各機能のイメージ" />
           </div>
         </header>
 

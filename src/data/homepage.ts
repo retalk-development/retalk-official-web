@@ -6,28 +6,28 @@ export const homepagePoints = [
     title: "29の訓練課題から選べる",
     description: "6つのカテゴリ、29の課題から、状態や目的に合わせて取り組む内容を選べます。",
     tags: ["6カテゴリ", "29課題", "目的に合わせて選択"],
-    screens: [productScreens.trainingCategoriesTop, productScreens.taskListTop],
+    screens: [productScreens.trainingCategoriesTop],
   },
   {
     number: "02",
     title: "その人に合わせて調整できる",
     description: "問題数や選択肢数、課題語などを、利用者ごと・課題ごとに調整できます。",
     tags: ["問題数", "選択肢数", "課題語", "利用者別設定"],
-    screens: [productScreens.trainingSetupTop, productScreens.wordSettingsList],
+    screens: [productScreens.trainingSetupTop],
   },
   {
     number: "03",
     title: "練習した結果が残る",
-    description: "Training ResultとPatient Recordで、実施履歴や正答率を本人の振り返りにつなげます。",
-    tags: ["Training Result", "Patient Record", "実施履歴", "正答率"],
-    screens: [productScreens.trainingResult, productScreens.patientRecord],
+    description: "訓練結果と利用者記録で、実施履歴や正答率を本人の振り返りにつなげます。",
+    tags: ["訓練結果", "利用者記録", "実施履歴", "正答率"],
+    screens: [productScreens.trainingResult],
   },
   {
     number: "04",
     title: "STの支援につなげられる",
-    description: "ST Dashboard、課題分析、評価、SLTA、Rehab Recordを同じ利用者の流れで確認できます。",
-    tags: ["ST Dashboard", "task analysis", "Evaluation / SLTA", "Rehab Record"],
-    screens: [productScreens.stDashboard, productScreens.stTaskAnalysisTop],
+    description: "支援ダッシュボード、課題分析、評価・SLTA、リハビリ記録を同じ利用者の流れで確認できます。",
+    tags: ["支援ダッシュボード", "課題分析", "評価・SLTA", "リハビリ記録"],
+    screens: [productScreens.stDashboard],
   },
 ] as const;
 
@@ -52,17 +52,18 @@ export const concernGroups = [
   },
 ] as const;
 
-export const usageSteps = [
+export const patientSteps = [
   { number: "1", title: "App Storeから無料でダウンロード", description: "iPhoneまたはiPadにインストールします。" },
   { number: "2", title: "利用者を登録", description: "必要な情報を設定して利用を始めます。" },
-  { number: "3", title: "訓練を選んでスタート", description: "目的に合った課題と設定を選びます。" },
-  { number: "4", title: "結果を振り返る", description: "Patient RecordやST Dashboardで確認します。" },
+  { number: "3", title: "訓練を選ぶ", description: "目的に合った課題と設定を選びます。" },
+  { number: "4", title: "練習する", description: "選んだ課題に、その人のペースで取り組みます。" },
+  { number: "5", title: "結果を振り返る", description: "訓練結果や利用者記録で、取り組みを確認します。" },
 ] as const;
 
-export const usageScreens = [
-  { step: "02", title: "利用者を登録", screen: productScreens.userInfo },
-  { step: "03", title: "訓練をスタート", screen: productScreens.trainingQuestion },
-  { step: "04", title: "結果を振り返る", screen: productScreens.patientRecord },
+export const supporterSteps = [
+  { number: "1", title: "練習状況を確認", description: "支援ダッシュボードで、訓練履歴や正答率を見ます。" },
+  { number: "2", title: "評価と記録を見る", description: "評価・SLTAやリハビリ記録を、同じ利用者の流れで確認します。" },
+  { number: "3", title: "次の支援を考える", description: "振り返った内容を、次の練習や支援の参考にします。" },
 ] as const;
 
 // Grouped so a separate, verified STAMU clinical-evidence collection can be added later
@@ -103,10 +104,10 @@ export const researchEvidenceGroups = [
 ] as const;
 
 export const stFeatureCards = [
-  { title: "ST Dashboard", copy: "訓練履歴、実施状況、正答率の推移を利用者ごとに振り返ります。" },
-  { title: "Evaluation / SLTA", copy: "評価記録、SLTAの入力、2時点比較、PDF出力を支えます。" },
-  { title: "Rehab Record / SOAP", copy: "実施訓練と観察をまとめ、SOAPやカルテ用テキストを確認できます。" },
-  { title: "Research Mode", copy: "研究用訓練・評価・設定・履歴と、研究CSV書き出しを用意しています。" },
+  { title: "支援ダッシュボード", copy: "訓練履歴、実施状況、正答率の推移を利用者ごとに振り返ります。" },
+  { title: "評価・SLTA", copy: "評価記録、SLTAの入力、2時点比較、PDF出力を支えます。" },
+  { title: "リハビリ記録", copy: "実施訓練と観察をまとめ、SOAPやカルテ用テキストを確認できます。" },
+  { title: "研究モード", copy: "研究用の訓練・評価・設定・履歴と、研究用CSVの書き出しを用意しています。" },
 ] as const;
 
 // These answers intentionally describe only current, publicly approved Ver.1.2.0 capabilities.
@@ -128,8 +129,8 @@ export const faqItems = [
     answer: "STAMU Aphasia独自の患者データクラウドはなく、患者・臨床情報は端末内保存を基本としています。公式お知らせの取得など公開情報の通信はあります。詳しくは安全性ページをご確認ください。",
   },
   {
-    question: "STも利用できますか？",
-    answer: "はい。ST Dashboard、課題分析、評価・SLTA、Clinical Profile、Rehab Record、Research Modeなど、言語聴覚士による支援や記録を補助する機能があります。",
+    question: "誰が利用できますか？",
+    answer: "失語症のある方、ご家族、言語聴覚士などの支援者が利用できます。自主練習に加えて、支援ダッシュボード、課題分析、評価・SLTA、臨床情報、リハビリ記録、研究モードなど、記録や支援を補助する機能があります。",
   },
   {
     question: "医療機器・診断アプリですか？",

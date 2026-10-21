@@ -272,7 +272,19 @@
 
 .heroVisualSlot {
   position: relative;
-  min-height: clamp(34rem, 62vw, 46rem);
+  min-height: clamp(36rem, 64vw, 48rem);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 0.85rem;
+}
+
+.heroPhones {
+  position: relative;
+  width: 100%;
+  flex: 1 1 auto;
+  min-height: 30rem;
 }
 
 .heroShape {
@@ -334,11 +346,11 @@
 }
 
 .heroVisualNote {
-  position: absolute;
+  position: relative;
   z-index: 3;
-  right: 0;
-  top: 18%;
+  flex: 0 0 auto;
   max-width: 11.5rem;
+  margin: 0;
   padding: 0.85rem 1rem;
   border: 1px solid #d4e5f3;
   border-radius: 1rem;
@@ -397,6 +409,11 @@
   margin-top: 1rem;
   color: #587087;
   line-height: 1.9;
+}
+
+.illustrationWrap {
+  width: min(100%, 28rem);
+  margin: clamp(1.6rem, 4vw, 2.6rem) auto 0;
 }
 
 .pointsSection {
@@ -472,20 +489,15 @@
 }
 
 .screenPair {
-  min-height: 35rem;
+  min-height: 32rem;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  align-items: start;
-  gap: 1.3rem;
+  grid-template-columns: minmax(0, 16rem);
+  justify-content: center;
+  align-items: center;
   padding: clamp(1.5rem, 4vw, 3rem);
   border-radius: 2.2rem;
   background: #ffffff;
   box-shadow: 0 1.5rem 4rem rgba(34, 83, 126, 0.08);
-}
-
-.screenPair > div {
-  width: min(100%, 16rem);
-  margin-inline: auto;
 }
 
 .screenOffset {
@@ -594,13 +606,46 @@
   background: #f2f7fc;
 }
 
+.stepGroup {
+  margin-top: clamp(2.8rem, 6vw, 4.5rem);
+}
+
+.stepGroup + .stepGroup {
+  margin-top: clamp(3.2rem, 6vw, 5rem);
+}
+
+.stepAudience {
+  margin-bottom: 1.15rem;
+  color: #0e4c8a;
+  font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+  font-weight: 800;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.stepAudience span {
+  display: block;
+  margin-top: 0.3rem;
+  color: #5d9dd1;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
 .stepList {
   position: relative;
-  margin-top: clamp(3rem, 6vw, 5rem);
+  margin-top: 0;
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1rem;
   list-style: none;
+}
+
+.stepList[data-count="5"] {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.stepList[data-count="3"] {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .stepList::before {
@@ -623,26 +668,38 @@
   text-align: center;
 }
 
-.stepList li > p {
+.stepBadge {
   width: 4.4rem;
   height: 4.4rem;
   margin-inline: auto;
-  display: grid;
-  place-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.12rem;
   border: 0.45rem solid #f2f7fc;
   border-radius: 50%;
   color: #6a9fc8;
   background: #d9ebf7;
+  text-align: center;
+  line-height: 1;
+}
+
+.stepBadge > span {
+  display: block;
   font-size: 0.55rem;
   font-weight: 850;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.14em;
   line-height: 1;
+  text-indent: 0.14em;
 }
 
 .stepList strong {
   display: block;
+  margin: 0;
   color: #0e4c8a;
   font-size: 1.2rem;
+  line-height: 1;
 }
 
 .stepList h3 {
@@ -985,6 +1042,11 @@
   opacity: 0.78;
 }
 
+@media (max-width: 1180px) {
+  .stepList[data-count="5"] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .stepList::before { display: none; }
+}
+
 @media (max-width: 1020px) {
   .heroInner {
     grid-template-columns: minmax(0, 1fr) minmax(20rem, 0.72fr);
@@ -1001,7 +1063,8 @@
   .hero { min-height: auto; padding-top: 3.4rem; }
   .heroInner { grid-template-columns: 1fr; }
   .heroCopy { margin-inline: auto; }
-  .heroVisualSlot { width: min(100%, 34rem); min-height: 40rem; margin-inline: auto; }
+  .heroVisualSlot { width: min(100%, 34rem); min-height: 42rem; margin-inline: auto; align-items: flex-end; }
+  .heroPhones { min-height: 32rem; }
 
   .pointRow,
   .pointRow:nth-child(even) {
@@ -1015,7 +1078,8 @@
 
   .pointCopy { max-width: 39rem; }
   .screenPair { width: min(100%, 38rem); margin-inline: auto; }
-  .stepList { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stepList[data-count="5"] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .stepList[data-count="3"] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .stepList::before { display: none; }
   .stepList li { min-height: 16rem; }
   .stepVisualFlow { gap: 0.8rem; }
@@ -1043,10 +1107,11 @@
   .heroFacts { grid-template-columns: 1fr 1fr; }
   .heroFacts li:first-child { grid-column: 1 / -1; }
   .heroFacts li { min-height: 4.8rem; }
-  .heroVisualSlot { min-height: 32rem; }
-  .heroVisualNote { top: 14%; max-width: 9.8rem; font-size: 0.68rem; }
-  .heroPhoneMain { left: 4%; width: 56%; }
-  .heroPhoneSub { right: 1%; width: 47%; }
+  .heroVisualSlot { min-height: 34rem; }
+  .heroPhones { min-height: 27rem; }
+  .heroVisualNote { max-width: 10.5rem; font-size: 0.72rem; }
+  .heroPhoneMain { left: 4%; width: 52%; }
+  .heroPhoneSub { right: 2%; width: 44%; }
 
   .aboutGrid,
   .concernGrid,
@@ -1064,9 +1129,10 @@
   .screenOffset { margin-top: 1.8rem !important; }
   .midCta { align-items: flex-start; flex-direction: column; }
   .bridgeCopy strong { font-size: 1.45rem; }
-  .stepList { grid-template-columns: 1fr; }
-  .stepList li { min-height: auto; padding: 1.5rem; display: grid; grid-template-columns: 4rem 1fr; column-gap: 1rem; text-align: left; }
-  .stepList li > p { grid-row: 1 / 3; width: 4rem; height: 4rem; margin: 0; }
+  .stepList[data-count="5"],
+  .stepList[data-count="3"] { grid-template-columns: 1fr; }
+  .stepList li { min-height: auto; padding: 1.5rem; display: grid; grid-template-columns: 4rem 1fr; column-gap: 1rem; align-items: center; text-align: left; }
+  .stepList li > p { grid-row: 1 / 3; width: 4rem; height: 4rem; margin: 0; align-self: center; justify-self: center; }
   .stepList h3 { margin-top: 0.35rem; }
   .stepList li > span { margin-top: 0.35rem; }
   .stepVisualFlow { width: min(100%, 25rem); grid-template-columns: 1fr; gap: 1rem; }
@@ -1083,8 +1149,9 @@
 @media (max-width: 380px) {
   .heroCtaRow { align-items: flex-start; flex-direction: column; }
   .heroCtaRow > p { min-height: auto; padding: 0.65rem 0.9rem; }
-  .heroVisualSlot { min-height: 29rem; }
-  .heroVisualNote { display: none; }
+  .heroVisualSlot { min-height: 33rem; }
+  .heroPhones { min-height: 25rem; }
+  .heroVisualNote { max-width: min(100%, 11rem); }
   .tagList li { white-space: normal; }
   .stepList li { grid-template-columns: 3.5rem 1fr; }
   .stepList li > p { width: 3.5rem; height: 3.5rem; }

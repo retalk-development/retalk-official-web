@@ -1,0 +1,27 @@
+.slot {
+  margin: 0;
+}
+
+.frame {
+  min-height: 8.5rem;
+  display: grid;
+  place-items: center;
+  border: 1.5px dashed #b7d3e8;
+  border-radius: 1.4rem;
+  color: #6b93b5;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.2)),
+    #f4f9fd;
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.14em;
+}
+
+.slot figcaption {
+  margin-top: 0.65rem;
+  color: #6c8298;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.6;
+  text-align: center;
+}

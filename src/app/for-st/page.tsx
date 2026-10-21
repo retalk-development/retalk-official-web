@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { AppStoreCta } from "@/components/AppStoreCta";
+import { IllustrationSlot } from "@/components/IllustrationSlot";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { createPageMetadata } from "@/config/seo";
 import { productScreens, type ProductScreen } from "@/data/product-screens";
 import styles from "./for-st.module.css";
 
-const description = "言語聴覚士・STの失語症リハビリと自主練習の管理を支える、ST Dashboard、SLTA評価記録、Rehab Record、Research ModeなどSTAMU Aphasia Ver.1.2.0の臨床活用をご紹介します。";
+const description = "言語聴覚士・STの失語症リハビリと自主練習の管理を支える、支援ダッシュボード、SLTA評価記録、リハビリ記録、研究モードなど、STAMU Aphasiaの臨床活用をご紹介します。";
 
 export const metadata: Metadata = createPageMetadata({
   title: "言語聴覚士・STの失語症リハビリ支援",
@@ -32,7 +33,7 @@ const clinicalFeatures: readonly ClinicalFeature[] = [
   {
     id: "dashboard",
     number: "01",
-    label: "ST Dashboard",
+    label: "支援ダッシュボード",
     title: "自主練習の経過を、支援の材料に。",
     lead: "利用者ごとの訓練履歴と成績をまとめ、課題別の傾向や時間の流れを振り返れます。",
     perspective: "「実施したか」「どの課題でどう取り組んだか」を同じ画面の流れで確認し、次の支援を考えるための情報を整理します。",
@@ -42,7 +43,7 @@ const clinicalFeatures: readonly ClinicalFeature[] = [
   {
     id: "evaluation",
     number: "02",
-    label: "Evaluation / SLTA",
+    label: "評価・SLTA",
     title: "評価記録を、時間の流れで比べる。",
     lead: "評価の元データを記録し、同じ検査の2時点を比較して経過を確認できます。",
     perspective: "SLTAの記録、プロフィール表示、2時点比較、PDF出力を、利用者ごとの評価記録からたどれます。",
@@ -53,10 +54,10 @@ const clinicalFeatures: readonly ClinicalFeature[] = [
   {
     id: "rehab-record",
     number: "03",
-    label: "Rehab Record",
+    label: "リハビリ記録",
     title: "一回の介入を、振り返れる記録へ。",
     lead: "実施した訓練と観察を同じ記録にまとめ、臨床で確認しやすい形に整えます。",
-    perspective: "実施訓練と観察内容から、SOAPやカルテ用テキストまでを一つのRehab Recordの流れで確認できます。",
+    perspective: "実施訓練と観察内容から、SOAPやカルテ用テキストまでを一つのリハビリ記録の流れで確認できます。",
     items: ["実施訓練", "観察内容", "SOAP", "カルテ用テキスト"],
     screens: [productScreens.rehabRecordTop, productScreens.rehabRecordSoap, productScreens.rehabRecordKarte],
     note: "STAMU Aphasiaは電子カルテの代替ではありません。施設の記録方針に沿ってご利用ください。",
@@ -64,7 +65,7 @@ const clinicalFeatures: readonly ClinicalFeature[] = [
   {
     id: "clinical-profile",
     number: "04",
-    label: "Clinical Profile",
+    label: "臨床情報",
     title: "利用者背景と臨床情報を、同じ場所に。",
     lead: "利用者の背景と臨床情報を、訓練・評価・記録へ進む前提情報として確認できます。",
     perspective: "利用者ごとの情報を一つのプロフィールに整理し、別の方の記録と混同しにくい臨床導線を支えます。",
@@ -74,24 +75,24 @@ const clinicalFeatures: readonly ClinicalFeature[] = [
   {
     id: "research-mode",
     number: "05",
-    label: "Research Mode",
+    label: "研究モード",
     title: "研究用の流れを、通常の臨床導線と分けて扱う。",
     lead: "研究用訓練・評価・設定・履歴とデータ書き出しを、研究モードにまとめています。",
-    perspective: "通常の訓練記録と研究目的のセッションを区別し、研究条件と履歴を確認してResearch CSVを書き出せます。",
-    items: ["Research Training", "Research Evaluation", "Research Settings", "Research History", "Research CSV"],
+    perspective: "通常の訓練記録と研究目的のセッションを区別し、研究条件と履歴を確認して研究用CSVを書き出せます。",
+    items: ["研究用訓練", "研究用評価", "研究設定", "研究履歴", "研究用CSV"],
     screens: [productScreens.stSupportMenu],
     note: "研究計画、同意取得、データ管理は、所属機関の手続きと研究倫理に沿って行ってください。",
   },
   {
     id: "transfer-package",
     number: "06",
-    label: "Transfer Package",
+    label: "データ受け渡し",
     title: "患者端末の自主練習データを、確認して受け取る。",
     lead: "患者端末から書き出した自主練習データを、ST側の端末で対象利用者を確認して取り込めます。",
-    perspective: "Packageを先に読み込み、STが取り込み先を明示してからimportします。重複データはskipし、既存データを自動上書きしません。",
-    items: ["自主練習データのexport / import", "取り込み先の明示確認", "重複取り込みの防止", "別利用者への誤取り込みを防ぐ安全処理"],
+    perspective: "内容を先に読み込み、取り込み先を明示してから取り込みます。重複データは取り込みを見送り、既存データを自動上書きしません。",
+    items: ["自主練習データの書き出し・取り込み", "取り込み先の明示確認", "重複取り込みの防止", "別利用者への誤取り込みを防ぐ安全処理"],
     screens: [productScreens.patientHomeBottom, productScreens.stSupportMenu],
-    note: "Ver.1.2.0は患者端末から医療機関側への自主練習データ受け渡しです。双方向同期や病院間の臨床情報移行ではありません。",
+    note: "現在の公開機能は、患者端末から医療機関側への自主練習データ受け渡しです。双方向同期や病院間の臨床情報移行ではありません。",
   },
 ];
 
@@ -134,7 +135,7 @@ export default function ForStPage() {
       <main className={styles.page}>
         <header className={styles.hero}>
           <div className={styles.heroCopy}>
-            <p>FOR SPEECH-LANGUAGE-HEARING THERAPISTS <span>Ver.1.2.0</span></p>
+            <p>言語聴覚士・支援者の方へ</p>
             <h1>
               <span><span className={styles.noBreak}>訓練から</span><wbr /><span className={styles.noBreak}>記録まで、</span></span>
               <span><span className={styles.noBreak}>STの臨床を</span><wbr /><span className={styles.noBreak}>ひとつの流れに。</span></span>
@@ -145,15 +146,20 @@ export default function ForStPage() {
               <Link href="/safety">情報の扱いと安全性 <span aria-hidden="true">→</span></Link>
             </div>
             <dl className={styles.heroFacts}>
-              <div><dt>Training</dt><dd>訓練履歴と課題分析</dd></div>
-              <div><dt>Evaluation</dt><dd>評価・SLTAの記録</dd></div>
-              <div><dt>Record</dt><dd>SOAPと臨床記録</dd></div>
+              <div><dt>訓練</dt><dd>訓練履歴と課題分析</dd></div>
+              <div><dt>評価</dt><dd>評価・SLTAの記録</dd></div>
+              <div><dt>記録</dt><dd>SOAPと臨床記録</dd></div>
             </dl>
+            <div className={styles.heroIllustration}>
+              <IllustrationSlot slot="for-st-clinical-flow" caption="臨床で振り返るイメージ" />
+            </div>
           </div>
           <div className={styles.heroVisual}>
-            <div className={styles.heroMainScreen}><PhoneScreen screen={productScreens.stDashboard} priority /></div>
-            <div className={styles.heroSubScreen}><PhoneScreen screen={productScreens.rehabRecordSoap} priority /></div>
             <p>自主練習の結果を、<br />次の支援へ。</p>
+            <div className={styles.heroPhones}>
+              <div className={styles.heroMainScreen}><PhoneScreen screen={productScreens.stDashboard} priority /></div>
+              <div className={styles.heroSubScreen}><PhoneScreen screen={productScreens.rehabRecordSoap} priority /></div>
+            </div>
           </div>
         </header>
 

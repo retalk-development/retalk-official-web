@@ -3,13 +3,14 @@ import Link from "next/link";
 import { AppStoreCta } from "@/components/AppStoreCta";
 import { BrandLogo } from "@/components/BrandLogo";
 import { FAQAccordion } from "@/components/FAQAccordion";
+import { IllustrationSlot } from "@/components/IllustrationSlot";
 import {
   concernGroups,
   homepagePoints,
+  patientSteps,
   researchEvidenceGroups,
   stFeatureCards,
-  usageScreens,
-  usageSteps,
+  supporterSteps,
 } from "@/data/homepage";
 import { productScreens, type ProductScreen } from "@/data/product-screens";
 import styles from "./home.module.css";
@@ -132,13 +133,15 @@ export function HeroSection() {
         {/* Replace this slot with the supplied lifestyle visual without changing hero copy or CTA order. */}
         <div className={styles.heroVisualSlot} data-asset-slot="hero-lifestyle-visual">
           <div className={styles.heroShape} aria-hidden="true" />
-          <div className={styles.heroPhoneMain}>
-            <PhoneScreen screen={productScreens.patientHomeTop} priority />
-          </div>
-          <div className={styles.heroPhoneSub}>
-            <PhoneScreen screen={productScreens.trainingQuestion} />
-          </div>
           <p className={styles.heroVisualNote}>練習から振り返りまで、見やすい画面で。</p>
+          <div className={styles.heroPhones}>
+            <div className={styles.heroPhoneMain}>
+              <PhoneScreen screen={productScreens.patientHomeTop} priority />
+            </div>
+            <div className={styles.heroPhoneSub}>
+              <PhoneScreen screen={productScreens.trainingQuestion} />
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -172,6 +175,9 @@ export function AboutProductSection() {
             </article>
           ))}
         </div>
+        <div className={styles.illustrationWrap}>
+          <IllustrationSlot slot="home-practice-and-support" caption="自主練習と支援をつなぐイメージ" />
+        </div>
       </div>
     </section>
   );
@@ -188,7 +194,7 @@ export function PointsSection() {
           centered
         />
         <div className={styles.pointList}>
-          {homepagePoints.map((point, index) => (
+          {homepagePoints.map((point) => (
             <article key={point.number} className={styles.pointRow}>
               <div className={styles.pointCopy}>
                 <p className={styles.pointNumber}>POINT <strong>{point.number}</strong></p>
@@ -198,12 +204,8 @@ export function PointsSection() {
                   {point.tags.map((tag) => <li key={tag}>{tag}</li>)}
                 </ul>
               </div>
-              <div className={styles.screenPair} data-reverse={index % 2 === 1 ? "true" : "false"}>
-                {point.screens.map((screen, screenIndex) => (
-                  <div key={screen.src} className={screenIndex === 1 ? styles.screenOffset : ""}>
-                    <PhoneScreen screen={screen} />
-                  </div>
-                ))}
+              <div className={styles.screenPair}>
+                <PhoneScreen screen={point.screens[0]} />
               </div>
             </article>
           ))}
@@ -245,35 +247,44 @@ export function ConcernsSection() {
   );
 }
 
+function StepList({
+  steps,
+}: {
+  steps: readonly { number: string; title: string; description: string }[];
+}) {
+  return (
+    <ol className={styles.stepList} data-count={steps.length}>
+      {steps.map((step) => (
+        <li key={step.number}>
+          <p className={styles.stepBadge}>
+            <span>STEP</span>
+            <strong>{step.number}</strong>
+          </p>
+          <h3>{step.title}</h3>
+          <span>{step.description}</span>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
 export function HowToSection() {
   return (
     <section className={`${styles.section} ${styles.howToSection}`} id="how-to-use">
       <div className={styles.container}>
         <SectionHeading
           eyebrow="HOW TO USE"
-          title="はじめ方は、4 STEP。"
-          copy="ダウンロードから振り返りまで、迷いにくい流れです。"
+          title="使う人に合わせた、はじめ方。"
+          copy="患者・ご家族の方は5つの手順、言語聴覚士・支援者の方は3つの手順です。"
           centered
         />
-        <ol className={styles.stepList}>
-          {usageSteps.map((step) => (
-            <li key={step.number}>
-              <p>STEP <strong>{step.number}</strong></p>
-              <h3>{step.title}</h3>
-              <span>{step.description}</span>
-            </li>
-          ))}
-        </ol>
-        <div className={styles.stepVisualFlow} aria-label="登録から訓練、結果確認までのアプリ画面">
-          {usageScreens.map((item) => (
-            <article key={item.step} className={styles.stepScreenCard}>
-              <PhoneScreen screen={item.screen} />
-              <div>
-                <span>STEP {item.step}</span>
-                <h3>{item.title}</h3>
-              </div>
-            </article>
-          ))}
+        <div className={styles.stepGroup}>
+          <p className={styles.stepAudience}>患者・ご家族の方<span>5 STEP</span></p>
+          <StepList steps={patientSteps} />
+        </div>
+        <div className={styles.stepGroup}>
+          <p className={styles.stepAudience}>言語聴覚士・支援者の方<span>3 STEP</span></p>
+          <StepList steps={supporterSteps} />
         </div>
         <div className={styles.centerLink}><TextLink href="/features">使い方と機能を詳しく見る</TextLink></div>
       </div>

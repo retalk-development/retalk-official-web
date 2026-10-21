@@ -19,9 +19,9 @@
 
 .hero > div > p:first-child {
   color: #3b82c4;
-  font-size: 0.7rem;
+  font-size: 0.78rem;
   font-weight: 850;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.08em;
 }
 
 .hero > div > p:first-child span {
@@ -47,6 +47,11 @@
   color: #506a82;
   font-size: clamp(1rem, 1.7vw, 1.15rem);
   line-height: 1.95;
+}
+
+.heroIllustration {
+  width: min(100%, 24rem);
+  margin-top: clamp(1.6rem, 3vw, 2.4rem);
 }
 
 .index {
@@ -165,6 +170,12 @@
   width: min(100%, 15.5rem);
   margin-inline: auto;
   text-align: center;
+}
+
+.screenGroup:has(> figure:only-child) {
+  min-height: 0;
+  grid-template-columns: minmax(0, 16rem);
+  justify-content: center;
 }
 
 .screenGroup figure > div {
