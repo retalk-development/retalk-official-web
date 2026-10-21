@@ -50,6 +50,15 @@
   margin-top: 1.5rem;
 }
 
+.storeLink {
+  margin-top: 0.4rem;
+}
+
+.storeLink a {
+  color: #0b3b82;
+  font-weight: 750;
+}
+
 .empty {
   max-width: 48rem;
 }
