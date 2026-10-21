@@ -40,13 +40,17 @@ test("announcement source matches the updates feed schema", () => {
       body: [...item.body],
     })),
   );
-  assert.equal(parsed.items[0]?.id, "stamu-aphasia-ver-1-2-release");
-  assert.equal(parsed.items[0]?.publishedAt, "2026-10-08");
+  assert.equal(parsed.items[0]?.id, "stamu-aphasia-ver-1-3-0-release");
+  assert.equal(parsed.items[0]?.publishedAt, "2026-10-17");
   assert.equal(parsed.items[0]?.type, "update");
-  assert.equal(parsed.items[0]?.title, "STAMU Aphasia Ver.1.2をリリースしました");
-  assert.equal(parsed.items[1]?.id, "stamu-aphasia-ver-1-0-app-store");
-  assert.equal(parsed.items[1]?.publishedAt, "2026-10-03");
+  assert.equal(parsed.items[0]?.title, "STAMU Aphasia Ver.1.3.0を公開しました");
+  assert.equal(parsed.items[1]?.id, "stamu-aphasia-ver-1-2-release");
+  assert.equal(parsed.items[1]?.publishedAt, "2026-10-08");
   assert.equal(parsed.items[1]?.type, "update");
+  assert.equal(parsed.items[1]?.title, "STAMU Aphasia Ver.1.2をリリースしました");
+  assert.equal(parsed.items[2]?.id, "stamu-aphasia-ver-1-0-app-store");
+  assert.equal(parsed.items[2]?.publishedAt, "2026-10-03");
+  assert.equal(parsed.items[2]?.type, "update");
   assert.doesNotMatch(serialized, /<script|<\/?[a-z][\s\S]*?>|javascript:|https?:\/\/|www\.|mailto:|data:/i);
 });
 
@@ -84,6 +88,7 @@ test("announcements are ordered newest first", () => {
 });
 
 test("unknown announcement ids are absent from the source", () => {
+  assert.equal(getAnnouncement("stamu-aphasia-ver-1-3-0-release")?.title, "STAMU Aphasia Ver.1.3.0を公開しました");
   assert.equal(getAnnouncement("stamu-aphasia-ver-1-2-release")?.title, "STAMU Aphasia Ver.1.2をリリースしました");
   assert.equal(getAnnouncement("stamu-aphasia-ver-1-0-app-store")?.title, "STAMU Aphasia Ver.1.0 App Store公開");
   assert.equal(getAnnouncement("missing-announcement"), undefined);
