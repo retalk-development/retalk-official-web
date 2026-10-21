@@ -31,6 +31,28 @@ export const announcementTypeLabels: Record<AnnouncementType, string> = {
 
 export const announcements = [
   {
+    id: "stamu-aphasia-ver-1-3-0-release",
+    publishedAt: "2026-10-17",
+    type: "update",
+    title: "STAMU Aphasia Ver.1.3.0を公開しました",
+    summary: "STAMU Aphasia Ver.1.3.0をApp Storeで公開しました。自主練習と振り返りを使いやすくする更新です。",
+    body: [
+      "STAMU Aphasia Ver.1.3.0をApp Storeで公開しました。",
+      "今回のアップデートでは、日々の自主練習と臨床での振り返りをより使いやすくするため、複数の更新を行いました。",
+      "主な更新内容:",
+      "・訓練中のフィードバックや画面表示を改善しました。",
+      "・「あなたの訓練」の開始・再開と結果画面を使いやすくしました。",
+      "・リハビリ時間（推定）の表示を追加しました。",
+      "・研究モードの操作性を改善しました。",
+      "・SLTAのグラフ表示とPDF出力を改善しました。",
+      "・絵カードや文字選択肢の表示を改善しました。",
+      "・完了したリハビリ記録のSOAPを後から編集できるようにしました。",
+      "リハビリ時間は推定値であり、診療報酬上の実施時間を証明するものではありません。",
+      "本アプリは、ことばの自主練習と記録の支援を目的としています。診断、予後の予測、治療効果の保証は行いません。",
+      "App Storeで公開中です。",
+    ],
+  },
+  {
     id: "stamu-aphasia-ver-1-2-release",
     publishedAt: "2026-10-08",
     type: "update",
