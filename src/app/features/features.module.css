@@ -1,0 +1,306 @@
+.page {
+  padding: clamp(2.5rem, 6vw, 5rem) clamp(1.1rem, 4vw, 3rem) clamp(5rem, 9vw, 8rem);
+  background: #f2f7fc;
+}
+
+.hero {
+  width: min(100%, 76rem);
+  margin-inline: auto;
+  padding: clamp(2.5rem, 6vw, 5.5rem);
+  overflow: hidden;
+  border: 1px solid #d6e6f2;
+  border-radius: 2rem;
+  background:
+    radial-gradient(circle at 88% 10%, rgba(111, 182, 230, 0.35), transparent 18rem),
+    #ffffff;
+}
+
+.hero > div { max-width: 48rem; }
+
+.hero > div > p:first-child {
+  color: #3b82c4;
+  font-size: 0.78rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+}
+
+.hero > div > p:first-child span {
+  margin-left: 0.6rem;
+  padding: 0.3rem 0.5rem;
+  border-radius: 999px;
+  color: #0e4c8a;
+  background: #e5f1fa;
+  letter-spacing: 0.04em;
+}
+
+.hero h1 {
+  margin-top: 1.3rem;
+  color: #0e4c8a;
+  font-size: clamp(3rem, 7vw, 6rem);
+  letter-spacing: -0.06em;
+  line-height: 1;
+}
+
+.hero > div > p:last-child {
+  max-width: 45rem;
+  margin-top: 1.7rem;
+  color: #506a82;
+  font-size: clamp(1rem, 1.7vw, 1.15rem);
+  line-height: 1.95;
+}
+
+.heroIllustration {
+  width: min(100%, 24rem);
+  margin-top: clamp(1.6rem, 3vw, 2.4rem);
+}
+
+.index {
+  width: min(100%, 76rem);
+  margin: 1.2rem auto 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+
+.index a {
+  min-height: 3.5rem;
+  padding: 0.7rem 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  border: 1px solid #d8e6f1;
+  border-radius: 0.85rem;
+  color: #2b5d87;
+  background: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 760;
+}
+
+.index a:hover { border-color: #74aed9; }
+.index span { color: #76a9d1; font-size: 0.64rem; }
+
+.catalog {
+  width: min(100%, 76rem);
+  margin: clamp(4rem, 8vw, 7rem) auto 0;
+  display: grid;
+  gap: clamp(4rem, 9vw, 8rem);
+}
+
+.category {
+  scroll-margin-top: 6rem;
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(25rem, 1fr);
+  align-items: center;
+  gap: clamp(2.5rem, 7vw, 7rem);
+}
+
+.category:nth-child(even) .copy { order: 2; }
+.category:nth-child(even) .screenGroup { order: 1; }
+
+.copy > p:first-child {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  color: #6fa7d0;
+  font-size: 0.68rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+}
+
+.copy > p:first-child strong {
+  color: #3b82c4;
+  font-size: clamp(3.6rem, 6vw, 5.8rem);
+  letter-spacing: -0.08em;
+  line-height: 1;
+}
+
+.copy h2 {
+  margin-top: 1.1rem;
+  color: #0e4c8a;
+  font-size: clamp(1.9rem, 3.5vw, 3rem);
+  line-height: 1.25;
+  text-wrap: balance;
+}
+
+.copy > p:nth-of-type(2) {
+  margin-top: 1.1rem;
+  color: #526c83;
+  line-height: 1.9;
+}
+
+.copy ul {
+  margin-top: 1.5rem;
+  display: grid;
+  gap: 0.6rem;
+  list-style: none;
+}
+
+.copy li {
+  position: relative;
+  padding-left: 1.45rem;
+  color: #315979;
+  font-size: 0.86rem;
+  line-height: 1.65;
+}
+
+.copy li::before {
+  content: "";
+  position: absolute;
+  top: 0.62rem;
+  left: 0;
+  width: 0.48rem;
+  height: 0.48rem;
+  border-radius: 50%;
+  background: #69aada;
+}
+
+.screenGroup {
+  min-height: 36rem;
+  padding: clamp(1.3rem, 4vw, 2.7rem);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 1.2rem;
+  border-radius: 2rem;
+  background: #ffffff;
+  box-shadow: 0 1.3rem 3.8rem rgba(31, 80, 123, 0.08);
+}
+
+.screenGroup figure {
+  width: min(100%, 15.5rem);
+  margin-inline: auto;
+  text-align: center;
+}
+
+.screenGroup:has(> figure:only-child) {
+  min-height: 0;
+  grid-template-columns: minmax(0, 16rem);
+  justify-content: center;
+}
+
+.screenGroup figure > div {
+  aspect-ratio: 592 / 1280;
+  padding: 0.3rem;
+  overflow: hidden;
+  border: 1px solid #c7d8e6;
+  border-radius: 1.8rem;
+  background: #ffffff;
+  box-shadow: 0 1rem 2.5rem rgba(31, 80, 123, 0.12);
+}
+
+.screenGroup img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 1.52rem;
+  object-fit: cover;
+}
+
+.screenGroup figcaption {
+  margin-top: 0.7rem;
+  color: #6b8095;
+  font-size: 0.7rem;
+  font-weight: 730;
+}
+
+.offsetScreen { margin-top: 3rem !important; }
+
+.boundary {
+  width: min(100%, 76rem);
+  margin: clamp(5rem, 10vw, 9rem) auto 0;
+  padding: clamp(2rem, 5vw, 4rem);
+  border: 1px solid #d1e3f0;
+  border-radius: 1.8rem;
+  background: #ffffff;
+}
+
+.boundary h2 {
+  color: #0e4c8a;
+  font-size: clamp(1.7rem, 3.5vw, 2.7rem);
+  line-height: 1.4;
+}
+
+.boundary > p {
+  max-width: 54rem;
+  margin-top: 1rem;
+  color: #566f85;
+  line-height: 1.9;
+}
+
+.boundary > div {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.boundary a {
+  min-height: 2.9rem;
+  padding: 0.65rem 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  border: 1px solid #c9dce9;
+  border-radius: 999px;
+  color: #0e4c8a;
+  font-size: 0.82rem;
+  font-weight: 750;
+}
+
+.download {
+  width: min(100%, 76rem);
+  margin: 1.2rem auto 0;
+  padding: clamp(1.8rem, 4vw, 3.2rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  border-radius: 1.8rem;
+  color: #ffffff;
+  background: linear-gradient(115deg, #0e4c8a, #3b82c4);
+}
+
+.download p {
+  color: #c8e5f8;
+  font-size: 0.68rem;
+  font-weight: 850;
+  letter-spacing: 0.13em;
+}
+
+.download h2 {
+  margin-top: 0.6rem;
+  font-size: clamp(1.5rem, 3.4vw, 2.6rem);
+  line-height: 1.4;
+}
+
+.download > div > span {
+  display: block;
+  margin-top: 0.7rem;
+  color: #d6ebf8;
+  font-size: 0.82rem;
+}
+
+@media (max-width: 840px) {
+  .index { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .category { grid-template-columns: 1fr; }
+  .category:nth-child(even) .copy,
+  .category:nth-child(even) .screenGroup { order: initial; }
+  .copy { max-width: 42rem; }
+  .screenGroup { width: min(100%, 38rem); margin-inline: auto; }
+}
+
+@media (max-width: 560px) {
+  .page { padding-top: 2rem; }
+  .hero { padding: 2.2rem 1.3rem; border-radius: 1.35rem; }
+  .hero h1 { font-size: 3rem; }
+  .index { grid-template-columns: 1fr 1fr; gap: 0.45rem; }
+  .index a { padding-inline: 0.65rem; font-size: 0.7rem; }
+  .catalog { gap: 5rem; }
+  .screenGroup { min-height: 0; padding: 1rem; gap: 0.7rem; border-radius: 1.3rem; }
+  .screenGroup figure > div { padding: 0.2rem; border-radius: 1.25rem; }
+  .screenGroup img { border-radius: 1.05rem; }
+  .offsetScreen { margin-top: 1.7rem !important; }
+  .boundary > div,
+  .download { align-items: flex-start; flex-direction: column; }
+  .boundary a { width: 100%; justify-content: space-between; }
+}

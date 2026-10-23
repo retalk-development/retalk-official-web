@@ -1,8 +1,8 @@
 :root {
-  --background: #f6f8fc;
+  --background: #f2f7fc;
   --foreground: #102d53;
-  --primary: #1769e8;
-  --deep-navy: #0b3b82;
+  --primary: #3b82c4;
+  --deep-navy: #0e4c8a;
   --border: #dce5f0;
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-standard: cubic-bezier(0.2, 0, 0, 1);
@@ -62,11 +62,11 @@ select {
 
 ::selection {
   color: #ffffff;
-  background: #1769e8;
+  background: #3b82c4;
 }
 
 :focus-visible {
-  outline: 3px solid rgba(23, 105, 232, 0.45);
+  outline: 3px solid rgba(59, 130, 196, 0.55);
   outline-offset: 3px;
 }
 
