@@ -15,7 +15,7 @@
     #ffffff;
 }
 
-.hero > div { max-width: 48rem; }
+.hero > div:first-child { max-width: 48rem; }
 
 .hero > div > p:first-child {
   color: #3b82c4;
@@ -50,8 +50,16 @@
 }
 
 .heroIllustration {
-  width: min(100%, 24rem);
-  margin-top: clamp(1.6rem, 3vw, 2.4rem);
+  width: 100%;
+  max-width: none;
+  margin-top: clamp(2rem, 5vw, 4rem);
+}
+
+.heroIllustration img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
 }
 
 .index {
@@ -152,6 +160,15 @@
   height: 0.48rem;
   border-radius: 50%;
   background: #69aada;
+}
+
+.featureNote {
+  margin-top: 1.35rem !important;
+  padding-top: 1rem;
+  border-top: 1px solid #d7e4ee;
+  color: #687f93 !important;
+  font-size: 0.76rem;
+  line-height: 1.8 !important;
 }
 
 .screenGroup {
@@ -273,11 +290,24 @@
   line-height: 1.4;
 }
 
-.download > div > span {
+.download > div {
+  min-width: 0;
+}
+
+.download > div > span,
+.deviceNote {
   display: block;
+  max-width: 100%;
   margin-top: 0.7rem;
   color: #d6ebf8;
-  font-size: 0.82rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  white-space: normal;
+}
+
+.download > :global(a) {
+  flex: 0 0 auto;
+  align-self: center;
 }
 
 @media (max-width: 840px) {
@@ -302,5 +332,6 @@
   .offsetScreen { margin-top: 1.7rem !important; }
   .boundary > div,
   .download { align-items: flex-start; flex-direction: column; }
+  .download > :global(a) { align-self: flex-start; }
   .boundary a { width: 100%; justify-content: space-between; }
 }

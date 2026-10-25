@@ -61,9 +61,10 @@ export const patientSteps = [
 ] as const;
 
 export const supporterSteps = [
-  { number: "1", title: "練習状況を確認", description: "支援ダッシュボードで、訓練履歴や正答率を見ます。" },
-  { number: "2", title: "評価と記録を見る", description: "評価・SLTAやリハビリ記録を、同じ利用者の流れで確認します。" },
-  { number: "3", title: "次の支援を考える", description: "振り返った内容を、次の練習や支援の参考にします。" },
+  { number: "1", title: "リハビリを始める", description: "利用者を選び、その日のリハビリを開始します。" },
+  { number: "2", title: "訓練を実施する", description: "利用者に合わせた課題を選び、訓練を行います。" },
+  { number: "3", title: "結果を確認する", description: "実施した課題や成績、リハビリ記録を振り返ります。" },
+  { number: "4", title: "症状・傾向を分析する", description: "課題ごとの成績や経過を確認し、次の支援につなげます。" },
 ] as const;
 
 // Grouped so a separate, verified STAMU clinical-evidence collection can be added later
@@ -104,13 +105,16 @@ export const researchEvidenceGroups = [
 ] as const;
 
 export const stFeatureCards = [
-  { title: "支援ダッシュボード", copy: "訓練履歴、実施状況、正答率の推移を利用者ごとに振り返ります。" },
-  { title: "評価・SLTA", copy: "評価記録、SLTAの入力、2時点比較、PDF出力を支えます。" },
-  { title: "リハビリ記録", copy: "実施訓練と観察をまとめ、SOAPやカルテ用テキストを確認できます。" },
-  { title: "研究モード", copy: "研究用の訓練・評価・設定・履歴と、研究用CSVの書き出しを用意しています。" },
+  { title: "支援ダッシュボード", copy: "訓練履歴、正答率、リハビリ時間を利用者ごとに振り返ります。" },
+  { title: "臨床情報・導入判定", copy: "基本情報と臨床情報、STAMU導入判定と訂正履歴を同じ利用者の流れで確認できます。" },
+  { title: "評価・SLTA / RCPM", copy: "評価記録、SLTAの入力・比較・PDF、RCPMの記録を支えます。" },
+  { title: "リハビリ記録", copy: "実施訓練と観察をまとめ、SOAPやカルテ用テキストのコピー・共有に使えます。" },
+  { title: "2つのデータ移行", copy: "自主練習データの受け渡しと、暗号化した患者単位の臨床データ移行（Clinical Transfer）を分けて利用できます。" },
+  { title: "研究モード（試験提供）", copy: "研究用の訓練・評価・設定・履歴とデータ出力を、Ver.1.4で試験提供中です。" },
 ] as const;
 
-// These answers intentionally describe only current, publicly approved Ver.1.2.0 capabilities.
+// These answers describe the current public Ver.1.3.1 capabilities. Ver.1.4 is
+// mentioned only for the explicitly approved Research Mode trial label.
 export const faqItems = [
   {
     question: "無料で使えますか？",
@@ -130,7 +134,7 @@ export const faqItems = [
   },
   {
     question: "誰が利用できますか？",
-    answer: "失語症のある方、ご家族、言語聴覚士などの支援者が利用できます。自主練習に加えて、支援ダッシュボード、課題分析、評価・SLTA、臨床情報、リハビリ記録、研究モードなど、記録や支援を補助する機能があります。",
+    answer: "失語症のある方、ご家族、言語聴覚士などの支援者が利用できます。自主練習に加えて、支援ダッシュボード、課題分析、評価・SLTA、臨床情報、リハビリ記録など、記録や支援を補助する機能があります。研究モード（試験提供）はVer.1.4で試験提供中です。",
   },
   {
     question: "医療機器・診断アプリですか？",

@@ -3,7 +3,6 @@ import Link from "next/link";
 import { AppStoreCta } from "@/components/AppStoreCta";
 import { BrandLogo } from "@/components/BrandLogo";
 import { FAQAccordion } from "@/components/FAQAccordion";
-import { IllustrationSlot } from "@/components/IllustrationSlot";
 import {
   concernGroups,
   homepagePoints,
@@ -96,7 +95,18 @@ export function HeroSection() {
   return (
     <section className={styles.hero} aria-labelledby="hero-title">
       <div className={styles.heroInner}>
+        <div className={styles.heroMedia} aria-hidden="true">
+          <Image
+            className={styles.heroBackdrop}
+            src="/brand/home-hero-tech2.png"
+            alt=""
+            fill
+            priority
+            sizes="(max-width: 820px) 100vw, 1280px"
+          />
+        </div>
         <div className={styles.heroCopy}>
+          <div className={styles.heroLogo}><BrandLogo /></div>
           <p className={styles.heroKicker}>失語症の自主練習と支援を、ひとつのアプリで</p>
           <h1 id="hero-title">
             <span>ことばのリハビリを、</span>
@@ -107,14 +117,13 @@ export function HeroSection() {
             <span className={styles.noBreak}>言語聴覚士による記録・振り返り</span>を支える<span className={styles.noBreak}>無料アプリ</span>です。
           </p>
           <div className={styles.heroCtaRow}>
-            <AppStoreCta />
+            <AppStoreCta prominent />
             <p className={styles.heroFreeNote}>
               <strong>無料で利用できます</strong>
-              <span>App Storeで配信中</span>
             </p>
           </div>
           <ul className={styles.heroFacts} aria-label="STAMU Aphasiaの概要">
-            <li>
+            <li className={styles.heroFactDevice}>
               <span className={styles.heroFactIcon}><HeroFactIcon kind="device" /></span>
               <span className={styles.heroFactValue}><strong>iPhone / iPad</strong><span>対応</span></span>
             </li>
@@ -130,19 +139,6 @@ export function HeroSection() {
           <TextLink href="/features">できることを詳しく見る</TextLink>
         </div>
 
-        {/* Replace this slot with the supplied lifestyle visual without changing hero copy or CTA order. */}
-        <div className={styles.heroVisualSlot} data-asset-slot="hero-lifestyle-visual">
-          <div className={styles.heroShape} aria-hidden="true" />
-          <p className={styles.heroVisualNote}>練習から振り返りまで、見やすい画面で。</p>
-          <div className={styles.heroPhones}>
-            <div className={styles.heroPhoneMain}>
-              <PhoneScreen screen={productScreens.patientHomeTop} priority />
-            </div>
-            <div className={styles.heroPhoneSub}>
-              <PhoneScreen screen={productScreens.trainingQuestion} />
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
@@ -176,7 +172,13 @@ export function AboutProductSection() {
           ))}
         </div>
         <div className={styles.illustrationWrap}>
-          <IllustrationSlot slot="home-practice-and-support" caption="自主練習と支援をつなぐイメージ" />
+          <Image
+            src="/brand/home-practice-support.png"
+            alt="言語聴覚士、失語症のある方、ご家族がタブレットを囲み、練習と支援を一緒に振り返る様子"
+            width={1448}
+            height={1086}
+            sizes="(max-width: 640px) 88vw, 36rem"
+          />
         </div>
       </div>
     </section>
@@ -211,10 +213,10 @@ export function PointsSection() {
           ))}
         </div>
         <div className={styles.midCta}>
-          <div>
+            <div>
             <p>無料で始められます</p>
             <h3>毎日の練習を、今日から。</h3>
-            <span>iPhone / iPad対応</span>
+            <span className={styles.deviceNote}>iPhone / iPad対応</span>
           </div>
           <AppStoreCta />
         </div>
@@ -275,7 +277,7 @@ export function HowToSection() {
         <SectionHeading
           eyebrow="HOW TO USE"
           title="使う人に合わせた、はじめ方。"
-          copy="患者・ご家族の方は5つの手順、言語聴覚士・支援者の方は3つの手順です。"
+          copy="患者・ご家族の方は5つの手順、言語聴覚士・支援者の方は4つの手順です。"
           centered
         />
         <div className={styles.stepGroup}>
@@ -283,7 +285,7 @@ export function HowToSection() {
           <StepList steps={patientSteps} />
         </div>
         <div className={styles.stepGroup}>
-          <p className={styles.stepAudience}>言語聴覚士・支援者の方<span>3 STEP</span></p>
+          <p className={styles.stepAudience}>言語聴覚士・支援者の方<span>4 STEP</span></p>
           <StepList steps={supporterSteps} />
         </div>
         <div className={styles.centerLink}><TextLink href="/features">使い方と機能を詳しく見る</TextLink></div>
@@ -337,7 +339,7 @@ export function ForStSection() {
       <div className={styles.container}>
         <div className={styles.forStIntro}>
           <SectionHeading
-            eyebrow="FOR SPEECH-LANGUAGE-HEARING THERAPISTS"
+            eyebrow="言語聴覚士・支援者向け"
             title="STの臨床を、ひとつの流れに。"
             copy="訓練、評価、記録、研究。それぞれの情報を同じ利用者の流れで扱えます。"
           />
@@ -413,12 +415,14 @@ export function FinalCTASection() {
         <div className={styles.finalCopy}>
           <BrandLogo />
           <h2 id="final-cta-title">
-            <span>ことばのリハビリを、</span>
-            <span>もっと日常へ。</span>
+            <span>リハビリをする。振り返る。</span>
+            <span>その流れを、もっと身近に。</span>
           </h2>
           <p>STAMU Aphasiaは無料。<br />まずは使ってみてください。</p>
-          <AppStoreCta />
-          <small>iPhone / iPad対応</small>
+          <div className={styles.finalDownload}>
+            <AppStoreCta />
+            <small className={styles.deviceNote}>iPhone / iPad対応</small>
+          </div>
         </div>
         <div className={styles.finalVisual}>
           <PhoneScreen screen={productScreens.trainingResult} />

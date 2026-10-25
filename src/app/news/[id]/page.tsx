@@ -54,7 +54,7 @@ export default async function NewsArticlePage({ params }: NewsArticlePageProps) 
         {item.body.map((paragraph) => (
           <p key={paragraph}>{paragraph}</p>
         ))}
-        {item.id === "stamu-aphasia-ver-1-3-0-release" && (
+        {item.type === "update" && item.id.startsWith("stamu-aphasia-ver-") && (
           <p className={styles.storeLink}>
             <a href="https://apps.apple.com/jp/app/stamu-aphasia/id6814539319">App StoreでSTAMU Aphasiaを見る</a>
           </p>

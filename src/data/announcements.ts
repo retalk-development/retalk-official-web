@@ -31,6 +31,27 @@ export const announcementTypeLabels: Record<AnnouncementType, string> = {
 
 export const announcements = [
   {
+    id: "stamu-aphasia-ver-1-3-1-release",
+    publishedAt: "2026-10-22",
+    type: "update",
+    title: "STAMU Aphasia Ver.1.3.1を公開しました",
+    summary: "STAMU Aphasia Ver.1.3.1をApp Storeで公開しました。臨床情報の管理と、安全なデータ移行を中心に改善しています。",
+    body: [
+      "STAMU Aphasia Ver.1.3.1をApp Storeで公開しました。",
+      "今回のアップデートでは、利用者ごとの臨床情報を記録し、日々の支援や端末間の引き継ぎに活用しやすくするための改善を行いました。",
+      "主な更新内容:",
+      "・STAMU導入判定を保存し、訂正の履歴を確認できるようにしました。",
+      "・基本情報、臨床情報、評価記録、リハビリ記録などを患者単位の暗号化ファイルとして書き出し・取り込みできる臨床データ移行（Clinical Transfer）を追加しました。",
+      "・リハビリ時間の集計と、カルテ用テキストのコピー・共有を改善しました。",
+      "・自主練習データを期間指定で書き出す機能を改善しました。",
+      "・語彙表記や誤答フィードバックなど、訓練画面の見やすさを改善しました。",
+      "臨床データ移行（Clinical Transfer）と自主練習データの移行は、ファイルを書き出して確認後に取り込む機能です。クラウド同期やリアルタイム同期ではありません。",
+      "リハビリ時間は推定値であり、診療報酬上の実施時間を証明するものではありません。",
+      "本アプリは、ことばのリハビリ、記録、評価、支援を補助するもので、診断、予後予測、治療判断を行いません。",
+      "App Storeで公開中です。",
+    ],
+  },
+  {
     id: "stamu-aphasia-ver-1-3-0-release",
     publishedAt: "2026-10-17",
     type: "update",

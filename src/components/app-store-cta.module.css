@@ -1,7 +1,7 @@
 .cta {
-  --app-store-badge-height: 3.25rem;
-  min-width: 9.5rem;
-  min-height: 4.25rem;
+  --app-store-badge-height: 3.5rem;
+  min-width: 10rem;
+  min-height: 4.5rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -16,8 +16,20 @@
   display: block;
 }
 
+.prominent {
+  --app-store-badge-height: 4.2rem;
+  min-width: 12rem;
+  min-height: 5.2rem;
+  padding: 0.4rem 0.35rem;
+}
+
 .cta:hover {
   transform: translateY(-2px);
+}
+
+.cta:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.92);
+  outline-offset: 3px;
 }
 
 .unavailable {
@@ -40,8 +52,14 @@
 
 @media (max-width: 420px) {
   .cta {
-    --app-store-badge-height: 3rem;
-    min-width: 8.85rem;
-    min-height: 4rem;
+    --app-store-badge-height: 3.15rem;
+    min-width: 9.1rem;
+    min-height: 4.1rem;
+  }
+
+  .prominent {
+    --app-store-badge-height: 3.7rem;
+    min-width: 10.5rem;
+    min-height: 4.6rem;
   }
 }

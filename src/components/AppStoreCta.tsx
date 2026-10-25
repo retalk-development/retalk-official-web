@@ -5,6 +5,7 @@ import styles from "./app-store-cta.module.css";
 
 type AppStoreCtaProps = {
   className?: string;
+  prominent?: boolean;
 };
 
 /**
@@ -12,7 +13,7 @@ type AppStoreCtaProps = {
  * The artwork is kept intact and served unoptimized; CSS only scales it while
  * preserving its aspect ratio and required clear space.
  */
-export function AppStoreCta({ className = "" }: AppStoreCtaProps) {
+export function AppStoreCta({ className = "", prominent = false }: AppStoreCtaProps) {
   if (!siteConfig.appStoreUrl) {
     return (
       <span className={`${styles.unavailable} ${className}`} aria-disabled="true">
@@ -23,7 +24,7 @@ export function AppStoreCta({ className = "" }: AppStoreCtaProps) {
 
   return (
     <Link
-      className={`${styles.cta} ${className}`}
+      className={`${styles.cta} ${prominent ? styles.prominent : ""} ${className}`}
       href={siteConfig.appStoreUrl}
       aria-label="App StoreでSTAMU Aphasiaを無料ダウンロード"
     >

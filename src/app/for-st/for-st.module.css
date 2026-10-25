@@ -137,17 +137,11 @@
   line-height: 1.55;
 }
 
-.heroIllustration {
-  width: min(100%, 22rem);
-  margin-top: 1.5rem;
-}
-
 .heroVisual {
-  min-height: clamp(36rem, 62vw, 46rem);
+  min-height: clamp(34rem, 56vw, 42rem);
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 0.85rem;
+  align-items: center;
+  justify-content: center;
 }
 
 .heroPhones {
@@ -187,22 +181,6 @@
   transform: rotate(4deg);
 }
 
-.heroVisual > p {
-  position: relative;
-  z-index: 3;
-  flex: 0 0 auto;
-  max-width: 11.5rem;
-  margin: 0;
-  padding: 0.9rem 1.05rem;
-  border: 1px solid #d1e4f2;
-  border-radius: 1rem;
-  color: #315e84;
-  background: rgba(255, 255, 255, 0.93);
-  box-shadow: 0 0.8rem 2rem rgba(32, 78, 119, 0.09);
-  font-size: 0.76rem;
-  font-weight: 760;
-  line-height: 1.65;
-}
 
 .phoneFigure {
   margin: 0;
@@ -304,9 +282,9 @@
   align-items: baseline;
   gap: 0.6rem;
   color: #6d9fc5;
-  font-size: 0.68rem;
-  font-weight: 850;
-  letter-spacing: 0.12em;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
 }
 
 .featureNumber strong {
@@ -524,11 +502,24 @@
   text-wrap: balance;
 }
 
-.download > div > span {
+.download > div {
+  min-width: 0;
+}
+
+.download > div > span,
+.deviceNote {
   display: block;
+  max-width: 100%;
   margin-top: 0.8rem;
   color: #d8ecf8;
-  font-size: 0.82rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  white-space: normal;
+}
+
+.download > :global(a) {
+  flex: 0 0 auto;
+  align-self: center;
 }
 
 @media (max-width: 1040px) {
@@ -626,10 +617,6 @@
 
   .heroPhones { min-height: 28rem; }
 
-  .heroVisual > p {
-    max-width: 10.5rem;
-  }
-
   .index {
     grid-template-columns: 1fr 1fr;
     gap: 0.45rem;
@@ -683,6 +670,10 @@
   .download {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .download > :global(a) {
+    align-self: flex-start;
   }
 
   .boundary a {
