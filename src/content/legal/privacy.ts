@@ -469,10 +469,6 @@ export const PRIVACY_DOCUMENT: LegalDocumentContent = {
       email: LEGAL_CONTACT_EMAIL,
     },
     {
-      kind: 'paragraph',
-      text: `お問い合わせフォーム: ${LEGAL_OFFICIAL_URLS.contact}`,
-    },
-    {
       kind: 'heading',
       text: '20. 効力発生日',
     },
