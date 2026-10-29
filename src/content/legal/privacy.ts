@@ -59,7 +59,6 @@ export const PRIVACY_DOCUMENT: LegalDocumentContent = {
         ['公式 Web サイト', LEGAL_OFFICIAL_URLS.website],
         ['プライバシーポリシー', LEGAL_OFFICIAL_URLS.privacy],
         ['利用規約', LEGAL_OFFICIAL_URLS.terms],
-        ['お問い合わせ', LEGAL_OFFICIAL_URLS.contact],
         ['安全性について', LEGAL_OFFICIAL_URLS.safety],
       ],
     },
@@ -467,10 +466,6 @@ export const PRIVACY_DOCUMENT: LegalDocumentContent = {
       kind: 'contact',
       intro: '本ポリシーに関する問い合わせは、次までお願いします。',
       email: LEGAL_CONTACT_EMAIL,
-    },
-    {
-      kind: 'paragraph',
-      text: `お問い合わせフォーム: ${LEGAL_OFFICIAL_URLS.contact}`,
     },
     {
       kind: 'heading',
