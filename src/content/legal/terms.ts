@@ -261,10 +261,6 @@ export const TERMS_DOCUMENT: LegalDocumentContent = {
       email: LEGAL_CONTACT_EMAIL,
     },
     {
-      kind: 'paragraph',
-      text: `お問い合わせフォーム: ${LEGAL_OFFICIAL_URLS.contact}`,
-    },
-    {
       kind: 'heading',
       text: '附則',
     },

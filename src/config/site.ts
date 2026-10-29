@@ -3,7 +3,7 @@ export const siteConfig = {
   masterBrand: "STAMU",
   tagline: "ことばのリハビリを、もっと日常へ。",
   description:
-    "STAMU Aphasiaは、失語症のある方の自主練習・自主訓練を支え、訓練・記録・評価・支援をつなぐリハビリテーションアプリです。",
+    "STAMU Aphasiaは、失語症のある方の自主練習と、言語聴覚士による記録・振り返りを支える無料の失語症リハビリアプリです。iPhone / iPadに対応しています。",
   appStoreUrl: "https://apps.apple.com/app/stamu-aphasia/id6814539319" as string | null,
   navigation: [
     { label: "STAMU Aphasiaについて", href: "/about" },

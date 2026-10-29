@@ -3,262 +3,406 @@ import Link from "next/link";
 import { AppStoreCta } from "@/components/AppStoreCta";
 import { BrandLogo } from "@/components/BrandLogo";
 import { FAQAccordion } from "@/components/FAQAccordion";
-import { MotionReveal } from "@/components/MotionReveal";
 import {
-  efficiencyStories,
-  patientFlow,
+  concernGroups,
+  homepagePoints,
+  patientSteps,
+  researchEvidenceGroups,
+  stFeatureCards,
+  supporterSteps,
 } from "@/data/homepage";
-import { productScreens } from "@/data/product-screens";
-import {
-  AnalysisMotion,
-  EvolutionMotion,
-  FreeMotion,
-  HeroMotion,
-  OriginMotion,
-  PatientFlowMotion,
-  PlatformMotion,
-  PointToLineMotion,
-  SafetyMotion,
-  WorkflowConvergence,
-} from "./HomeMotionScenes";
+import { productScreens, type ProductScreen } from "@/data/product-screens";
 import styles from "./home.module.css";
 
-function SectionIntro({
+function SectionHeading({
   eyebrow,
   title,
-  children,
-  inverse = false,
-  center = false,
+  copy,
+  centered = false,
 }: {
   eyebrow: string;
-  title: string;
-  children: React.ReactNode;
-  inverse?: boolean;
-  center?: boolean;
+  title: React.ReactNode;
+  copy?: string;
+  centered?: boolean;
 }) {
   return (
-    <MotionReveal className={`${styles.intro} ${inverse ? styles.introInverse : ""} ${center ? styles.center : ""}`}>
+    <header className={`${styles.sectionHeading} ${centered ? styles.centered : ""}`}>
       <p className={styles.eyebrow}>{eyebrow}</p>
       <h2>{title}</h2>
-      <div className={styles.introCopy}>{children}</div>
-    </MotionReveal>
+      {copy && <p className={styles.sectionLead}>{copy}</p>}
+    </header>
+  );
+}
+
+function PhoneScreen({ screen, priority = false }: { screen: ProductScreen; priority?: boolean }) {
+  return (
+    <figure className={styles.phoneFigure}>
+      <div className={styles.phoneFrame}>
+        <Image
+          src={screen.src}
+          alt={screen.alt}
+          width={592}
+          height={1280}
+          sizes="(max-width: 640px) 58vw, (max-width: 1024px) 30vw, 18rem"
+          style={{ objectPosition: screen.objectPosition }}
+          priority={priority}
+        />
+      </div>
+      <figcaption>{screen.label}</figcaption>
+    </figure>
+  );
+}
+
+function TextLink({ href, children }: { href: string; children: React.ReactNode }) {
+  return (
+    <Link className={styles.textLink} href={href}>
+      {children}<span aria-hidden="true">→</span>
+    </Link>
+  );
+}
+
+function HeroFactIcon({ kind }: { kind: "device" | "training" | "category" }) {
+  if (kind === "device") {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="3.5" y="5" width="10" height="14" rx="2" />
+        <path d="M7 16.5h3" />
+        <rect x="15.5" y="2.5" width="5" height="10" rx="1.3" />
+      </svg>
+    );
+  }
+
+  if (kind === "training") {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="4" y="5" width="13" height="14" rx="2" />
+        <path d="M8 9h5M8 13h5M8 17h3M8 3h12v13" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <rect x="4" y="4" width="6" height="6" rx="1.2" />
+      <rect x="14" y="4" width="6" height="6" rx="1.2" />
+      <rect x="4" y="14" width="6" height="6" rx="1.2" />
+      <rect x="14" y="14" width="6" height="6" rx="1.2" />
+    </svg>
   );
 }
 
 export function HeroSection() {
   return (
-    <section className={styles.hero}>
-      <div className={styles.heroGlow} aria-hidden="true" />
-      <div className={styles.heroGrid}>
-        <MotionReveal className={styles.heroCopy}>
-          <p className={styles.kicker}><span />失語症リハビリを支えるデジタルツール</p>
-          <h1>ことばのリハビリを、<br /><em>もっと日常へ。</em></h1>
-          <p className={styles.heroLead}>STAMU Aphasiaは、失語症のある方の自主練習・自主訓練を支え、訓練・記録・評価・支援をつなぐリハビリテーションアプリです。</p>
-          <div className={styles.heroActions}>
-            <AppStoreCta />
-            <Link className={styles.textLink} href="/about">STAMU Aphasiaについて <span aria-hidden="true">↗</span></Link>
+    <section className={styles.hero} aria-labelledby="hero-title">
+      <div className={styles.heroInner}>
+        <div className={styles.heroMedia} aria-hidden="true">
+          <Image
+            className={styles.heroBackdrop}
+            src="/brand/home-hero-tech2.png"
+            alt=""
+            fill
+            priority
+            sizes="(max-width: 820px) 100vw, 1280px"
+          />
+        </div>
+        <div className={styles.heroCopy}>
+          <div className={styles.heroLogo}><BrandLogo /></div>
+          <p className={styles.heroKicker}>失語症の自主練習と支援を、ひとつのアプリで</p>
+          <h1 id="hero-title">
+            <span>ことばのリハビリを、</span>
+            <span>もっと日常へ。</span>
+          </h1>
+          <p className={styles.heroLead}>
+            STAMU Aphasiaは、<span className={styles.noBreak}>失語症のある方の自主練習</span>と、
+            <span className={styles.noBreak}>言語聴覚士による記録・振り返り</span>を支える<span className={styles.noBreak}>無料アプリ</span>です。
+          </p>
+          <div className={styles.heroCtaRow}>
+            <AppStoreCta prominent />
+            <p className={styles.heroFreeNote}>
+              <strong>無料で利用できます</strong>
+            </p>
           </div>
-          <div className={styles.heroProof}>
-            <span className={styles.heroProofMain}><strong>無料</strong><small>利用料金 ¥0</small></span>
-            <span><strong>29</strong><small>訓練課題</small></span>
-            <span><strong>6</strong><small>カテゴリ</small></span>
-          </div>
-        </MotionReveal>
-        <MotionReveal className={styles.heroVisual} delay={120}>
-          <HeroMotion />
-          <div className={styles.heroStatus}>
-            <span className={styles.liveDot} />
-            <p><small>PRODUCT FLOW</small>訓練から支援までを、ひとつの流れに</p>
-          </div>
-        </MotionReveal>
+          <ul className={styles.heroFacts} aria-label="STAMU Aphasiaの概要">
+            <li className={styles.heroFactDevice}>
+              <span className={styles.heroFactIcon}><HeroFactIcon kind="device" /></span>
+              <span className={styles.heroFactValue}><strong>iPhone / iPad</strong><span>対応</span></span>
+            </li>
+            <li>
+              <span className={styles.heroFactIcon}><HeroFactIcon kind="training" /></span>
+              <span className={styles.heroFactValue}><strong>29</strong><span>の訓練課題</span></span>
+            </li>
+            <li>
+              <span className={styles.heroFactIcon}><HeroFactIcon kind="category" /></span>
+              <span className={styles.heroFactValue}><strong>6</strong><span>カテゴリ</span></span>
+            </li>
+          </ul>
+          <TextLink href="/features">できることを詳しく見る</TextLink>
+        </div>
+
       </div>
-      <div className={styles.scrollCue} aria-hidden="true"><span />SCROLL TO DISCOVER</div>
     </section>
   );
 }
 
-export function PointToLineSection() {
-  return (
-    <section className={`${styles.section} ${styles.continuity}`} id="continuity">
-      <div className={styles.sectionGrid}>
-        <SectionIntro eyebrow="01 / ONE CONTINUOUS CARE JOURNEY" title="リハビリを、点から線へ。">
-          <p>自主練習・自主訓練だけで、終わらせない。<br />練習したことが記録になり、振り返りになり、次の支援につながっていく。</p>
-        </SectionIntro>
-        <MotionReveal className={styles.sequenceStage} delay={100}>
-          <PointToLineMotion />
-        </MotionReveal>
-      </div>
-    </section>
-  );
-}
-
-export function PatientExperienceSection() {
-  const copy = [
-    "まずは、取り組みたい領域から。",
-    "豊富な課題から、目的に合ったものを。",
-    "その人に合わせて、訓練を整える。",
-    "準備ができたら、すぐに始める。",
+export function AboutProductSection() {
+  const items = [
+    {
+      number: "01",
+      title: "自主練習を、もっと取り組みやすく",
+      copy: "失語症の訓練課題をアプリにまとめ、その人に合わせて繰り返し練習できます。",
+    },
+    {
+      number: "02",
+      title: "練習を、次の支援につなげる",
+      copy: "練習した結果を記録し、本人の振り返りやSTによる支援につなげます。",
+    },
   ];
+
   return (
-    <section className={`${styles.section} ${styles.patientSection}`} id="features">
-      <SectionIntro eyebrow="02 / PATIENT EXPERIENCE" title="自分に合った訓練を、続けやすく。" center>
-        <p>選ぶ。整える。始める。<br />STAMU Aphasiaなら、その人に合った失語症の訓練まで迷わずたどり着けます。</p>
-        <Link className={styles.inlineLink} href="/features">訓練課題と教材を見る <span aria-hidden="true">→</span></Link>
-      </SectionIntro>
-      <div className={styles.patientJourney}>
-        <MotionReveal className={styles.patientSteps}>
-          {copy.map((item, index) => (
-            <div key={item} className={styles.patientStep}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <div><small>{patientFlow[index].label}</small><p>{item}</p>{index === 1 && <b>29の訓練課題</b>}</div>
-            </div>
+    <section className={`${styles.section} ${styles.aboutSection}`} id="about-product">
+      <div className={styles.container}>
+        <SectionHeading eyebrow="ABOUT" title="STAMU Aphasiaとは？" centered />
+        <div className={styles.aboutGrid}>
+          {items.map((item) => (
+            <article key={item.number} className={styles.aboutCard}>
+              <span>{item.number}</span>
+              <h3>{item.title}</h3>
+              <p>{item.copy}</p>
+            </article>
           ))}
-        </MotionReveal>
-        <MotionReveal className={styles.patientDevice} delay={100}>
-          <PatientFlowMotion />
-        </MotionReveal>
+        </div>
+        <div className={styles.illustrationWrap}>
+          <Image
+            src="/brand/home-practice-support.png"
+            alt="言語聴覚士、失語症のある方、ご家族がタブレットを囲み、練習と支援を一緒に振り返る様子"
+            width={1448}
+            height={1086}
+            sizes="(max-width: 640px) 88vw, 36rem"
+          />
+        </div>
       </div>
     </section>
   );
 }
 
-export function AnalysisSection() {
+export function PointsSection() {
   return (
-    <section className={`${styles.section} ${styles.darkSection} ${styles.analysis}`} id="for-st">
-      <div className={styles.darkGrid}>
-        <SectionIntro eyebrow="03 / FOR SPEECH-LANGUAGE-HEARING THERAPISTS" title="訓練を、分析できる臨床データへ。" inverse>
-          <p>STAMU Aphasiaで行った訓練は、あとから振り返れる。<br />言語聴覚士・STが履歴を見て、傾向を分析し、誤りの特徴まで捉えやすくします。</p>
-          <div className={styles.analysisValues}>
-            <span>履歴を見る。</span><span>分析する。</span><span>誤りの傾向を捉える。</span>
+    <section className={`${styles.section} ${styles.pointsSection}`} id="points">
+      <div className={styles.container}>
+        <SectionHeading
+          eyebrow="4 POINTS"
+          title="練習する人にも、支える人にも。"
+          copy="必要な機能を、一つずつ分かりやすくつなぎました。"
+          centered
+        />
+        <div className={styles.pointList}>
+          {homepagePoints.map((point) => (
+            <article key={point.number} className={styles.pointRow}>
+              <div className={styles.pointCopy}>
+                <p className={styles.pointNumber}>POINT <strong>{point.number}</strong></p>
+                <h3>{point.title}</h3>
+                <p className={styles.pointDescription}>{point.description}</p>
+                <ul className={styles.tagList} aria-label={`${point.title}の要点`}>
+                  {point.tags.map((tag) => <li key={tag}>{tag}</li>)}
+                </ul>
+              </div>
+              <div className={styles.screenPair}>
+                <PhoneScreen screen={point.screens[0]} />
+              </div>
+            </article>
+          ))}
+        </div>
+        <div className={styles.midCta}>
+            <div>
+            <p>無料で始められます</p>
+            <h3>毎日の練習を、今日から。</h3>
+            <span className={styles.deviceNote}>iPhone / iPad対応</span>
           </div>
-          <p className={styles.note}>訓練時に構造化された情報が残るから、STが振り返り・分析できる。</p>
-          <Link className={`${styles.inlineLink} ${styles.inlineLinkInverse}`} href="/for-st">ST向け機能を見る <span aria-hidden="true">→</span></Link>
-        </SectionIntro>
-        <MotionReveal className={styles.analysisVisual} delay={100}>
-          <AnalysisMotion />
-        </MotionReveal>
+          <AppStoreCta />
+        </div>
       </div>
     </section>
   );
 }
 
-export function EfficiencySection() {
+export function ConcernsSection() {
   return (
-    <section className={`${styles.section} ${styles.efficiency}`}>
-      <SectionIntro eyebrow="04 / CLINICAL WORKFLOW" title="臨床の手作業を、減らす。" center>
-        <p>失語症リハビリで使う訓練課題や教材をアプリ内にまとめ、教材を探す・準備する負担を減らします。<br />記録や集計まで、臨床の細かな手作業をひとつの流れにつなぎます。</p>
-        <Link className={styles.inlineLink} href="/features">できることを詳しく見る <span aria-hidden="true">→</span></Link>
-      </SectionIntro>
-      <div className={styles.storyList}>
-        {efficiencyStories.map((story, index) => (
-          <MotionReveal key={story.title} className={styles.storyCard} delay={index * 70}>
-            <div className={styles.storyCopy}>
-              <p className={styles.storyEyebrow}>{story.eyebrow}</p>
-              <h3>{story.title}</h3>
-              <p>{story.copy}</p>
-            </div>
-            <WorkflowConvergence index={index} />
-          </MotionReveal>
+    <section className={`${styles.section} ${styles.concernsSection}`} id="concerns">
+      <div className={styles.container}>
+        <SectionHeading eyebrow="FOR YOU" title="こんなお悩みはありませんか？" centered />
+        <div className={styles.concernGrid}>
+          {concernGroups.map((group, index) => (
+            <article key={group.label} className={styles.concernCard} data-audience={index === 0 ? "patient" : "supporter"}>
+              <p>{group.label}</p>
+              <ul>
+                {group.items.map((item) => <li key={item}>{item}</li>)}
+              </ul>
+            </article>
+          ))}
+        </div>
+        <p className={styles.bridgeCopy}>
+          STAMU Aphasiaは、<br />
+          <strong>「練習する」と「支援する」をつなぎます。</strong>
+        </p>
+      </div>
+    </section>
+  );
+}
+
+function StepList({
+  steps,
+}: {
+  steps: readonly { number: string; title: string; description: string }[];
+}) {
+  return (
+    <ol className={styles.stepList} data-count={steps.length}>
+      {steps.map((step) => (
+        <li key={step.number}>
+          <p className={styles.stepBadge}>
+            <span>STEP</span>
+            <strong>{step.number}</strong>
+          </p>
+          <h3>{step.title}</h3>
+          <span>{step.description}</span>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
+export function HowToSection() {
+  return (
+    <section className={`${styles.section} ${styles.howToSection}`} id="how-to-use">
+      <div className={styles.container}>
+        <SectionHeading
+          eyebrow="HOW TO USE"
+          title="使う人に合わせた、はじめ方。"
+          copy="患者・ご家族の方は5つの手順、言語聴覚士・支援者の方は4つの手順です。"
+          centered
+        />
+        <div className={styles.stepGroup}>
+          <p className={styles.stepAudience}>患者・ご家族の方<span>5 STEP</span></p>
+          <StepList steps={patientSteps} />
+        </div>
+        <div className={styles.stepGroup}>
+          <p className={styles.stepAudience}>言語聴覚士・支援者の方<span>4 STEP</span></p>
+          <StepList steps={supporterSteps} />
+        </div>
+        <div className={styles.centerLink}><TextLink href="/features">使い方と機能を詳しく見る</TextLink></div>
+      </div>
+    </section>
+  );
+}
+
+export function ResearchSection() {
+  return (
+    <section className={`${styles.section} ${styles.researchSection}`} id="research">
+      <div className={styles.container}>
+        <SectionHeading
+          eyebrow="RESEARCH EVIDENCE"
+          title={(
+            <>
+              <span className={styles.researchTitleLine}>研究から見る、</span>
+              <span className={styles.researchTitleLine}>デジタル自主練習</span>
+            </>
+          )}
+          copy="失語症領域では、コンピューターやタブレットを使った訓練・評価の研究が進められています。"
+        />
+        <p className={styles.researchBoundary}>
+          ここで紹介するのはデジタル支援全般の先行研究です。STAMU Aphasia自体の治療効果を示すものではありません。
+        </p>
+        {researchEvidenceGroups.map((group) => (
+          <div key={group.id} className={styles.evidenceGrid}>
+            {group.items.map((evidence) => (
+              <article key={evidence.href} className={styles.evidenceCard}>
+                <div className={styles.evidenceMeta}>
+                  <span>{evidence.region}</span><span>{evidence.type}</span>
+                </div>
+                <h3>{evidence.title}</h3>
+                <p>{evidence.summary}</p>
+                <p className={styles.limit}><strong>研究の限界</strong>{evidence.limitation}</p>
+                <a href={evidence.href} target="_blank" rel="noreferrer">
+                  {evidence.citation}<span aria-hidden="true">↗</span>
+                </a>
+              </article>
+            ))}
+          </div>
         ))}
       </div>
     </section>
   );
 }
 
-export function PlatformSection() {
+export function ForStSection() {
   return (
-    <section className={`${styles.section} ${styles.darkSection} ${styles.platform}`} id="platform">
-      <SectionIntro eyebrow="05 / CLINICAL DATA PLATFORM" title="訓練だけでは、見えないことがある。" inverse center>
-        <p>訓練、評価、リハビリ記録、プロフィール。<br />その人に関わる情報を、ひとつの流れとして見られるようにする。</p>
-      </SectionIntro>
-      <PlatformMotion />
-      <p className={styles.platformStatement}>STAMU Aphasiaは、訓練アプリだけではない。</p>
-    </section>
-  );
-}
-
-export function FreeSection() {
-  return (
-    <section className={`${styles.section} ${styles.freeSection}`} id="free">
-      <div className={styles.freeBackdrop} aria-hidden="true">
-        <Image src={productScreens.trainingCategoriesTop.src} alt="" width={592} height={1280} />
-        <Image src={productScreens.stDashboard.src} alt="" width={592} height={1280} />
+    <section className={`${styles.section} ${styles.forStSection}`} id="for-st">
+      <div className={styles.container}>
+        <div className={styles.forStIntro}>
+          <SectionHeading
+            eyebrow="言語聴覚士・支援者向け"
+            title="STの臨床を、ひとつの流れに。"
+            copy="訓練、評価、記録、研究。それぞれの情報を同じ利用者の流れで扱えます。"
+          />
+          <TextLink href="/for-st">ST向け機能を詳しく見る</TextLink>
+        </div>
+        <div className={styles.stGrid}>
+          {stFeatureCards.map((card, index) => (
+            <article key={card.title}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <h3>{card.title}</h3>
+              <p>{card.copy}</p>
+            </article>
+          ))}
+        </div>
       </div>
-      <MotionReveal className={styles.freeContent}>
-        <p className={styles.eyebrow}>06 / ACCESS FOR EVERYDAY REHABILITATION</p>
-        <h2>無料で、ここまで。</h2>
-        <FreeMotion />
-      </MotionReveal>
     </section>
   );
 }
 
 export function SafetySection() {
-  return (
-    <section className={`${styles.section} ${styles.safety}`} id="safety">
-      <div className={styles.safetyGrid}>
-        <SectionIntro eyebrow="07 / DEVICE-LOCAL BY DESIGN" title="大切な記録だから、慎重に扱う。">
-          <p>STAMU Aphasiaは、患者さんの情報をできるだけ端末内で扱う設計を基本にしています。<br />独自の患者データ送信や外部AIへの送信は行いません。</p>
-          <div className={styles.safetyNotes}>
-            <span><i aria-hidden="true">✓</i>端末内保存を基本に</span>
-            <span><i aria-hidden="true">✓</i>個人情報を最小限に</span>
-            <span><i aria-hidden="true">✓</i>診断・治療判断は行わない</span>
-          </div>
-          <Link className={styles.textLink} href="/safety">安全性について <span aria-hidden="true">↗</span></Link>
-        </SectionIntro>
-        <SafetyMotion />
-      </div>
-    </section>
-  );
-}
-
-export function StorySection() {
-  const fragments = [
-    productScreens.wordSettingsList,
-    productScreens.stDashboard,
-    productScreens.sltaComparisonTop,
-    productScreens.rehabRecordSoap,
+  const items = [
+    { title: "端末内保存を基本に", copy: "患者・臨床情報は、端末内のSQLiteに保存する設計を基本としています。" },
+    { title: "独自の患者データクラウドなし", copy: "患者情報を同期するSTAMU独自クラウドや、外部AIへの患者情報送信はありません。" },
+    { title: "診断・治療判断を行わない", copy: "訓練・記録・評価を補助するアプリで、電子カルテの代替ではありません。" },
   ];
-  return (
-    <section className={`${styles.section} ${styles.origin}`}>
-      <div className={styles.originGrid}>
-        <OriginMotion fragments={fragments} />
-        <SectionIntro eyebrow="08 / BUILT FROM CLINICAL PRACTICE" title="現場から、つくりました。">
-          <p>STAMU Aphasiaは、言語聴覚士が臨床の中で感じてきた不便や課題から生まれました。</p>
-          <ul className={styles.issueList}>
-            <li>教材を探す・準備する</li><li>訓練結果を手で記録・集計する</li>
-            <li>利用者ごとに内容を調整する</li><li>訓練・評価・記録が分かれている</li>
-          </ul>
-          <p className={styles.originEnd}>だから、ひとつにつなげる。</p>
-          <Link className={styles.inlineLink} href="/about">開発背景を読む <span aria-hidden="true">→</span></Link>
-        </SectionIntro>
-      </div>
-    </section>
-  );
-}
 
-export function EvolutionSection() {
   return (
-    <section className={`${styles.section} ${styles.evolution}`}>
-      <MotionReveal className={styles.evolutionCopy}>
-        <p className={styles.eyebrow}>09 / CONTINUOUS EVOLUTION</p>
-        <h2>STAMU Aphasiaは、進化を続けます。</h2>
-        <p>訓練、記録、分析。<br />STAMU Aphasiaは、臨床の声をもとにこれからもアップデートを続けます。</p>
-      </MotionReveal>
-      <EvolutionMotion />
+    <section className={`${styles.section} ${styles.safetySection}`} id="safety">
+      <div className={styles.container}>
+        <SectionHeading
+          eyebrow="SAFETY"
+          title="大切な情報だから、慎重に。"
+          copy="local-firstの考え方を基本に、必要な情報だけを扱います。"
+          centered
+        />
+        <div className={styles.safetyGrid}>
+          {items.map((item, index) => (
+            <article key={item.title}>
+              <span aria-hidden="true">0{index + 1}</span>
+              <h3>{item.title}</h3>
+              <p>{item.copy}</p>
+            </article>
+          ))}
+        </div>
+        <div className={styles.centerLink}><TextLink href="/safety">情報の扱いと安全性を見る</TextLink></div>
+      </div>
     </section>
   );
 }
 
 export function FAQSection() {
   return (
-    <section className={`${styles.section} ${styles.faq}`} id="faq">
+    <section className={`${styles.section} ${styles.faqSection}`} id="faq">
       <div className={styles.faqGrid}>
-        <SectionIntro eyebrow="10 / FREQUENTLY ASKED QUESTIONS" title="よくあるご質問">
-          <p>STAMU Aphasiaの利用や情報の扱いについて、基本的な内容をまとめています。</p>
-          <Link className={styles.inlineLink} href="/faq">FAQページを見る <span aria-hidden="true">→</span></Link>
-        </SectionIntro>
-        <MotionReveal><FAQAccordion /></MotionReveal>
+        <div>
+          <SectionHeading
+            eyebrow="FAQ"
+            title="よくあるご質問"
+            copy="料金、対応端末、患者情報の扱いなど、よくいただく質問をまとめました。"
+          />
+          <TextLink href="/faq">FAQをすべて見る</TextLink>
+        </div>
+        <FAQAccordion />
       </div>
     </section>
   );
@@ -266,14 +410,25 @@ export function FAQSection() {
 
 export function FinalCTASection() {
   return (
-    <section className={styles.finalCta} id="final-cta">
-      <div className={styles.finalMark} aria-hidden="true">R</div>
-      <MotionReveal className={styles.finalContent}>
-        <BrandLogo />
-        <h2>ことばのリハビリを、<br />もっと日常へ。</h2>
-        <p>STAMU Aphasiaは無料。<br /><small>iPhone / iPad対応</small></p>
-        <AppStoreCta />
-      </MotionReveal>
+    <section className={styles.finalCta} id="download" aria-labelledby="final-cta-title">
+      <div className={styles.finalCtaInner}>
+        <div className={styles.finalCopy}>
+          <BrandLogo />
+          <h2 id="final-cta-title">
+            <span>リハビリをする。振り返る。</span>
+            <span>その流れを、もっと身近に。</span>
+          </h2>
+          <p>STAMU Aphasiaは無料。<br />まずは使ってみてください。</p>
+          <div className={styles.finalDownload}>
+            <AppStoreCta />
+            <small className={styles.deviceNote}>iPhone / iPad対応</small>
+          </div>
+        </div>
+        <div className={styles.finalVisual}>
+          <PhoneScreen screen={productScreens.trainingResult} />
+          <div className={styles.finalVisualBack}><PhoneScreen screen={productScreens.patientRecord} /></div>
+        </div>
+      </div>
     </section>
   );
 }
