@@ -25,8 +25,8 @@ export const homepagePoints = [
   {
     number: "04",
     title: "STの支援につなげられる",
-    description: "支援ダッシュボード、課題分析、評価・SLTA、リハビリ記録を同じ利用者の流れで確認できます。",
-    tags: ["支援ダッシュボード", "課題分析", "評価・SLTA", "リハビリ記録"],
+    description: "支援ダッシュボードで、課題別の成績や訓練条件・反応時間・語彙ごとの傾向を確認し、評価・記録と合わせて振り返れます。",
+    tags: ["条件別分析", "反応時間", "語彙分析", "評価・記録"],
     screens: [productScreens.stDashboard],
   },
 ] as const;
@@ -105,7 +105,7 @@ export const researchEvidenceGroups = [
 ] as const;
 
 export const stFeatureCards = [
-  { title: "支援ダッシュボード", copy: "訓練履歴、正答率、リハビリ時間を利用者ごとに振り返ります。" },
+  { title: "支援ダッシュボード", copy: "訓練履歴、正答率、反応時間、条件・語彙別の傾向を利用者ごとに振り返ります。" },
   { title: "臨床情報・導入判定", copy: "基本情報と臨床情報、STAMU導入判定と訂正履歴を同じ利用者の流れで確認できます。" },
   { title: "評価・SLTA / RCPM", copy: "評価記録、SLTAの入力・比較・PDF、RCPMの記録を支えます。" },
   { title: "リハビリ記録", copy: "実施訓練と観察をまとめ、SOAPやカルテ用テキストのコピー・共有に使えます。" },
@@ -113,8 +113,7 @@ export const stFeatureCards = [
   { title: "研究モード（試験提供）", copy: "研究用の訓練・評価・設定・履歴とデータ出力を、Ver.1.4で試験提供中です。" },
 ] as const;
 
-// These answers describe the current public Ver.1.3.1 capabilities. Ver.1.4 is
-// mentioned only for the explicitly approved Research Mode trial label.
+// These answers describe the current public Ver.1.4 capabilities. Research Mode remains a trial offering.
 export const faqItems = [
   {
     question: "無料で使えますか？",
@@ -134,7 +133,7 @@ export const faqItems = [
   },
   {
     question: "誰が利用できますか？",
-    answer: "失語症のある方、ご家族、言語聴覚士などの支援者が利用できます。自主練習に加えて、支援ダッシュボード、課題分析、評価・SLTA、臨床情報、リハビリ記録など、記録や支援を補助する機能があります。研究モード（試験提供）はVer.1.4で試験提供中です。",
+    answer: "失語症のある方、ご家族、言語聴覚士などの支援者が利用できます。自主練習に加えて、支援ダッシュボード、条件別・反応時間・語彙分析、評価・SLTA、臨床情報、リハビリ記録など、記録や支援を補助する機能があります。研究モード（試験提供）はVer.1.4で試験提供中です。",
   },
   {
     question: "医療機器・診断アプリですか？",
