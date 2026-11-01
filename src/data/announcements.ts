@@ -31,6 +31,26 @@ export const announcementTypeLabels: Record<AnnouncementType, string> = {
 
 export const announcements = [
   {
+    id: "stamu-aphasia-ver-1-4-release",
+    publishedAt: "2026-11-01",
+    type: "update",
+    title: "STAMU Aphasia Ver.1.4を公開しました",
+    summary: "STAMU Aphasia Ver.1.4を公開しました。支援ダッシュボード、条件別・反応時間・語彙分析などを改善しました。",
+    body: [
+      "STAMU Aphasia Ver.1.4をApp Storeで公開しました。",
+      "今回のアップデートでは、言語聴覚士による訓練結果の振り返りや分析をより充実させました。利用者ごとの成績に加え、訓練条件や語彙ごとの傾向を詳しく確認できます。",
+      "主な更新内容:",
+      "・支援ダッシュボードを再設計し、訓練結果の分析機能を充実させました。",
+      "・利用者の属性や複数の訓練条件に応じた分析を追加しました。",
+      "・正答率に加え、反応時間を確認できる分析機能を充実させました。",
+      "・最大500語の教材語彙について、期間や条件で絞り込んで結果を振り返れるようにしました。",
+      "・かなの読み課題の候補を拡充し、臨床用訓練の刺激の出題バランスを改善しました。",
+      "・研究データの書き出し導線などを整理しました。研究モードは引き続き試験提供です。",
+      "分析機能は専門職による振り返りを補助するものであり、診断、予後予測、治療効果の判定を自動で行うものではありません。",
+      "STAMU Aphasiaは無料で利用でき、iPhoneとiPadに対応しています。Android版は未公開です。",
+    ],
+  },
+  {
     id: "stamu-aphasia-ver-1-3-1-release",
     publishedAt: "2026-10-22",
     type: "update",
